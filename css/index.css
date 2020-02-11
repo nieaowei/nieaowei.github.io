@@ -181,6 +181,7 @@ table td {
 #aside_content .author-info__name,
 #aside_content .author-info__description {
   font-family: Titillium Web, PingFang SC, Hiragino Sans GB, "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #52b1f5;
 }
 .is_right {
   text-align: right;
