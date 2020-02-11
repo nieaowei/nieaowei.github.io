@@ -3,6 +3,9 @@ html {
   height: 100%;
   font-size: 20px;
 }
+.article-container .mermaid {
+  background-color: transparent;
+}
 body {
   position: relative;
   min-height: 100%;
