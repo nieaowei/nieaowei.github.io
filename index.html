@@ -128,28 +128,15 @@ function activateLightMode(){
   })
 })
 }</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-fetch('https://v1.hitokoto.cn')
-.then(function (res){
-  return res.json();
-})
-.then(function (data) {
-  if (subtitleEffect){
-    var from = '出自 ' + data.from
-    var sub = '安安静静的死去。,其实人生就这样嘛。'.length == 0  ? new Array() : '安安静静的死去。,其实人生就这样嘛。'.split(",");
-    var both = sub.unshift(data.hitokoto,from)  
-    var typed = new Typed("#subtitle", {
-      strings: sub,
-      startDelay: 300,
-      typeSpeed: 150,
-      loop: false,
-      backSpeed: 50
-    });
-  }else{
-    document.getElementById("subtitle").innerHTML = data.hitokoto        
-  }
-})
-.catch(function (err) {
-  console.error(err);
-})
-</script><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
+if (subtitleEffect){ 
+  var typed = new Typed("#subtitle", {
+    strings: '人的一生总要做一件伟大的事情。'.split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: false,
+    backSpeed: 50
+  })
+}else{
+  document.getElementById("subtitle").innerHTML = '人的一生总要做一件伟大的事情。'
+  }</script><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
 </script></body></html>
