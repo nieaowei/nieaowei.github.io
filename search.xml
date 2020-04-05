@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Centos7、Ubuntu安装Docker容器</title>
+      <link href="/2020/28VBK0S.html"/>
+      <url>/2020/28VBK0S.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-使用官方脚本自动安装"><a href="#1-使用官方脚本自动安装" class="headerlink" title="1. 使用官方脚本自动安装"></a>1. 使用官方脚本自动安装</h2><p><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></p><h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h2><ul><li>启动docker服务<br><code>systemctl start docker</code></li><li>查看运行容器<br><code>docker ps</code></li><li>查看所有容器<br><code>docker ps -a</code></li><li>启动容器<br><code>docker start 容器名称或id</code></li><li>设置开机自启<br><code>systemctl enable docker</code></li><li>停止docker服务<br><code>systemctl stop docker</code></li><li>拉取镜像<br><code>docker pull 镜像地址</code></li><li>新建容器并运行<br><code>docker run -d -p本地端口:容器端口 --name 自定义容器名称 镜像名称</code></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂文 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Kotlin安卓开发-Fragment和navigation初探（三）</title>
       <link href="/2020/3VJHNG4.html"/>
       <url>/2020/3VJHNG4.html</url>
