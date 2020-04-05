@@ -108,6 +108,16 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Centos </tag>
+            
+            <tag> Ubuntu </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -459,6 +469,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
       
     </entry>
     
