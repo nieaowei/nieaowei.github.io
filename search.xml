@@ -81,6 +81,8 @@
             
             <tag> Go语言 </tag>
             
+            <tag> Gin </tag>
+            
         </tags>
       
     </entry>
@@ -148,9 +150,9 @@
       
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android </tag>
+            
+            <tag> Kotlin </tag>
             
         </tags>
       
