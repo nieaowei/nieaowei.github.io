@@ -167,9 +167,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android </tag>
             
         </tags>
       
@@ -220,25 +220,6 @@
             <tag> Ubuntu </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Go在线判题系统开发</title>
-      <link href="/2020/FEJ92A.html"/>
-      <url>/2020/FEJ92A.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Go在线判题系统开发"><a href="#Go在线判题系统开发" class="headerlink" title="Go在线判题系统开发"></a>Go在线判题系统开发</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> Go语言 </category>
-          
-      </categories>
-      
       
     </entry>
     
@@ -298,25 +279,6 @@
       <url>/2020/3HG63WA.html</url>
       
         <content type="html"><![CDATA[<h2 id="1-使用示例"><a href="#1-使用示例" class="headerlink" title="1. 使用示例"></a>1. 使用示例</h2><h3 id="1-1-服务器平滑关机Shutdown"><a href="#1-1-服务器平滑关机Shutdown" class="headerlink" title="1.1. 服务器平滑关机Shutdown()"></a>1.1. 服务器平滑关机<code>Shutdown()</code></h3><p>根据源代码可知，它会等待所有子连接都被关闭才会结束，通过ctx或定时器才可停止该操作。</p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(srv *Server)</span> <span class="title">Shutdown</span><span class="params">(ctx context.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">atomic.StoreInt32(&amp;srv.inShutdown, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">srv.mu.Lock()</span><br><span class="line">lnerr := srv.closeListenersLocked()</span><br><span class="line">srv.closeDoneChanLocked()</span><br><span class="line"><span class="keyword">for</span> _, f := <span class="keyword">range</span> srv.onShutdown &#123;</span><br><span class="line"><span class="keyword">go</span> f()</span><br><span class="line">&#125;</span><br><span class="line">srv.mu.Unlock()</span><br><span class="line"></span><br><span class="line">ticker := time.NewTicker(shutdownPollInterval)</span><br><span class="line"><span class="keyword">defer</span> ticker.Stop()</span><br><span class="line"><span class="keyword">for</span> &#123;</span><br><span class="line"><span class="keyword">if</span> srv.closeIdleConns() &#123;</span><br><span class="line"><span class="keyword">return</span> lnerr</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">select</span> &#123;</span><br><span class="line"><span class="keyword">case</span> &lt;-ctx.Done():</span><br><span class="line"><span class="keyword">return</span> ctx.Err()</span><br><span class="line"><span class="keyword">case</span> &lt;-ticker.C:</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="1-2-静态文件服务器请求过滤示例"><a href="#1-2-静态文件服务器请求过滤示例" class="headerlink" title="1.2. 静态文件服务器请求过滤示例"></a>1.2. 静态文件服务器请求过滤示例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">HttpHandler</span><span class="params">(h http.Handler)</span> <span class="title">http</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(writer http.ResponseWriter, request *http.Request)</span></span> &#123;</span><br><span class="line"><span class="keyword">if</span> <span class="literal">true</span> &#123;</span><br><span class="line">http.Redirect(writer,request,<span class="string">"http://www.baidu.com"</span>,<span class="number">302</span>)</span><br><span class="line">&#125;</span><br><span class="line">h.ServeHTTP(writer,request)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">http.HandleFunc(<span class="string">"/"</span>,HttpHandler(http.FileServer(http.Dir(<span class="string">"/Users/nieaowei/Desktop/blog/public"</span>))))</span><br><span class="line">http.ListenAndServe(<span class="string">"0.0.0.0:80"</span>,<span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Go语言 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Go语言日志收集系统</title>
-      <link href="/2020/2CJ51QS.html"/>
-      <url>/2020/2CJ51QS.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-系统结构设计"><a href="#1-系统结构设计" class="headerlink" title="1. 系统结构设计"></a>1. 系统结构设计</h2><h3 id="1-1-系统架构图"><a href="#1-1-系统架构图" class="headerlink" title="1.1. 系统架构图"></a>1.1. 系统架构图</h3><h3 id="1-2-实例结构"><a href="#1-2-实例结构" class="headerlink" title="1.2. 实例结构"></a>1.2. 实例结构</h3><h2 id="2-总结"><a href="#2-总结" class="headerlink" title="2. 总结"></a>2. 总结</h2><ol><li>死循环里无阻塞，跑满CPU。</li></ol>]]></content>
       
       
       <categories>
@@ -609,25 +571,6 @@
       <categories>
           
           <category> 系统架构 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test</title>
-      <link href="/2020/3C7YZGC.html"/>
-      <url>/2020/3C7YZGC.html</url>
-      
-        <content type="html"><![CDATA[<p><img src="https://pic.downk.cc/item/5e480ef248b86553ee91a898.gif" class="lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/1584895279_20200214023901822_519030179.png"  alt="8B0F9638-C2A0-4856-BB65-DE1606EF1DD9"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;signal: [</span><br><span class="line">  &#123;name: &#39;clk&#39;, wave: &#39;p.....|...&#39;&#125;,</span><br><span class="line">  &#123;name: &#39;dat&#39;, wave: &#39;x.345x|&#x3D;.x&#39;, data: [&#39;head&#39;, &#39;body&#39;, &#39;tail&#39;, &#39;data&#39;]&#125;,</span><br><span class="line">  &#123;name: &#39;req&#39;, wave: &#39;0.1..0|1.0&#39;&#125;,</span><br><span class="line">  &#123;&#125;,</span><br><span class="line">  &#123;name: &#39;ack&#39;, wave: &#39;1.....|01.&#39;&#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line"></span><br><span class="line">(First usecase)</span><br><span class="line">(Another usecase) as (UC2)  </span><br><span class="line">usecase UC3</span><br><span class="line">usecase (Last\nusecase) as UC4</span><br><span class="line"></span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure><pre class="mermaid">sequenceDiagram    participant z as 张三    participant l as 李四    loop 日复一日        z->>l: 吃了吗您呐？        l-->>z: 吃了，您呢？        activate z        Note left of z: 想了一下        alt 还没吃            z-xl: 还没呢，正准备回去吃        else 已经吃了            z-xl: 我也吃过了，哈哈        end        opt 大过年的            l-->z: 祝您新年好啊        end    end</pre><pre class="mermaid">graph LRA[方形] -->B(圆角)    B --> C{条件a}    C -->|a=1| D[结果1]    C -->|a=2| E[结果2]    F[横向流程图]</pre><pre class="mermaid">graph TDA[方形] --> B(圆角)    B --> C{条件a}    C --> |a=1| D[结果1]    C --> |a=2| E[结果2]    F[竖向流程图]</pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">st&#x3D;&gt;start: 开始框</span><br><span class="line">op&#x3D;&gt;operation: 处理框</span><br><span class="line">cond&#x3D;&gt;condition: 判断框(是或否?)</span><br><span class="line">sub1&#x3D;&gt;subroutine: 子流程</span><br><span class="line">io&#x3D;&gt;inputoutput: 输入输出框</span><br><span class="line">e&#x3D;&gt;end: 结束框</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;io-&gt;e</span><br><span class="line">cond(no)-&gt;sub1(right)-&gt;op</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">对象A-&gt;对象B: 对象B你好吗?（请求）</span><br><span class="line">Note right of 对象B: 对象B的描述</span><br><span class="line">Note left of 对象A: 对象A的描述(提示)</span><br><span class="line">对象B--&gt;对象A: 我很好(响应)</span><br><span class="line">对象A-&gt;对象B: 你真的好吗？</span><br></pre></td></tr></table></figure><pre class="mermaid">  sequenceDiagram    participant 张三    participant 李四    张三->王五: 王五你好吗？    loop 健康检查        王五->王五: 与疾病战斗    end    Note right of 王五: 合理 食物 <br>看医生...    李四-->>张三: 很好!    王五->李四: 你怎么样?    李四-->王五: 很好!</pre><pre class="mermaid">        gantt        dateFormat  YYYY-MM-DD        title 软件开发甘特图        section 设计        需求                      :done,    des1, 2014-01-06,2014-01-08        原型                      :active,  des2, 2014-01-09, 3d        UI设计                     :         des3, after des2, 5d            未来任务                     :         des4, after des3, 5d        section 开发        学习准备理解需求                      :crit, done, 2014-01-06,24h        设计框架                             :crit, done, after des2, 2d        开发                                 :crit, active, 3d        未来任务                              :crit, 5d        耍                                   :2d        section 测试        功能测试                              :active, a1, after des3, 3d        压力测试                               :after a1  , 20h        测试报告                               : 48h</pre><p>$$ f(x)=\left{<br>\begin{aligned}<br>x &amp; = &amp; \cos(t) \<br>y &amp; = &amp; \sin(t) \<br>z &amp; = &amp; \frac xy<br>\end{aligned}<br>\right.<br>$$</p><p>$$ \boxed{E=mc^2} $$</p><p>$c = \sqrt{a^{2}+b_{xy}^{2}+e^{x}}$</p><p><img src="https://pic.downk.cc/item/5e480ef248b86553ee91a898.gif" class="lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/1584896632_20200323010343066_1260852870.jpg"  alt="081f6c5e60f3281e89d5ddc577c282af"></p><p><img src="https://pic.downk.cc/item/5e480ef248b86553ee91a898.gif" class="lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/1584895457_20200323004404904_141573869.jpg"  alt="post"></p><p><img src="https://pic.downk.cc/item/5e480ef248b86553ee91a898.gif" class="lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/1584895280_20200323004108677_892240015.jpg"  alt="index"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Go语言 </category>
           
       </categories>
       
