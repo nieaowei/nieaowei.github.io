@@ -27,7 +27,7 @@
       <link href="/2020/65SJMT.html"/>
       <url>/2020/65SJMT.html</url>
       
-        <content type="html"><![CDATA[<h2 id="1-性能指标"><a href="#1-性能指标" class="headerlink" title="1. 性能指标"></a>1. 性能指标</h2><ul><li>QPS<br>  每秒查询书</li><li>TPS<br>  吞吐量</li><li>并发量<br>  同一时间处理请求的数量</li><li>CPU使用率</li><li>磁盘IO</li></ul><h2 id="2-影响数据库性能的问题"><a href="#2-影响数据库性能的问题" class="headerlink" title="2. 影响数据库性能的问题"></a>2. 影响数据库性能的问题</h2><h3 id="2-1-大表"><a href="#2-1-大表" class="headerlink" title="2.1 大表"></a>2.1 大表</h3><ol><li>定义<ul><li>记录数巨大，单表千万行</li><li>表数据文件巨大。单表超过10G<br>较少删除和查询时影响不大。</li></ul></li><li>问题<ul><li>慢查询：很难再一定时间内过滤所需数据</li><li>建立索引时长长、Mysql5.5会锁表，Mysql5.5以上会造成主从延迟</li><li>修改表结构需要长时间锁表，会造成主从延迟，影响正常的数据操作（阻塞该表访问）</li></ul></li><li>解决方案<ul><li>分库分表，把大表分成多个小表<br>  分表主键选择<br>  分表跨分区数据的查询和统计</li><li>历史数据归档，可减少后端业务影响<br>  归档时间点的选择（不会被使用，很少被使用）<br>  如何归档</li></ul></li></ol><h3 id="2-2-大事务"><a href="#2-2-大事务" class="headerlink" title="2.2 大事务"></a>2.2 大事务</h3><ol><li>事务定义<ul><li>一组具有原子性的sql语句，要么全成功，要么全失败</li><li>一致性，事务不会破坏数据库数据完整性</li><li>隔离性，事务未提交时，操作对其他事务是不可见的<ul><li>未提交读，不建议使用</li><li>已提交读，</li><li>可重复读，</li><li>可串行化，很少使用，严格数据一致性</li></ul></li></ul></li><li>大事务定义<ul><li>运行时间长，操作数据多</li></ul></li><li>问题<ul><li>锁定数据太多，造成大量的阻塞和锁超时。</li><li>回滚时间长，在此期间，依然数据锁定</li><li>执行时间长，造成主从延迟</li></ul></li><li>解决方案<ul><li>避免处理太多数据，分批处理</li><li>移除不必要的select</li></ul></li></ol><p>远程备份计划</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-性能指标"><a href="#1-性能指标" class="headerlink" title="1. 性能指标"></a>1. 性能指标</h2><ul><li>QPS<br>  每秒查询书</li><li>TPS<br>  吞吐量</li><li>并发量<br>  同一时间处理请求的数量</li><li>CPU使用率</li><li>磁盘IO</li></ul><h2 id="2-影响数据库性能的问题"><a href="#2-影响数据库性能的问题" class="headerlink" title="2. 影响数据库性能的问题"></a>2. 影响数据库性能的问题</h2><h3 id="2-1-大表问题"><a href="#2-1-大表问题" class="headerlink" title="2.1 大表问题"></a>2.1 大表问题</h3><ol><li>定义<ul><li>记录数巨大，单表千万行</li><li>表数据文件巨大。单表超过10G</li><li>较少删除和查询时影响不大。</li></ul></li><li>问题<ul><li>慢查询：很难再一定时间内过滤所需数据</li><li>建立索引时长长、Mysql5.5会锁表，Mysql5.5以上会造成主从延迟</li><li>修改表结构需要长时间锁表，会造成主从延迟，影响正常的数据操作（阻塞该表访问）</li></ul></li><li>解决方案<ul><li>分库分表，把大表分成多个小表<br>  分表主键选择<br>  分表跨分区数据的查询和统计</li><li>历史数据归档，可减少后端业务影响<br>  归档时间点的选择（不会被使用，很少被使用）<br>  如何归档</li></ul></li></ol><h3 id="2-2-大事务问题"><a href="#2-2-大事务问题" class="headerlink" title="2.2 大事务问题"></a>2.2 大事务问题</h3><ol><li>事务定义<ul><li>一组具有原子性的sql语句，要么全成功，要么全失败</li><li>一致性，事务不会破坏数据库数据完整性</li><li>隔离性，事务未提交时，操作对其他事务是不可见的<ul><li>未提交读，不建议使用</li><li>已提交读，</li><li>可重复读，</li><li>可串行化，很少使用，严格数据一致性</li></ul></li></ul></li><li>大事务定义<ul><li>运行时间长，操作数据多</li></ul></li><li>问题<ul><li>锁定数据太多，造成大量的阻塞和锁超时。</li><li>回滚时间长，在此期间，依然数据锁定</li><li>执行时间长，造成主从延迟</li></ul></li><li>解决方案<ul><li>避免处理太多数据，分批处理</li><li>移除不必要的select</li></ul></li></ol><p>远程备份计划</p>]]></content>
       
       
       <categories>
@@ -213,9 +213,9 @@
       
         <tags>
             
-            <tag> Kotlin </tag>
-            
             <tag> Android </tag>
+            
+            <tag> Kotlin </tag>
             
         </tags>
       
