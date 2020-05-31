@@ -1,177 +1,1002 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nekilc</title><meta name="description" content=""><meta name="author" content="Nekilc"><meta name="copyright" content="Nekilc"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/bitbug_favicon64.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Nekilc"><meta name="twitter:description" content=""><meta name="twitter:image" content="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png"><meta property="og:type" content="website"><meta property="og:title" content="Nekilc"><meta property="og:url" content="https://www.nekilc.com/"><meta property="og:site_name" content="Nekilc"><meta property="og:description" content=""><meta property="og:image" content="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="canonical" href="https://www.nekilc.com/"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: 'ca-pub-7869691243845330',
-  enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://www.nekilc.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: true,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: true,
-  fancybox: false,
-  Snackbar: undefined,
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: true,
-  isPhotoFigcaption: false
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
   
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png" onerror="onerror=null;src='https://pic.downk.cc/item/5e480f7648b86553ee91c972.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">34</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">14</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div></div></div></div><div id="body-wrap"><div class="full_page" id="nav" style="background-image: url(https://pic.downk.cc/item/5e7a73ee504f4bcb0482db8e.png)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Nekilc</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">Nekilc</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/nieaowei" target="_blank" title="Github"><i class="fab fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:nieaowei@gmail.com" target="_blank" title="邮箱"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/8BV7RJ.html" title="Go语言详解网络代理">     <img class="post_bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Go语言详解网络代理"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/8BV7RJ.html" title="Go语言详解网络代理">Go语言详解网络代理</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-17 14:21:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-05-17</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-17 18:24:15"><i class="fa fa-history" aria-hidden="true"></i>2020-05-17</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">1. 网络代理介绍1.1 概念
-用户通过代理请求信息
+  <title>Nekilc</title>
+  <meta name="author" content="Nekilc">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-请求通过网络代理完成转发到达目标服务器
+  
+  <meta property="og:site_name" content="Nekilc"/>
 
-目标服务器响应后再通过网络代理回传给用户
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
-1.2 类型1.2.1 按需求
-正向代理
-客户端代理技术，帮助客户服务无法访问的资源。如：VPN、浏览器的Web代理等。
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 
-反向带代理
-服务端代理技术，帮 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/94VGB6.html" title="Go语言Tcp和Udp使用实例">     <img class="post_bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Go语言Tcp和Udp使用实例"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/94VGB6.html" title="Go语言Tcp和Udp使用实例">Go语言Tcp和Udp使用实例</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-16 17:50:10"><i class="fa fa-calendar" aria-hidden="true"></i>2020-05-16</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-17 09:48:59"><i class="fa fa-history" aria-hidden="true"></i>2020-05-17</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">1. 创建客户端123456789101112131415161718192021222324252627282930313233package mainimport (	"fmt"	"net")func main() &#123;	conn,err := net.DialUDP("udp",nil ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/1TTQ6FN.html" title="网络开发基础">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200516223728.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="网络开发基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/1TTQ6FN.html" title="网络开发基础">网络开发基础</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-16 11:26:09"><i class="fa fa-calendar" aria-hidden="true"></i>2020-05-16</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-16 22:42:53"><i class="fa fa-history" aria-hidden="true"></i>2020-05-16</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9D%82%E6%96%87/">杂文</a></span></div><div class="content">1 OSI七层网络模型
-2 协议与数据包2.1 TCP/IP2.1.1 结构
 
-2.1.2 握手机制保证可靠性，双工性。
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-三次握手
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Nekilc</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header logo">
+  <h1>Nekilc<span class="blink-fast">∎</span></h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+
+
+		<i class="fa fa-heart blink-slow"></i>
+
+		Keep and carry on.
+
+</div>    
+
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/8BV7RJ.html" title="对于基础的网络知识学习。">Go语言详解网络代理</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-05-17  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<a id="more"></a>
+
+
+<h2 id="1-网络代理介绍"><a href="#1-网络代理介绍" class="headerlink" title="1. 网络代理介绍"></a>1. 网络代理介绍</h2><h3 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1 概念"></a>1.1 概念</h3><ul>
+<li><p>用户通过代理请求信息</p>
+</li>
+<li><p>请求通过网络代理完成转发到达目标服务器</p>
+</li>
+<li><p>目标服务器响应后再通过网络代理回传给用户</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200517142753200.png" alt="image-20200517142753200"></p>
+</li>
+</ul>
+<h3 id="1-2-类型"><a href="#1-2-类型" class="headerlink" title="1.2 类型"></a>1.2 类型</h3><h4 id="1-2-1-按需求"><a href="#1-2-1-按需求" class="headerlink" title="1.2.1 按需求"></a>1.2.1 按需求</h4><ul>
+<li><p>正向代理</p>
+<p>客户端代理技术，帮助客户服务无法访问的资源。如：VPN、浏览器的Web代理等。</p>
+</li>
+<li><p>反向带代理</p>
+<p>服务端代理技术，帮助服务器做负载均衡、缓存、提供安全校验等，可以隐藏服务器真实IP。如：lvs、niginx代理等。</p>
+</li>
+</ul>
+<h4 id="1-2-2-按协议"><a href="#1-2-2-按协议" class="headerlink" title="1.2.2 按协议"></a>1.2.2 按协议</h4><ul>
+<li>HTTP/HTTPS代理</li>
+<li>WebSocket代理</li>
+<li>TCP代理</li>
+</ul>
+<h2 id="2-相关代理的实现"><a href="#2-相关代理的实现" class="headerlink" title="2. 相关代理的实现"></a>2. 相关代理的实现</h2><h3 id="2-1-HTTP正向代理的实现"><a href="#2-1-HTTP正向代理的实现" class="headerlink" title="2.1 HTTP正向代理的实现"></a>2.1 HTTP正向代理的实现</h3><h3 id="2-1-1-实现流程"><a href="#2-1-1-实现流程" class="headerlink" title="2.1.1 实现流程"></a>2.1.1 实现流程</h3><ol>
+<li>代理接收客户端请求，复制原请求对象，根据数据配置新请求各种参数。</li>
+<li>把新请求发送到真实的服务端。并接收到服务器端返回。</li>
+<li>代理服务器做相应的一些出来，然后返回给客户端。</li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200517143518742.png" alt="image-20200517143518742"></p>
+<h3 id="2-1-2-实现代码"><a href="#2-1-2-实现代码" class="headerlink" title="2.1.2 实现代码"></a>2.1.2 实现代码</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"io"</span></span><br><span class="line">	<span class="string">"net"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Proxy <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Proxy)</span> <span class="title">ServeHTTP</span><span class="params">(rw http.ResponseWriter, req *http.Request)</span></span> &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"Rec req %s %s %s \n"</span>, req.Method, req.Host, req.RemoteAddr)</span><br><span class="line">	trans := http.DefaultTransport</span><br><span class="line">	outReq := <span class="built_in">new</span>(http.Request)</span><br><span class="line">	*outReq = *req</span><br><span class="line">	<span class="keyword">if</span> clientIP, _, err := net.SplitHostPort(req.RemoteAddr); err == <span class="literal">nil</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> prior, ok := outReq.Header[<span class="string">"X-Forwarded-For"</span>]; ok &#123;</span><br><span class="line">			clientIP = strings.Join(prior, <span class="string">", "</span>) + <span class="string">", "</span> + clientIP</span><br><span class="line">		&#125;</span><br><span class="line">		outReq.Header.Set(<span class="string">"X-Forwarded-For"</span>, clientIP)</span><br><span class="line">	&#125;</span><br><span class="line">	res, err := trans.RoundTrip(outReq)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		rw.WriteHeader(http.StatusBadGateway)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> s, i := <span class="keyword">range</span> res.Header &#123;</span><br><span class="line">		<span class="keyword">for</span> _, v := <span class="keyword">range</span> i &#123;</span><br><span class="line">			rw.Header().Add(s, v)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	rw.WriteHeader(res.StatusCode)</span><br><span class="line">	io.Copy(rw, res.Body)</span><br><span class="line">	res.Body.Close()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"sever on :8080"</span>)</span><br><span class="line">	http.Handle(<span class="string">"/"</span>, &amp;Proxy&#123;&#125;)</span><br><span class="line">	http.ListenAndServe(<span class="string">"0.0.0.0:8080"</span>, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-网络代理相关疑惑"><a href="#3-网络代理相关疑惑" class="headerlink" title="3. 网络代理相关疑惑"></a>3. 网络代理相关疑惑</h2><ol>
+<li><p>网络代理和网络转发的区别</p>
+<p>网络转发</p>
+<p>​    是路由器对报文进行转发。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200517142722004.png" alt="image-20200517142722004"></p>
+<p>网络代理</p>
+<p>​    用户不直接连接服务器，网络代理服务器去连接。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200517142753200.png" alt="image-20200517142753200"></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/8BV7RJ.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/94VGB6.html" >Go语言Tcp和Udp使用实例</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-05-16  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-创建客户端"><a href="#1-创建客户端" class="headerlink" title="1. 创建客户端"></a>1. 创建客户端</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"net"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	conn,err := net.DialUDP(<span class="string">"udp"</span>,<span class="literal">nil</span>,&amp;net.UDPAddr&#123;</span><br><span class="line">		IP: net.IPv4(<span class="number">127</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>),</span><br><span class="line">		Port: <span class="number">9090</span>,</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">if</span> err!=<span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">100</span>; i++ &#123;</span><br><span class="line">		<span class="comment">// 向服务器发送消息</span></span><br><span class="line">		_,err=conn.Write([]<span class="keyword">byte</span>(<span class="string">"hello"</span>))</span><br><span class="line">		<span class="keyword">if</span> err!=<span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 从服务器读取消息</span></span><br><span class="line">		res := <span class="built_in">make</span>([]<span class="keyword">byte</span>,<span class="number">1024</span>)</span><br><span class="line">		n,addr,err := conn.ReadFromUDP(res)</span><br><span class="line">		<span class="keyword">if</span> err!=<span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(addr,n,<span class="keyword">string</span>(res[:n]))</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-创建服务端"><a href="#2-创建服务端" class="headerlink" title="2. 创建服务端"></a>2. 创建服务端</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"net"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	conn,err := net.ListenUDP(<span class="string">"udp"</span>,&amp;net.UDPAddr&#123;</span><br><span class="line">		IP:   net.IPv4(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>),</span><br><span class="line">		Port: <span class="number">9090</span>,</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>&#123;</span><br><span class="line">		data := <span class="built_in">make</span>([]<span class="keyword">byte</span>,<span class="number">1024</span>)</span><br><span class="line">		<span class="comment">// 从客户端读取消息</span></span><br><span class="line">		n,addr,err := conn.ReadFromUDP(data)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(err)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">			fmt.Println(addr,<span class="keyword">string</span>(data[:n]),n)</span><br><span class="line">			<span class="comment">// 向客户端发送消息</span></span><br><span class="line">			_,err = conn.WriteToUDP(data[:n],addr)</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">				fmt.Println(err)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2020/94VGB6.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/1TTQ6FN.html" >网络开发基础</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-05-16  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-OSI七层网络模型"><a href="#1-OSI七层网络模型" class="headerlink" title="1 OSI七层网络模型"></a>1 OSI七层网络模型</h2><p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200516112645295.png" alt="image-20200516112645295"></p>
+<h2 id="2-协议与数据包"><a href="#2-协议与数据包" class="headerlink" title="2 协议与数据包"></a>2 协议与数据包</h2><h3 id="2-1-TCP-IP"><a href="#2-1-TCP-IP" class="headerlink" title="2.1 TCP/IP"></a>2.1 TCP/IP</h3><h4 id="2-1-1-结构"><a href="#2-1-1-结构" class="headerlink" title="2.1.1 结构"></a>2.1.1 结构</h4><p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200516112848449.png" alt="image-20200516112848449"></p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200516112915642.png" alt="image-20200516112915642"></p>
+<h4 id="2-1-2-握手机制"><a href="#2-1-2-握手机制" class="headerlink" title="2.1.2 握手机制"></a>2.1.2 握手机制</h4><p>保证可靠性，双工性。</p>
+<ol>
+<li>三次握手</li>
+</ol>
+<p>   <img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200516114321934.png" alt="image-20200516114321934"></p>
+<ol start="2">
+<li><p>四次挥手</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/image-20200516114520417.png" alt="image-20200516114520417"></p>
+</li>
+</ol>
+<h4 id="2-1-3-常见疑问"><a href="#2-1-3-常见疑问" class="headerlink" title="2.1.3 常见疑问"></a>2.1.3 常见疑问</h4><ol>
+<li>为什么需要等待2MSL？<ul>
+<li>保证全双工连接可靠关闭</li>
+<li>保证这次连接从网络消失</li>
+</ul>
+</li>
+<li>为什么会出现大量close wait?<ul>
+<li>出现在被动关闭方</li>
+<li>并发请求太多</li>
+<li>被动关闭未及时释放端口资源</li>
+</ul>
+</li>
+<li>TCP为什么需要流量控制？<ul>
+<li>网速不同，通讯双方任一方发送过快导致消息处理不过来，需要缓冲区。</li>
+<li>如果缓冲区满了，发送方还在发送，就会丢包。</li>
+</ul>
+</li>
+<li>TCP为什么需要拥塞控制？<ul>
+<li>接收方网络资源繁忙，未及时响应ACK导致发送方重传大量数据，导致拥堵。</li>
+<li>动态调整缓冲区大小。</li>
+<li>慢开始拥塞避免-&gt;快速重传和快恢复</li>
+</ul>
+</li>
+<li>为什么或出现粘包和拆包？<ul>
+<li>粘包-多个数据包合并。</li>
+<li>拆包-一个数据表拆分成多个。</li>
+<li>写入数据大于套接字缓冲区大小，拆包。</li>
+<li>写入数据小于淘集集缓冲区大小，粘包。</li>
+<li>进行最大报文长度大小的TCP分段，TCP报文长度-TCP头部长&gt;最大报文长度 ，拆包。</li>
+<li>接收不及时读取套接字缓冲区数据。粘包。</li>
+</ul>
+</li>
+<li>如何获取完整应用数据报文？<ul>
+<li>使用带消息头的协议，头部写入包长度。</li>
+<li>设置定长消息，长度不够补固定字。</li>
+<li>设置消息编辑，一般是是‘\n’</li>
+<li>Protobuf、Json等</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-HTTP"><a href="#2-2-HTTP" class="headerlink" title="2.2 HTTP"></a>2.2 HTTP</h3><ol>
+<li><p>请求</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/</span> HTTP/1.1</span><br><span class="line"><span class="attribute">HOST</span>: www.example.com</span><br><span class="line"><span class="attribute">User-Agent</span>: curl/7.55.1</span><br><span class="line"><span class="attribute">Accept</span>: */*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>响应</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Accept-Ranges</span>: bytes</span><br><span class="line"><span class="attribute">Cache-Control</span>: private,no-cache,no-store</span><br><span class="line"><span class="attribute">Connection</span>: keep-alive</span><br><span class="line"><span class="attribute">Content-Lenth</span>: 2381</span><br><span class="line"><span class="attribute">Content-Type</span>: text/html</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="2-3-Websocket"><a href="#2-3-Websocket" class="headerlink" title="2.3 Websocket"></a>2.3 Websocket</h3><ol>
+<li><p>请求</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/chat</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: www.example.com</span><br><span class="line"><span class="attribute">Upgrade</span>: websocket</span><br><span class="line"><span class="attribute">Connection</span>: Upgrade</span><br><span class="line"><span class="attribute">Sec-WebSocket-Key</span>: asdqwehdiuhaskdhh123akjhd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>响应</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">101</span> Switching Protocols</span><br><span class="line"><span class="attribute">Upgrade</span>: websocket</span><br><span class="line"><span class="attribute">Connection</span>: Upgrade</span><br><span class="line"><span class="attribute">Sec-WebSocket-Accept</span>: sasdkbkjbkbdasdqw24ade</span><br><span class="line"><span class="attribute">Sec-WebSocket-Protocol</span>: chat</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/1TTQ6FN.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/33KJF3Z.html" >Kotlin安卓开发-有序广播</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-05-04  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		
+	
+	</div>
+  <a type="button" href="/2020/33KJF3Z.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/1M052X8.html" >Docker-Etcd集群搭建</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-17  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-三节点集群"><a href="#1-三节点集群" class="headerlink" title="1. 三节点集群"></a>1. 三节点集群</h2><h3 id="1-1-新建一个docker网桥"><a href="#1-1-新建一个docker网桥" class="headerlink" title="1.1 新建一个docker网桥"></a>1.1 新建一个docker网桥</h3><p>在集群中，服务器的ip或者说节点的ip应该是固定的静态ip地址，而由于docker默认网桥不支持自定义ip地址，所以需要自行增加一个网桥。</p>
+<p><code>docker network create --driver bridge --subnet=172.18.0.0/16 etcd-bridge</code></p>
+<h3 id="1-2-集群脚本"><a href="#1-2-集群脚本" class="headerlink" title="1.2 集群脚本"></a>1.2 集群脚本</h3><p>在脚本运行前，必须先拉去镜像，这里使用的是3.4.5版本的etcd，<code>docker pull gcr.io/etcd-development/etcd:v3.4.5</code>.</p>
+<p>节点的ip是在docker容器内的ip不是在本地网络上的ip，主机使用节点ip是无法与其通信的，要将端口映射出来使用。</p>
+<p>节点1：内部为172.18.0.2:2379，主机访问映射为:127.0.0.1:1802</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">  -p 1802:2379 \</span><br><span class="line">  -p 1803:2380 \</span><br><span class="line">  --mount type=bind,source=/Users/nieaowei/Desktop/data/etcd/node1.tmp,destination=/etcd-data \</span><br><span class="line">  --name etcd-gcr-v3.4.5-node1 \</span><br><span class="line">  --network etcd-bridge --ip 172.18.0.2 \</span><br><span class="line">  -d gcr.io/etcd-development/etcd:v3.4.5 \</span><br><span class="line">  /usr/local/bin/etcd \</span><br><span class="line">  --name s1 \</span><br><span class="line">  --data-dir /etcd-data \</span><br><span class="line">  --listen-client-urls http://0.0.0.0:2379 \</span><br><span class="line">  --advertise-client-urls http://172.18.0.2:2379 \</span><br><span class="line">  --listen-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">  --initial-advertise-peer-urls http://172.18.0.2:2380 \</span><br><span class="line">  --initial-cluster s1=http://172.18.0.2:2380,s2=http://172.18.0.4:2380,s3=http://172.18.0.6:2380 \</span><br><span class="line">  --initial-cluster-token tkn \</span><br><span class="line">  --initial-cluster-state new \</span><br><span class="line">  --log-level info \</span><br><span class="line">  --logger zap \</span><br><span class="line">  --log-outputs stderr &amp;&amp; \</span><br><span class="line"> docker run \</span><br><span class="line">  -p 1804:2379 \</span><br><span class="line">  -p 1805:2380 \</span><br><span class="line">  --mount type=bind,source=/Users/nieaowei/Desktop/data/etcd/node2.tmp,destination=/etcd-data \</span><br><span class="line">  --name etcd-gcr-v3.4.5-node2 \</span><br><span class="line">  --network etcd-bridge --ip 172.18.0.4 \</span><br><span class="line">  -d gcr.io/etcd-development/etcd:v3.4.5 \</span><br><span class="line">  /usr/local/bin/etcd \</span><br><span class="line">  --name s2 \</span><br><span class="line">  --data-dir /etcd-data \</span><br><span class="line">  --listen-client-urls http://0.0.0.0:2379 \</span><br><span class="line">  --advertise-client-urls http://172.18.0.4:2379 \</span><br><span class="line">  --listen-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">  --initial-advertise-peer-urls http://172.18.0.4:2380 \</span><br><span class="line">  --initial-cluster s1=http://172.18.0.2:2380,s2=http://172.18.0.4:2380,s3=http://172.18.0.6:2380 \</span><br><span class="line">  --initial-cluster-token tkn \</span><br><span class="line">  --initial-cluster-state new \</span><br><span class="line">  --log-level info \</span><br><span class="line">  --logger zap \</span><br><span class="line">  --log-outputs stderr &amp;&amp; \</span><br><span class="line"> docker run \</span><br><span class="line">  -p 1806:2379 \</span><br><span class="line">  -p 1807:2380 \</span><br><span class="line">  --mount type=bind,source=/Users/nieaowei/Desktop/data/etcd/node3.tmp,destination=/etcd-data \</span><br><span class="line">  --name etcd-gcr-v3.4.5-node3 \</span><br><span class="line">  --network etcd-bridge --ip 172.18.0.6 \</span><br><span class="line">  -d gcr.io/etcd-development/etcd:v3.4.5 \</span><br><span class="line">  /usr/local/bin/etcd \</span><br><span class="line">  --name s3 \</span><br><span class="line">  --data-dir /etcd-data \</span><br><span class="line">  --listen-client-urls http://0.0.0.0:2379 \</span><br><span class="line">  --advertise-client-urls http://172.18.0.6:2379 \</span><br><span class="line">  --listen-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">  --initial-advertise-peer-urls http://172.18.0.6:2380 \</span><br><span class="line">  --initial-cluster s1=http://172.18.0.2:2380,s2=http://172.18.0.4:2380,s3=http://172.18.0.6:2380 \</span><br><span class="line">  --initial-cluster-token tkn \</span><br><span class="line">  --initial-cluster-state new \</span><br><span class="line">  --log-level info \</span><br><span class="line">  --logger zap \</span><br><span class="line">  --log-outputs stderr</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-查看集群状态"><a href="#1-3-查看集群状态" class="headerlink" title="1.3 查看集群状态"></a>1.3 查看集群状态</h3><ol>
+<li><p>设置API版本为3</p>
+<p> 在进行客户端操作之前必须设置API版本。</p>
+<p> <code>export ETCDCTL_API=3</code></p>
+</li>
+<li><p>查看集群成员列表，可以在集群内任意一台服务器，或者使用集群内任意一个入口点（endpoint）查看。</p>
+<p> <code>etcdctl --endpoints=http://127.0.0.1:1802  member list -w table</code><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200419232828.png" alt></p>
+</li>
+<li><p>查看集群成员状态</p>
+<p> <code>etcdctl --endpoints=http://127.0.0.1:1802,http://127.0.0.1:1804,http://127.0.0.1:1806 endpoint status -w table</code></p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200419232052.png" alt></p>
+</li>
+</ol>
+<h3 id="1-4-验证集群"><a href="#1-4-验证集群" class="headerlink" title="1.4 验证集群"></a>1.4 验证集群</h3><ol>
+<li><p>在节点1写入键值对 test 1234。</p>
+<p> <code>etcdctl --endpoint=127.0.0.1:1802 put test 123</code></p>
+</li>
+<li><p>在节点2读取该键值。</p>
+<p> <code>etcdctl --endpoint=127.0.0.1:1804 get test</code></p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200419234210.png" alt></p>
+</li>
+</ol>
+<h2 id="2-集群扩容"><a href="#2-集群扩容" class="headerlink" title="2. 集群扩容"></a>2. 集群扩容</h2><p>在上述三节点中进行扩容，即增加一个节点。</p>
+<ol>
+<li><p>使用etcdctl增加一个集群成员。</p>
+<p> <code>etcdctl --endpoints=http://127.0.0.1:1802,http://127.0.0.1:1804,http://127.0.0.1:1806 member add s4 --peer-urls=http://172.18.0.8:2380</code></p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200419231345.png" alt></p>
+</li>
+<li><p>启动一个节点doker容器,初始化集群状态设置为existing。</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-p 1808:2379 \</span><br><span class="line">-p 1809:2380 \</span><br><span class="line">--mount type=bind,source=/Users/nieaowei/Desktop/data/etcd/node4.tmp,destination=/etcd-data \</span><br><span class="line">--name etcd-gcr-v3.4.5-node4 \</span><br><span class="line">--network etcd-bridge --ip 172.18.0.8 \</span><br><span class="line">-d gcr.io/etcd-development/etcd:v3.4.5 \</span><br><span class="line">/usr/local/bin/etcd \</span><br><span class="line">--name s4 \</span><br><span class="line">--data-dir /etcd-data \</span><br><span class="line">--listen-client-urls http://0.0.0.0:2379 \</span><br><span class="line">--advertise-client-urls http://172.18.0.8:2379 \</span><br><span class="line">--listen-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">--initial-advertise-peer-urls http://172.18.0.8:2380 \</span><br><span class="line">--initial-cluster s1=http://172.18.0.2:2380,s2=http://172.18.0.4:2380,s3=http://172.18.0.6:2380,s4=http://172.18.0.8:2380 \</span><br><span class="line">--initial-cluster-token tkn \</span><br><span class="line">--initial-cluster-state existing \</span><br><span class="line">--log-level info \</span><br><span class="line">--logger zap \</span><br><span class="line">--log-outputs stderr</span><br></pre></td></tr></table></figure></li>
+<li><p>查看集群成员。</p>
+<p> <code>etcdctl --endpoints=http://127.0.0.1:1802  member list -w table</code></p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200419232828.png" alt></p>
+</li>
+<li><p>查看集群状态。</p>
+<p> <code>etcdctl --endpoints=http://127.0.0.1:1802,http://127.0.0.1:1804,http://127.0.0.1:1806,http://127.0.0.1:1808 endpoint status -w table</code></p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200419233241.png" alt></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/1M052X8.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/3FRKW3J.html" >Sql语句学习</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-10  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-SQL分类"><a href="#1-SQL分类" class="headerlink" title="1. SQL分类"></a>1. SQL分类</h2><ul>
+<li>DDL 数据定义</li>
+<li>TPL 事务处理</li>
+<li>DCL 数据控制</li>
+<li>DML 数据操作<ul>
+<li>SELECT</li>
+<li>INSERT</li>
+<li>UPDATE</li>
+<li>DELETE</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Jion操作"><a href="#2-Jion操作" class="headerlink" title="2. Jion操作"></a>2. Jion操作</h2><h3 id="2-1-INNER内连接"><a href="#2-1-INNER内连接" class="headerlink" title="2.1 INNER内连接"></a>2.1 INNER内连接</h3><h3 id="2-2-FULL-OUTER全外连接"><a href="#2-2-FULL-OUTER全外连接" class="headerlink" title="2.2 FULL OUTER全外连接"></a>2.2 FULL OUTER全外连接</h3><h3 id="2-3-LEFT-OUTER左外连接"><a href="#2-3-LEFT-OUTER左外连接" class="headerlink" title="2.3 LEFT OUTER左外连接"></a>2.3 LEFT OUTER左外连接</h3><h3 id="2-4-RIGHT-OUTER右外连接"><a href="#2-4-RIGHT-OUTER右外连接" class="headerlink" title="2.4 RIGHT OUTER右外连接"></a>2.4 RIGHT OUTER右外连接</h3><h3 id="2-5-CROSS交叉连接"><a href="#2-5-CROSS交叉连接" class="headerlink" title="2.5 CROSS交叉连接"></a>2.5 CROSS交叉连接</h3><h2 id="3-注意"><a href="#3-注意" class="headerlink" title="3. 注意"></a>3. 注意</h2><ul>
+<li>not in操作不会使用索引，使用外连接</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2020/3FRKW3J.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/65SJMT.html" >Mysql数据库问题优化总结</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-09  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-性能指标"><a href="#1-性能指标" class="headerlink" title="1. 性能指标"></a>1. 性能指标</h2><ul>
+<li>QPS-每秒查询书</li>
+<li>TPS-吞吐量</li>
+<li>并发量-同一时间处理请求的数量</li>
+<li>CPU使用率</li>
+<li>磁盘IO</li>
+</ul>
+<h2 id="2-影响数据库性能的问题"><a href="#2-影响数据库性能的问题" class="headerlink" title="2. 影响数据库性能的问题"></a>2. 影响数据库性能的问题</h2><h3 id="2-1-大表问题"><a href="#2-1-大表问题" class="headerlink" title="2.1 大表问题"></a>2.1 大表问题</h3><ol>
+<li>定义<ul>
+<li>记录数巨大，单表千万行</li>
+<li>表数据文件巨大。单表超过10G</li>
+<li>较少删除和查询时影响不大。</li>
+</ul>
+</li>
+<li>问题<ul>
+<li>慢查询：很难再一定时间内过滤所需数据</li>
+<li>建立索引时长长、Mysql5.5会锁表，Mysql5.5以上会造成主从延迟</li>
+<li>修改表结构需要长时间锁表，会造成主从延迟，影响正常的数据操作（阻塞该表访问）</li>
+</ul>
+</li>
+<li>解决方案<ul>
+<li>分库分表，把大表分成多个小表<br>  分表主键选择<br>  分表跨分区数据的查询和统计</li>
+<li>历史数据归档，可减少后端业务影响<br>  归档时间点的选择（不会被使用，很少被使用）<br>  如何归档</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-大事务问题"><a href="#2-2-大事务问题" class="headerlink" title="2.2 大事务问题"></a>2.2 大事务问题</h3><ol>
+<li>事务定义<ul>
+<li>一组具有原子性的sql语句，要么全成功，要么全失败</li>
+<li>一致性，事务不会破坏数据库数据完整性</li>
+<li>隔离性，事务未提交时，操作对其他事务是不可见的<ul>
+<li>未提交读，不建议使用</li>
+<li>已提交读，</li>
+<li>可重复读，</li>
+<li>可串行化，很少使用，严格数据一致性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>大事务定义<ul>
+<li>运行时间长，操作数据多</li>
+</ul>
+</li>
+<li>问题<ul>
+<li>锁定数据太多，造成大量的阻塞和锁超时。</li>
+<li>回滚时间长，在此期间，依然数据锁定</li>
+<li>执行时间长，造成主从延迟</li>
+</ul>
+</li>
+<li>解决方案<ul>
+<li>避免处理太多数据，分批处理</li>
+<li>移除不必要的select</li>
+</ul>
+</li>
+</ol>
+<p>远程备份计划</p>
+
+	
+	</div>
+  <a type="button" href="/2020/65SJMT.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/DCQQ72.html" >Gin框架-请求数据验证</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-09  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-简单示例"><a href="#1-简单示例" class="headerlink" title="1. 简单示例"></a>1. 简单示例</h2><p>在结果字段后添加上binding键中添加required验证，required为必填验证。 </p>
+<ol>
+<li><p>代码</p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="keyword">string</span> <span class="string">`form:"name" binding:"required"`</span></span><br><span class="line">    Age  <span class="keyword">int</span>    <span class="string">`form:"age" binding:"required"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ginRouter := gin.Default()</span><br><span class="line">    ginRouter.POST(</span><br><span class="line">        <span class="string">"/test"</span>,</span><br><span class="line">        <span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">            <span class="keyword">var</span> stu Student</span><br><span class="line">            err := context.ShouldBind(&amp;stu)</span><br><span class="line">            <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">                context.JSON(<span class="number">400</span>, err.Error())</span><br><span class="line">                context.Abort()</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            context.JSON(<span class="number">200</span>,stu)</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">    ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>错误测试结果，如果有字段未填bind则会报错，告诉你有字段未填写。</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409130856.png" alt><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409130910.png" alt></p>
+</li>
+<li><p>正确测试结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409130952.png" alt><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409131004.png" alt></p>
+</li>
+</ol>
+<h2 id="2-跨字段验证"><a href="#2-跨字段验证" class="headerlink" title="2. 跨字段验证"></a>2. 跨字段验证</h2><ul>
+<li>eqfield/与某字段相等</li>
+<li>nefield/不等于某字段</li>
+<li>gtfield/大于某字段</li>
+<li>gtefield/大于或等于某字段</li>
+<li>ltfield/小于某字段</li>
+<li>ltefield/小于或等于某字段</li>
+</ul>
+<ol>
+<li><p>代码如下，main函数代码与上面一致</p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="keyword">string</span> <span class="string">`form:"name" binding:"required"`</span></span><br><span class="line">    Age  <span class="keyword">int</span>    <span class="string">`form:"age" binding:"required"`</span></span><br><span class="line">    Age2 <span class="keyword">int</span>	<span class="string">`form:"age2" binding:"required,gtefield=Age"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>验证失败结果</p>
+<p> 与上面一致，bind函数会报错验证失败的错误。</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409132625.png" alt><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409132641.png" alt></p>
+</li>
+<li><p>验证成功结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409132508.png" alt><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409132538.png" alt></p>
+</li>
+</ol>
+<h2 id="3-跨结构体验证"><a href="#3-跨结构体验证" class="headerlink" title="3. 跨结构体验证"></a>3. 跨结构体验证</h2><ul>
+<li>eqcsfield/与内嵌结构体字段中的某字段相等</li>
+<li>necsfield/与内嵌结构体字段中的某字段不等</li>
+<li>gtcsfield/大于内嵌结构体字段中的某字段</li>
+<li>ftecsfield/大于等于内嵌结构体字段中的某字段</li>
+<li>ltcsfield/小于内嵌结构体字段中的某字段</li>
+<li>ltecsfield/小于等于内嵌结构体字段中的某字段</li>
+<li>containsfield/包含内嵌结构体的某字段</li>
+</ul>
+<ol>
+<li><p>代码如下</p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Parent <span class="keyword">struct</span> &#123;</span><br><span class="line"> Age <span class="keyword">int</span> <span class="string">`form:"age" binding:"required"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="keyword">string</span> <span class="string">`form:"name" binding:"required"`</span></span><br><span class="line">    Age  <span class="keyword">int</span>    <span class="string">`form:"age" binding:"required"`</span></span><br><span class="line">    Age2 <span class="keyword">int</span>	<span class="string">`form:"age2" binding:"required,ltcsfield=Parent.Age"`</span></span><br><span class="line">    Parent Parent <span class="string">`form:"parent" binding:"required"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>验证失败，当提交的数据父母的年龄小于学生的年龄时</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409133335.png" alt><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409133346.png" alt></p>
+</li>
+<li><p>验证成功</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409133215.png" alt><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409133232.png" alt></p>
+</li>
+</ol>
+<h2 id="4-自定义验证器"><a href="#4-自定义验证器" class="headerlink" title="4. 自定义验证器"></a>4. 自定义验证器</h2><h3 id="4-1-自定义验证器格式"><a href="#4-1-自定义验证器格式" class="headerlink" title="4.1 自定义验证器格式"></a>4.1 自定义验证器格式</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">customFunc</span><span class="params">(fl validator.FieldLevel)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> whatever &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">validate := binding.Validator.Engine().(*validator.Validate)</span><br><span class="line">validate.RegisterValidation(<span class="string">"custom tag name"</span>, customFunc)</span><br></pre></td></tr></table></figure>
+<p>对于validator.FieldLevel的解释</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> FieldLevel <span class="keyword">interface</span> &#123;</span><br><span class="line">    <span class="comment">// 返回顶层结构体</span></span><br><span class="line">    Top() reflect.Value</span><br><span class="line">    <span class="comment">// 返回上一层结构体</span></span><br><span class="line">    Parent() reflect.Value</span><br><span class="line">    <span class="comment">// 被标记的当前字段</span></span><br><span class="line">    Field() reflect.Value</span><br><span class="line">    <span class="comment">// 当前字段名称</span></span><br><span class="line">    FieldName() <span class="keyword">string</span></span><br><span class="line">    <span class="comment">// 返回当前字段结构体名称</span></span><br><span class="line">    StructFieldName() <span class="keyword">string</span></span><br><span class="line">    <span class="comment">// 验证标签后面的参数</span></span><br><span class="line">    Param() strin</span><br><span class="line">    <span class="comment">// 验证标签名称</span></span><br><span class="line">    GetTag() <span class="keyword">string</span></span><br><span class="line">    ExtractType(field reflect.Value) (value reflect.Value, kind reflect.Kind, nullable <span class="keyword">bool</span>)</span><br><span class="line">    GetStructFieldOK() (reflect.Value, reflect.Kind, <span class="keyword">bool</span>)</span><br><span class="line">    GetStructFieldOKAdvanced(val reflect.Value, namespace <span class="keyword">string</span>) (reflect.Value, reflect.Kind, <span class="keyword">bool</span>)</span><br><span class="line">    GetStructFieldOK2() (reflect.Value, reflect.Kind, <span class="keyword">bool</span>, <span class="keyword">bool</span>)</span><br><span class="line">    GetStructFieldOKAdvanced2(val reflect.Value, namespace <span class="keyword">string</span>) (reflect.Value, reflect.Kind, <span class="keyword">bool</span>, <span class="keyword">bool</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-简单示例"><a href="#4-2-简单示例" class="headerlink" title="4.2 简单示例"></a>4.2 简单示例</h3><p>实现了Age2值必须大于Age的验证规则</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">    <span class="string">"github.com/gin-gonic/gin/binding"</span></span><br><span class="line">    <span class="string">"github.com/go-playground/validator/v10"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="keyword">string</span> <span class="string">`form:"name" binding:"required,lte=3"`</span></span><br><span class="line">    Age  <span class="keyword">int</span>    <span class="string">`form:"age" binding:"required"`</span></span><br><span class="line">    Age2 <span class="keyword">int</span>	<span class="string">`form:"age2" binding:"required,custom"`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">customFunc</span><span class="params">(fl validator.FieldLevel)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="comment">// 被标记的当前字段数据</span></span><br><span class="line">    age2 := fl.Field().Interface().(<span class="keyword">int</span>)</span><br><span class="line">    <span class="comment">// 要拿到同级字段的数据，就要获取顶层结构体，此处被标记的字段的顶层结构体</span></span><br><span class="line">    <span class="comment">// 为Student结构体。</span></span><br><span class="line">    age := fl.Top().Interface().(*Student).Age</span><br><span class="line">    <span class="keyword">if</span> age2&gt;age &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ginRouter := gin.Default()</span><br><span class="line">    binding.Validator.Engine().(*validator.Validate).RegisterValidation(<span class="string">"custom"</span>,customFunc)</span><br><span class="line">    ginRouter.POST(</span><br><span class="line">        <span class="string">"/test"</span>,</span><br><span class="line">        <span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">            <span class="keyword">var</span> stu Student</span><br><span class="line">            err := context.ShouldBind(&amp;stu)</span><br><span class="line">            <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">                context.JSON(<span class="number">400</span>, err.Error())</span><br><span class="line">                context.Abort()</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            context.JSON(<span class="number">200</span>, stu)</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">    ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>验证失败：</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409145713.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409145744.png" alt></p>
+<p>验证成功：</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409145820.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200409145805.png" alt></p>
+<h2 id="5-常用验证"><a href="#5-常用验证" class="headerlink" title="5. 常用验证"></a>5. 常用验证</h2><h3 id="5-1-大小验证"><a href="#5-1-大小验证" class="headerlink" title="5.1 大小验证"></a>5.1 大小验证</h3><ul>
+<li>gt/大于、字符串长度</li>
+<li>gte/大于等于、字符串长度</li>
+<li>lt/小于、字符串长度</li>
+<li>lte/小于等于、字符串长度</li>
+<li>eq/等于、字符串长度</li>
+<li>ne/不等于、字符串长度</li>
+<li>max/最大值、字符串长度最大值</li>
+<li>min/最小值、字符串长度最小值</li>
+<li>oneof/值验证，是否属于某数组集合中的一个</li>
+<li>unique/确保数组和切片没有重复，确保map没有重复值</li>
+</ul>
+<h3 id="5-2-字符串验证"><a href="#5-2-字符串验证" class="headerlink" title="5.2 字符串验证"></a>5.2 字符串验证</h3><ul>
+<li>len/切片长度，字符串长度</li>
+<li>exists/必须存在字段</li>
+<li>omitempty/传入字段无值，将不会进行验证</li>
+<li>dive/使dive后面的验证标签应用于切片</li>
+<li>alpha/只包含字母</li>
+<li>alphanum/包含字母和数字</li>
+<li>numeric/只包涵数字</li>
+<li>hexadecimal/有效十六进制字符串</li>
+<li>base64/有效base64字符串</li>
+<li>contains/包含某子字符串</li>
+<li>containsrune/包含字符</li>
+<li>containsany/包含字符串中的任意字符或子串</li>
+<li>excludes/不包含某子字符串</li>
+<li>excludesall/不包含字符串中的任意字符或子串</li>
+<li>excludesrune/不包含字符</li>
+<li>lowercase/包含某小写字母</li>
+<li>uppercase/包含某大写字母</li>
+<li>uuid/验证uuid</li>
+<li>ascii/仅包含ascii字符、为空也会验证成功</li>
+<li>ipv4/ipv4地址</li>
+<li>ipv6/ipv6地址</li>
+<li>email/电子邮件地址</li>
+<li>url/网址</li>
+<li>json/json格式</li>
+<li>startswith/某字符串开头</li>
+<li>endswith/某字符结尾</li>
+</ul>
+<h3 id="5-3-必填验证"><a href="#5-3-必填验证" class="headerlink" title="5.3 必填验证"></a>5.3 必填验证</h3><ul>
+<li>required_with/当某字段存在时，该字段为必填非空</li>
+<li>required_without/当某字段不存在时，该字段为必填</li>
+<li>required_without_all/当所有其他字段不存在谁，该字段为必填</li>
+</ul>
+<h3 id="5-4-其他验证"><a href="#5-4-其他验证" class="headerlink" title="5.4 其他验证"></a>5.4 其他验证</h3><ul>
+<li>dir/验证目录在本机是否存在</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2020/DCQQ72.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/3TRNKGR.html" >Gin框架-获取各类请求参数</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-08  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-参数作为Url"><a href="#1-参数作为Url" class="headerlink" title="1. 参数作为Url"></a>1. 参数作为Url</h2><ol>
+<li><p>代码如下 </p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/:param1/:param2"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>,gin.H&#123;</span><br><span class="line">				<span class="string">"param1"</span>:context.Param(<span class="string">"param1"</span>),</span><br><span class="line">				<span class="string">"param2"</span>:context.Param(<span class="string">"param2"</span>),</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408005346.png" alt></p>
+</li>
+</ol>
+<h2 id="2-获取Get请求参数"><a href="#2-获取Get请求参数" class="headerlink" title="2. 获取Get请求参数"></a>2. 获取Get请求参数</h2><ol>
+<li><p>url请求参数格式</p>
+<p> <code>http://ip:端口号/路由路径?参数1=参数值&amp;参数2=参数值...</code></p>
+</li>
+<li><p>代码如下</p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/test"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>,gin.H&#123;</span><br><span class="line">				<span class="string">"param1"</span>:context.Query(<span class="string">"param1"</span>),</span><br><span class="line">				<span class="string">"param2"</span>:context.Query(<span class="string">"param2"</span>),</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>测试结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408013046.png" alt></p>
+</li>
+</ol>
+<h2 id="3-获取Post-Body内参数"><a href="#3-获取Post-Body内参数" class="headerlink" title="3. 获取Post/Body内参数"></a>3. 获取Post/Body内参数</h2><ol>
+<li><p>代码如下</p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.POST(</span><br><span class="line">		<span class="string">"/test"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			data,err:= ioutil.ReadAll(context.Request.Body)</span><br><span class="line">			<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">				fmt.Println(err)</span><br><span class="line">				context.JSON(<span class="number">400</span>,err)</span><br><span class="line">				<span class="keyword">return</span></span><br><span class="line">			&#125;</span><br><span class="line">			context.String(<span class="number">200</span>,<span class="string">"%s"</span>,<span class="keyword">string</span>(data))</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>测试结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408233754.png" alt="请求内容"><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408235145.png" alt="请求结果"></p>
+</li>
+</ol>
+<h2 id="4-获取参数绑定"><a href="#4-获取参数绑定" class="headerlink" title="4. 获取参数绑定"></a>4. 获取参数绑定</h2><ol>
+<li><p>代码如下</p>
+ <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">	Name <span class="keyword">string</span> <span class="string">`form:"name"`</span></span><br><span class="line">	Age  <span class="keyword">int</span>    <span class="string">`form:"age"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(<span class="string">"/test"</span>,test)</span><br><span class="line">	ginRouter.POST(<span class="string">"/test"</span>,test)</span><br><span class="line">	ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> stu Student</span><br><span class="line">	<span class="keyword">if</span> c.Bind(&amp;stu) == <span class="literal">nil</span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, stu)</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		c.JSON(<span class="number">400</span>,gin.H&#123;&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Get测试结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408233605.png" alt="请求结果"></p>
+</li>
+<li><p>Post测试结果</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408233754.png" alt="请求内容"><br> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408233701.png" alt="请求结果"></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/3TRNKGR.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/CEEV6W.html" >Gin框架-静态文件服务器</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-08  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ol>
+<li>项目目录如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408004400.png" alt></li>
+<li>代码如下 ,如果使用goland的运行按钮，下面路径必须使用绝对路径，否则会找不到资源。还有要注意的就是<code>Static</code>方法绑定的文件夹，会通知浏览器对文件夹进行渲染，所以只支持浏览器能够渲染的文件，比如Html。</li>
+</ol>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	<span class="comment">//指定文件夹,会通知浏览器渲染文件</span></span><br><span class="line">	ginRouter.Static(<span class="string">"/static"</span>,<span class="string">"/Users/nieaowei/Desktop/study01/static"</span>)</span><br><span class="line">	<span class="comment">//指定文件夹，浏览器不会渲染文件</span></span><br><span class="line">	ginRouter.StaticFS(<span class="string">"/staticDir"</span>,http.Dir(<span class="string">"/Users/nieaowei/Desktop/study01/staticdir"</span>))</span><br><span class="line">	<span class="comment">//指定单个静态文件</span></span><br><span class="line">	ginRouter.StaticFile(<span class="string">"/favicon.ico"</span>,<span class="string">"/Users/nieaowei/Desktop/study01/staticdir/1.ico"</span>)</span><br><span class="line">	err := ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408004446.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408003745.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408003839.png" alt></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/CEEV6W.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
 
    
+    
+           <a type="button" class="btn btn-default disabled"><i class="fa fa-arrow-circle-o-left"></i>上一页</a>
+        
 
-四次挥手
+        <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+ 
+       <a href="/page/2/" type="button" class="btn btn-default ">下一页<i class="fa fa-arrow-circle-o-right"></i></a>     
+        
 
+  
+</div>
 
+  		</center>
+		</div>
 
-2.1.3 常见疑问
-为什么需要等待2MSL？
-保证全双工连接可靠关闭
-保证这次连接从网络消失
+		
+		
+	</div> <!-- col-md-9 -->
 
-
-为什么会出现大量close wait? ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/33KJF3Z.html" title="Kotlin安卓开发-有序广播">     <img class="post_bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Kotlin安卓开发-有序广播"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/33KJF3Z.html" title="Kotlin安卓开发-有序广播">Kotlin安卓开发-有序广播</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-04 22:32:42"><i class="fa fa-calendar" aria-hidden="true"></i>2020-05-04</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-04 22:32:42"><i class="fa fa-history" aria-hidden="true"></i>2020-05-04</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/1M052X8.html" title="Docker-Etcd集群搭建">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/etcd.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Docker-Etcd集群搭建"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/1M052X8.html" title="Docker-Etcd集群搭建">Docker-Etcd集群搭建</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-17 19:10:06"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-17</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-19 23:44:44"><i class="fa fa-history" aria-hidden="true"></i>2020-04-19</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></span></div><div class="content">1. 三节点集群1.1 新建一个docker网桥在集群中，服务器的ip或者说节点的ip应该是固定的静态ip地址，而由于docker默认网桥不支持自定义ip地址，所以需要自行增加一个网桥。
-docker network create --driver bridge --subnet=172.18.0. ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/3FRKW3J.html" title="Sql语句学习">     <img class="post_bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Sql语句学习"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/3FRKW3J.html" title="Sql语句学习">Sql语句学习</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-10 15:49:34"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-10</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-10 16:17:10"><i class="fa fa-history" aria-hidden="true"></i>2020-04-10</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">1. SQL分类
-DDL 数据定义
-TPL 事务处理
-DCL 数据控制
-DML 数据操作
-SELECT
-INSERT
-UPDATE
-DELETE
-
-
-
-2. Jion操作2.1 INNER内连接2.2 FULL OUTER全外连接2.3 LEFT OUTER左外连接2.4 RIGHT OUTER右外 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/65SJMT.html" title="Mysql数据库问题优化总结">     <img class="post_bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Mysql数据库问题优化总结"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/65SJMT.html" title="Mysql数据库问题优化总结">Mysql数据库问题优化总结</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-09 21:17:51"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-09</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-11 19:26:53"><i class="fa fa-history" aria-hidden="true"></i>2020-04-11</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Mysql/">Mysql</a></span></div><div class="content">1. 性能指标
-QPS-每秒查询书
-TPS-吞吐量
-并发量-同一时间处理请求的数量
-CPU使用率
-磁盘IO
-
-2. 影响数据库性能的问题2.1 大表问题
-定义
-记录数巨大，单表千万行
-表数据文件巨大。单表超过10G
-较少删除和查询时影响不大。
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
 
 
-问题
-慢查询：很难再一定时间内过滤所需数据
-建立索引 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/DCQQ72.html" title="Gin框架-请求数据验证">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/Untitled-1.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Gin框架-请求数据验证"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/DCQQ72.html" title="Gin框架-请求数据验证">Gin框架-请求数据验证</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-09 13:02:41"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-09</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-09 15:04:55"><i class="fa fa-history" aria-hidden="true"></i>2020-04-09</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">1. 简单示例在结果字段后添加上binding键中添加required验证，required为必填验证。 
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Git/">Git<span>1</span></a></li>
+		
+			<li><a href="/categories/Go语言/">Go语言<span>15</span></a></li>
+		
+			<li><a href="/categories/Java/">Java<span>2</span></a></li>
+		
+			<li><a href="/categories/安卓/">安卓<span>4</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>5</span></a></li>
+		
+			<li><a href="/categories/杂文/">杂文<span>4</span></a></li>
+		
+			<li><a href="/categories/系统架构/">系统架构<span>2</span></a></li>
+		
+			<li><a href="/categories/运维/">运维<span>1</span></a></li>
+		
+		</ul>
+	</div>
 
-代码
- 12345678910111213141516171819202122type Student struct &#123;    Name string `form:"name" b ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/3TRNKGR.html" title="Gin框架-获取各类请求参数">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/Untitled-1.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Gin框架-获取各类请求参数"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/3TRNKGR.html" title="Gin框架-获取各类请求参数">Gin框架-获取各类请求参数</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-08 00:56:56"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-08</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-09 19:27:01"><i class="fa fa-history" aria-hidden="true"></i>2020-04-09</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">1. 参数作为Url
-代码如下 
- 12345678910111213141516171819package mainimport (	"github.com/gin-gonic/gin")func main() &#123;	ginRouter := gin.Default()	ginRouter ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/CEEV6W.html" title="Gin框架-静态文件服务器">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/Untitled-1.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Gin框架-静态文件服务器"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/CEEV6W.html" title="Gin框架-静态文件服务器">Gin框架-静态文件服务器</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-08 00:55:50"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-08</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-08 14:19:16"><i class="fa fa-history" aria-hidden="true"></i>2020-04-08</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">
-项目目录如下
-代码如下 ,如果使用goland的运行按钮，下面路径必须使用绝对路径，否则会找不到资源。还有要注意的就是Static方法绑定的文件夹，会通知浏览器对文件夹进行渲染，所以只支持浏览器能够渲染的文件，比如Html。
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
+		
+			<li><a href="/tags/Golang/">Golang<span>1</span></a></li>
+		
+			<li><a href="/tags/Gin/">Gin<span>1</span></a></li>
+		
+			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
+		
+			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
+		
+			<li><a href="/tags/Mysql/">Mysql<span>2</span></a></li>
+		
+			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
+		
+			<li><a href="/tags/Centos/">Centos<span>1</span></a></li>
+		
+			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
+		
+			<li><a href="/tags/Java/">Java<span>3</span></a></li>
+		
+			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+		
+			<li><a href="/tags/Docker/">Docker<span>2</span></a></li>
+		
+			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
+		
+		 
+		</ul>
+	</div>
 
-123456789101112131415161718192021pa ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f7648b86553ee91c972.gif'" alt="avatar"/><div class="author-info__name">Nekilc</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">34</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">14</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">8</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/nieaowei" target="_blank" title="Github"><i class="fab fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:nieaowei@gmail.com" target="_blank" title="邮箱"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"> <div class="aside-recent-post"><a href="/2020/8BV7RJ.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Go语言详解网络代理" alt="Go语言详解网络代理"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/8BV7RJ.html" title="Go语言详解网络代理">Go语言详解网络代理</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-17 14:21:00">2020-05-17</time></div></a></div><div class="aside-recent-post"><a href="/2020/94VGB6.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Go语言Tcp和Udp使用实例" alt="Go语言Tcp和Udp使用实例"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/94VGB6.html" title="Go语言Tcp和Udp使用实例">Go语言Tcp和Udp使用实例</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-16 17:50:10">2020-05-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/1TTQ6FN.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200516223728.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="网络开发基础" alt="网络开发基础"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/1TTQ6FN.html" title="网络开发基础">网络开发基础</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-16 11:26:09">2020-05-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/33KJF3Z.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Kotlin安卓开发-有序广播" alt="Kotlin安卓开发-有序广播"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/33KJF3Z.html" title="Kotlin安卓开发-有序广播">Kotlin安卓开发-有序广播</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-04 22:32:42">2020-05-04</time></div></a></div><div class="aside-recent-post"><a href="/2020/1M052X8.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/etcd.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Docker-Etcd集群搭建" alt="Docker-Etcd集群搭建"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/1M052X8.html" title="Docker-Etcd集群搭建">Docker-Etcd集群搭建</div><time class="aside-post_meta post-meta__date" title="发表于 2020-04-17 19:10:06">2020-04-17</time></div></a></div></div></div></div><div class="card-widget card-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7869691243845330" data-ad-slot="8964909350" data-ad-format="auto" data-full-width-responsive="true"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside-category-item">       <li class="aside-category-list"><a class="aside-category-list_link" href="/categories/Git/"><span class="aside-category-list_name">Git</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/Go%E8%AF%AD%E8%A8%80/"><span class="aside-category-list_name">Go语言</span><span class="aside-category-list_length">15</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/Java/"><span class="aside-category-list_name">Java</span><span class="aside-category-list_length">2</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E5%AE%89%E5%8D%93/"><span class="aside-category-list_name">安卓</span><span class="aside-category-list_length">4</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="aside-category-list_name">数据库</span><span class="aside-category-list_length">5</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E6%9D%82%E6%96%87/"><span class="aside-category-list_name">杂文</span><span class="aside-category-list_length">4</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="aside-category-list_name">系统架构</span><span class="aside-category-list_length">2</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E8%BF%90%E7%BB%B4/"><span class="aside-category-list_name">运维</span><span class="aside-category-list_length">1</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Android/" style="font-size: 24px; color: #99a9bf">Android</a> <a href="/tags/Centos/" style="font-size: 16px; color: #999">Centos</a> <a href="/tags/Docker/" style="font-size: 20px; color: #99a1ac">Docker</a> <a href="/tags/Gin/" style="font-size: 16px; color: #999">Gin</a> <a href="/tags/Golang/" style="font-size: 16px; color: #999">Golang</a> <a href="/tags/Go%E8%AF%AD%E8%A8%80/" style="font-size: 16px; color: #999">Go语言</a> <a href="/tags/Java/" style="font-size: 24px; color: #99a9bf">Java</a> <a href="/tags/Kafka/" style="font-size: 16px; color: #999">Kafka</a> <a href="/tags/Kotlin/" style="font-size: 16px; color: #999">Kotlin</a> <a href="/tags/Mysql/" style="font-size: 20px; color: #99a1ac">Mysql</a> <a href="/tags/Redis/" style="font-size: 16px; color: #999">Redis</a> <a href="/tags/Ubuntu/" style="font-size: 16px; color: #999">Ubuntu</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 16px; color: #999">安卓</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 24px; color: #99a9bf">数据库</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><span class="archive-list-date">2020年05月</span><span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><span class="archive-list-date">2020年04月</span><span class="archive-list-count">9</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><span class="archive-list-date">2020年03月</span><span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/"><span class="archive-list-date">2020年02月</span><span class="archive-list-count">17</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">34</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="02/02/2020 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">13.4k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Nekilc</div><div class="footer_custom_text">Nekilc</div><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278744578'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1278744578%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-sun" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script id="ribbon_piao" mobile="true" src="/js/third-party/piao.js"></script><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
-  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
-    mermaid.initialize({
-      theme: 'default',
-  })
-})
-}</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect){ 
-  var typed = new Typed("#subtitle", {
-    strings: '人生有梦，各自精彩。'.split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: false,
-    backSpeed: 50
-  })
-}else{
-  document.getElementById("subtitle").innerHTML = '人生有梦，各自精彩。'
-  }</script><script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2020/8BV7RJ.html"  title="对于基础的网络知识学习。" ><i class="fa fa-file-o"></i>Go语言详解网络代理</a>
+      </li>
+    
+      <li>
+        <a href="/2020/94VGB6.html" ><i class="fa fa-file-o"></i>Go语言Tcp和Udp使用实例</a>
+      </li>
+    
+      <li>
+        <a href="/2020/1TTQ6FN.html" ><i class="fa fa-file-o"></i>网络开发基础</a>
+      </li>
+    
+      <li>
+        <a href="/2020/33KJF3Z.html" ><i class="fa fa-file-o"></i>Kotlin安卓开发-有序广播</a>
+      </li>
+    
+      <li>
+        <a href="/2020/1M052X8.html" ><i class="fa fa-file-o"></i>Docker-Etcd集群搭建</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/wzpan/hexo-theme-freemind" title="Freemind's Github repository." target="_blank"]);">Freemind</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/kristopolous/BOOTSTRA.386" title="BOOTSTRA.386's Github repository." target="_blank"]);">BOOTSTRA.386</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow/hexo-theme-freemind.386" title="Freemind.386's Github repository." target="_blank"]);">Freemind.386</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/blackshow" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2020 Nekilc
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+<script>'use strict';'serviceWorker'in navigator&&navigator.serviceWorker.register('service-worker.js').then(function(a){a.onupdatefound=function(){var b=a.installing;b.onstatechange=function(){switch(b.state){case'installed':navigator.serviceWorker.controller?console.log('New or updated content is available.'):console.log('Content is now available offline!');break;case'redundant':console.error('The installing service worker became redundant.');}}}}).catch(function(a){console.error('Error during service worker registration:',a)});
 </script></body></html>

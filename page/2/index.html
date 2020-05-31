@@ -1,126 +1,783 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nekilc</title><meta name="description" content=""><meta name="author" content="Nekilc"><meta name="copyright" content="Nekilc"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/bitbug_favicon64.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Nekilc"><meta name="twitter:description" content=""><meta name="twitter:image" content="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png"><meta property="og:type" content="website"><meta property="og:title" content="Nekilc"><meta property="og:url" content="https://www.nekilc.com/page/2/"><meta property="og:site_name" content="Nekilc"><meta property="og:description" content=""><meta property="og:image" content="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="canonical" href="https://www.nekilc.com/page/2/"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: 'ca-pub-7869691243845330',
-  enable_page_level_ads: 'true'
-});</script><link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://www.nekilc.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
-  },
-  runtime_unit: '天',
-  runtime: true,
-  copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: true,
-  fancybox: false,
-  Snackbar: undefined,
-  baiduPush: false,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: true,
-  isPhotoFigcaption: false
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
   
-}</script><script>var GLOBAL_CONFIG_SITE = { 
-  isPost: false,
-  isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><meta name="generator" content="Hexo 4.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png" onerror="onerror=null;src='https://pic.downk.cc/item/5e480f7648b86553ee91c972.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">34</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">14</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div></div></div></div><div id="body-wrap"><div class="full_page" id="nav" style="background-image: url(https://pic.downk.cc/item/5e7a73ee504f4bcb0482db8e.png)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Nekilc</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 存档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">Nekilc</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/nieaowei" target="_blank" title="Github"><i class="fab fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:nieaowei@gmail.com" target="_blank" title="邮箱"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/3R57ZBM.html" title="Gin框架-请求路由基本请求">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/Untitled-1.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Gin框架-请求路由基本请求"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/3R57ZBM.html" title="Gin框架-请求路由基本请求">Gin框架-请求路由基本请求</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-07 23:55:11"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-07</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-08 14:19:19"><i class="fa fa-history" aria-hidden="true"></i>2020-04-08</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">1. 路由介绍在web项目中，路由可以说是URL到函数的映射。举个例子，你访问https://www.baidu.com/的时候，浏览器或默认执行GET方法，此时的路由就是/，在你后端代码中，会根据请求的/去执行相应的函数并返回相应的内容。
-2. 请求类型2.1. Get
-代码如下12345678g ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/3KDWDKB.html" title="Gin框架-第一个程序HelloWorld">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/Untitled-1.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Gin框架-第一个程序HelloWorld"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/3KDWDKB.html" title="Gin框架-第一个程序HelloWorld">Gin框架-第一个程序HelloWorld</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-07 23:39:48"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-07</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-08 14:19:15"><i class="fa fa-history" aria-hidden="true"></i>2020-04-08</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Go%E8%AF%AD%E8%A8%80/">Go语言</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Gin/">Gin</a></span></div><div class="content">1. 简言Gin是一个Go语言编写的高性能的Web框架，可以用于mvc结构或者是mvvm架构的web项目，在GitHub上有24k+的Star。
-2. 安装go get -u github.com/gin-gonic/gin
+  <title>第 2 页 | Nekilc</title>
+  <meta name="author" content="Nekilc">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-3. HelloWorld代码123456789101112131415 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/28VBK0S.html" title="Centos7、Ubuntu安装Docker容器">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200405114015.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Centos7、Ubuntu安装Docker容器"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/28VBK0S.html" title="Centos7、Ubuntu安装Docker容器">Centos7、Ubuntu安装Docker容器</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-05 11:29:14"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-05</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-05 11:40:38"><i class="fa fa-history" aria-hidden="true"></i>2020-04-05</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9D%82%E6%96%87/">杂文</a></span></div><div class="content">1. 使用官方脚本自动安装curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
-2. 常用命令
-启动docker服务systemctl start docker
-查看运行容器docker ps
-查看所有容器docker  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/3VJHNG4.html" title="Kotlin安卓开发-Fragment和navigation初探（三）">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200327190801.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Kotlin安卓开发-Fragment和navigation初探（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/3VJHNG4.html" title="Kotlin安卓开发-Fragment和navigation初探（三）">Kotlin安卓开发-Fragment和navigation初探（三）</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-30 06:49:28"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-30</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-03-31 17:56:12"><i class="fa fa-history" aria-hidden="true"></i>2020-03-31</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Android/">Android</a></span></div><div class="content">1. 简言依然坚持减少xml的使用，使用JetPack组件化编程，本次将探究Fragment的生命周期，以及实现Navigation进行Fragment间的跳转。
-2. 新建项目
-如图，新建容组件化项目，与上篇一样，需要添加依赖等配置，这次新增几个依赖如下。12345def nav_version  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/1B5R51M.html" title="Kotlin安卓开发-Activity间跳转和数据传递（二）">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200327190801.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Kotlin安卓开发-Activity间跳转和数据传递（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/1B5R51M.html" title="Kotlin安卓开发-Activity间跳转和数据传递（二）">Kotlin安卓开发-Activity间跳转和数据传递（二）</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-25 14:37:16"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-25</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-03-28 23:07:29"><i class="fa fa-history" aria-hidden="true"></i>2020-03-28</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Android/">Android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Kotlin/">Kotlin</a></span></div><div class="content">1. 前言Fragment在Android3.0之后变得非常常见，很多app也开始尝试一个activity+多个Fragment的开发模式，相比于activity，Fragment在界面切换管理上是非常方便的，今天主要还是学习jetpack来实现组件化开发。jetpack是谷歌新推出的ui开发包，借 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/2EQXTDP.html" title="Git服务器双向同步代码的使用">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200327191142.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Git服务器双向同步代码的使用"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/2EQXTDP.html" title="Git服务器双向同步代码的使用">Git服务器双向同步代码的使用</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-23 09:46:20"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-23</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-03-27 19:12:11"><i class="fa fa-history" aria-hidden="true"></i>2020-03-27</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content">1. 创建支持工作目录的远程仓库远程服务器初始化仓库
-1git init &lt;仓库名&gt;
-2. 设置允许远程接收文件1git config receive.denyCurrentBranch ignore
-3. 建立接受钩子文件在远程仓库,post-receive 钩子文件中添加自动更新工作 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/22X88J.html" title="Docker部署Mysql数据库">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200327190028.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Docker部署Mysql数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/22X88J.html" title="Docker部署Mysql数据库">Docker部署Mysql数据库</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-23 07:52:48"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-23</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-04-05 11:45:43"><i class="fa fa-history" aria-hidden="true"></i>2020-04-05</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Docker/">Docker</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Centos/">Centos</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Ubuntu/">Ubuntu</a></span></div><div class="content">docker安装：Centos、Ubuntu安装Docker
-1. 简单使用12docker pull mysql:5.7.28docker run --name mysql -e MYSQL_ROOT_PASSWORD=12345 -p 3306:3306 -d mysql:5.7.28
+  
+  <meta property="og:site_name" content="Nekilc"/>
 
-2.  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/1X1JYEX.html" title="Kotlin安卓开发-环境搭建（一）">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200327190801.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="Kotlin安卓开发-环境搭建（一）"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/1X1JYEX.html" title="Kotlin安卓开发-环境搭建（一）">Kotlin安卓开发-环境搭建（一）</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-02-29 23:29:46"><i class="fa fa-calendar" aria-hidden="true"></i>2020-02-29</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-14 18:12:28"><i class="fa fa-history" aria-hidden="true"></i>2020-05-14</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%89%E5%8D%93/">安卓</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Java/">Java</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Android/">Android</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%89%E5%8D%93/">安卓</a></span></div><div class="content">1. 前言本文旨在小白也能够顺利安装安卓开发环境，解决虚拟设备、SDK、GRADLE的路径修改问题。
-2. Java开发环境该教程无需手动安装Java环境。
-3. 集成开发环境（Android Studio）3.1. 下载安装JetBrain的ToolBox点击下载
-3.2. 修改ToolBox的安 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/1DYJH86.html" title="使用Dokcer快速部署Hexo博客">     <img class="post_bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="使用Dokcer快速部署Hexo博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/1DYJH86.html" title="使用Dokcer快速部署Hexo博客">使用Dokcer快速部署Hexo博客</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-02-14 04:04:06"><i class="fa fa-calendar" aria-hidden="true"></i>2020-02-14</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-02-14 04:04:09"><i class="fa fa-history" aria-hidden="true"></i>2020-02-14</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%9D%82%E6%96%87/">杂文</a></span></div><div class="content">使用Dokcer快速部署Hexo博客</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/3HG63WA.html" title="GoHttp包详解">     <img class="post_bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200327192757.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" alt="GoHttp包详解"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/3HG63WA.html" title="GoHttp包详解">GoHttp包详解</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-02-13 22:52:28"><i class="fa fa-calendar" aria-hidden="true"></i>2020-02-13</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-03-27 19:30:24"><i class="fa fa-history" aria-hidden="true"></i>2020-03-27</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Go%E8%AF%AD%E8%A8%80/">Go语言</a></span></div><div class="content">1. 使用示例1.1. 服务器平滑关机Shutdown()根据源代码可知，它会等待所有子连接都被关闭才会结束，通过ctx或定时器才可停止该操作。
-12345678910111213141516171819202122232425func (srv *Server) Shutdown(ctx cont ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fa fa-fw fa-chevron-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://pic.downk.cc/item/5e480f3a48b86553ee91bb70.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f7648b86553ee91c972.gif'" alt="avatar"/><div class="author-info__name">Nekilc</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">34</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">14</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">8</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/nieaowei" target="_blank" title="Github"><i class="fab fa-github" aria-hidden="true"></i></a><a class="social-icon" href="mailto:nieaowei@gmail.com" target="_blank" title="邮箱"><i class="fa fa-envelope" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"> <div class="aside-recent-post"><a href="/2020/8BV7RJ.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Go语言详解网络代理" alt="Go语言详解网络代理"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/8BV7RJ.html" title="Go语言详解网络代理">Go语言详解网络代理</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-17 14:21:00">2020-05-17</time></div></a></div><div class="aside-recent-post"><a href="/2020/94VGB6.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Go语言Tcp和Udp使用实例" alt="Go语言Tcp和Udp使用实例"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/94VGB6.html" title="Go语言Tcp和Udp使用实例">Go语言Tcp和Udp使用实例</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-16 17:50:10">2020-05-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/1TTQ6FN.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/20200516223728.png" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="网络开发基础" alt="网络开发基础"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/1TTQ6FN.html" title="网络开发基础">网络开发基础</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-16 11:26:09">2020-05-16</time></div></a></div><div class="aside-recent-post"><a href="/2020/33KJF3Z.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://pic.downk.cc/item/5e77b12f5c56091129156900.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Kotlin安卓开发-有序广播" alt="Kotlin安卓开发-有序广播"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/33KJF3Z.html" title="Kotlin安卓开发-有序广播">Kotlin安卓开发-有序广播</div><time class="aside-post_meta post-meta__date" title="发表于 2020-05-04 22:32:42">2020-05-04</time></div></a></div><div class="aside-recent-post"><a href="/2020/1M052X8.html"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="https://gitee.com/nieaowei/images/raw/master/blog/etcd.jpg" onerror="this.onerror=null;this.src='https://pic.downk.cc/item/5e480f8a48b86553ee91cf1f.jpg'" title="Docker-Etcd集群搭建" alt="Docker-Etcd集群搭建"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/1M052X8.html" title="Docker-Etcd集群搭建">Docker-Etcd集群搭建</div><time class="aside-post_meta post-meta__date" title="发表于 2020-04-17 19:10:06">2020-04-17</time></div></a></div></div></div></div><div class="card-widget card-ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7869691243845330" data-ad-slot="8964909350" data-ad-format="auto" data-full-width-responsive="true"></ins><script> (adsbygoogle = window.adsbygoogle || []).push({});</script></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside-category-item">       <li class="aside-category-list"><a class="aside-category-list_link" href="/categories/Git/"><span class="aside-category-list_name">Git</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/Go%E8%AF%AD%E8%A8%80/"><span class="aside-category-list_name">Go语言</span><span class="aside-category-list_length">15</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/Java/"><span class="aside-category-list_name">Java</span><span class="aside-category-list_length">2</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E5%AE%89%E5%8D%93/"><span class="aside-category-list_name">安卓</span><span class="aside-category-list_length">4</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="aside-category-list_name">数据库</span><span class="aside-category-list_length">5</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E6%9D%82%E6%96%87/"><span class="aside-category-list_name">杂文</span><span class="aside-category-list_length">4</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="aside-category-list_name">系统架构</span><span class="aside-category-list_length">2</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E8%BF%90%E7%BB%B4/"><span class="aside-category-list_name">运维</span><span class="aside-category-list_length">1</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Android/" style="font-size: 24px; color: #99a9bf">Android</a> <a href="/tags/Centos/" style="font-size: 16px; color: #999">Centos</a> <a href="/tags/Docker/" style="font-size: 20px; color: #99a1ac">Docker</a> <a href="/tags/Gin/" style="font-size: 16px; color: #999">Gin</a> <a href="/tags/Golang/" style="font-size: 16px; color: #999">Golang</a> <a href="/tags/Go%E8%AF%AD%E8%A8%80/" style="font-size: 16px; color: #999">Go语言</a> <a href="/tags/Java/" style="font-size: 24px; color: #99a9bf">Java</a> <a href="/tags/Kafka/" style="font-size: 16px; color: #999">Kafka</a> <a href="/tags/Kotlin/" style="font-size: 16px; color: #999">Kotlin</a> <a href="/tags/Mysql/" style="font-size: 20px; color: #99a1ac">Mysql</a> <a href="/tags/Redis/" style="font-size: 16px; color: #999">Redis</a> <a href="/tags/Ubuntu/" style="font-size: 16px; color: #999">Ubuntu</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 16px; color: #999">安卓</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 24px; color: #99a9bf">数据库</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/"><span class="archive-list-date">2020年05月</span><span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><span class="archive-list-date">2020年04月</span><span class="archive-list-count">9</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><span class="archive-list-date">2020年03月</span><span class="archive-list-count">4</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/"><span class="archive-list-date">2020年02月</span><span class="archive-list-count">17</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">34</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="02/02/2020 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">13.4k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Nekilc</div><div class="footer_custom_text">Nekilc</div><script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278744578'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/z_stat.php%3Fid%3D1278744578%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-sun" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script id="ribbon_piao" mobile="true" src="/js/third-party/piao.js"></script><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
-  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
-    mermaid.initialize({
-      theme: 'default',
-  })
-})
-}</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
-if (subtitleEffect){ 
-  var typed = new Typed("#subtitle", {
-    strings: '人生有梦，各自精彩。'.split(","),
-    startDelay: 300,
-    typeSpeed: 150,
-    loop: false,
-    backSpeed: 50
-  })
-}else{
-  document.getElementById("subtitle").innerHTML = '人生有梦，各自精彩。'
-  }</script></body></html>
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Nekilc</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header logo">
+  <h1>Nekilc<span class="blink-fast">∎</span></h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+
+
+		<i class="fa fa-heart blink-slow"></i>
+
+		Keep and carry on.
+
+</div>    
+
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/3R57ZBM.html" >Gin框架-请求路由基本请求</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-07  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-路由介绍"><a href="#1-路由介绍" class="headerlink" title="1. 路由介绍"></a>1. 路由介绍</h2><p>在web项目中，路由可以说是URL到函数的映射。举个例子，你访问<code>https://www.baidu.com/</code>的时候，浏览器或默认执行GET方法，此时的路由就是<code>/</code>，在你后端代码中，会根据请求的<code>/</code>去执行相应的函数并返回相应的内容。</p>
+<h2 id="2-请求类型"><a href="#2-请求类型" class="headerlink" title="2. 请求类型"></a>2. 请求类型</h2><h3 id="2-1-Get"><a href="#2-1-Get" class="headerlink" title="2.1. Get"></a>2.1. Get</h3><ol>
+<li>代码如下<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.GET(</span><br><span class="line">		<span class="string">"/get"</span>,<span class="comment">//路由</span></span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"get"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
+<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000514.png" alt></li>
+</ol>
+<h3 id="2-2-Post"><a href="#2-2-Post" class="headerlink" title="2.2. Post"></a>2.2. Post</h3><ol>
+<li>代码如下<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.POST(</span><br><span class="line">		<span class="string">"/get"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"post"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
+<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000539.png" alt><h3 id="2-3-Delete"><a href="#2-3-Delete" class="headerlink" title="2.3. Delete"></a>2.3. Delete</h3></li>
+<li>代码如下<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.DELETE(</span><br><span class="line">		<span class="string">"/delete"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"delete"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
+<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000630.png" alt></li>
+</ol>
+<h3 id="2-4-Any方法的使用"><a href="#2-4-Any方法的使用" class="headerlink" title="2.4. Any方法的使用"></a>2.4. Any方法的使用</h3><p>any可以将一个路由对应多个请求类型。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.Any(</span><br><span class="line">		<span class="string">"/any"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"any"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>GET<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002411.png" alt></li>
+<li>POST<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002353.png" alt></li>
+<li>PUT<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002338.png" alt></li>
+<li>DELETE<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002227.png" alt><h3 id="2-5-完整代码"><a href="#2-5-完整代码" class="headerlink" title="2.5. 完整代码"></a>2.5. 完整代码</h3></li>
+</ol>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/get"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"get"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.POST(</span><br><span class="line">		<span class="string">"/get"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"post"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.DELETE(</span><br><span class="line">		<span class="string">"/delete"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"delete"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Any(</span><br><span class="line">		<span class="string">"/any"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"any"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	err := ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-正则路由"><a href="#2-6-正则路由" class="headerlink" title="2.6. 正则路由"></a>2.6. 正则路由</h3><p>正则路由可以将指定前缀url全部指向一个函数。</p>
+<ol>
+<li>代码如下</li>
+</ol>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/pre/*a"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>,gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>:<span class="string">"helloworld"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>结果<br>此时可以看见，将<code>/pre</code>前缀路径的<code>Get</code>请求全都指向了那一个执行方法。<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408010351.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408010408.png" alt></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/3R57ZBM.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/3KDWDKB.html" >Gin框架-第一个程序HelloWorld</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-07  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-简言"><a href="#1-简言" class="headerlink" title="1. 简言"></a>1. 简言</h2><p>Gin是一个Go语言编写的高性能的Web框架，可以用于mvc结构或者是mvvm架构的web项目，在GitHub上有24k+的Star。</p>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p><code>go get -u github.com/gin-gonic/gin</code></p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200407234412.png" alt></p>
+<h2 id="3-HelloWorld代码"><a href="#3-HelloWorld代码" class="headerlink" title="3. HelloWorld代码"></a>3. HelloWorld代码</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>,gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>:<span class="string">"helloword"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	err := ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Http测试"><a href="#4-Http测试" class="headerlink" title="4. Http测试"></a>4. Http测试</h2><ul>
+<li>使用Postman测试工具</li>
+<li>使用浏览器直接访问</li>
+<li>使用Goland自带的Http测试，新建http后缀的文件。<br>  <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000043.png" alt></li>
+<li>使用终端的Curl命令<br>  <code>curl -X 方法（get/post....）</code></li>
+</ul>
+<h2 id="5-运行结果"><a href="#5-运行结果" class="headerlink" title="5. 运行结果"></a>5. 运行结果</h2><ol>
+<li><p>使用终端</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200407235206.png" alt></p>
+</li>
+<li><p>使用浏览器访问</p>
+<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200407235314.png" alt></p>
+</li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/3KDWDKB.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/28VBK0S.html" >Centos7、Ubuntu安装Docker容器</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-04-05  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-使用官方脚本自动安装"><a href="#1-使用官方脚本自动安装" class="headerlink" title="1. 使用官方脚本自动安装"></a>1. 使用官方脚本自动安装</h2><p><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></p>
+<h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h2><ul>
+<li>启动docker服务<br><code>systemctl start docker</code></li>
+<li>查看运行容器<br><code>docker ps</code></li>
+<li>查看所有容器<br><code>docker ps -a</code></li>
+<li>启动容器<br><code>docker start 容器名称或id</code></li>
+<li>设置开机自启<br><code>systemctl enable docker</code></li>
+<li>停止docker服务<br><code>systemctl stop docker</code></li>
+<li>拉取镜像<br><code>docker pull 镜像地址</code></li>
+<li>新建容器并运行<br><code>docker run -d -p本地端口:容器端口 --name 自定义容器名称 镜像名称</code></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2020/28VBK0S.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/3VJHNG4.html" >Kotlin安卓开发-Fragment和navigation初探（三）</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-03-30  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-简言"><a href="#1-简言" class="headerlink" title="1. 简言"></a>1. 简言</h2><p>依然坚持减少xml的使用，使用JetPack组件化编程，本次将探究Fragment的生命周期，以及实现Navigation进行Fragment间的跳转。</p>
+<h2 id="2-新建项目"><a href="#2-新建项目" class="headerlink" title="2. 新建项目"></a>2. 新建项目</h2><ol>
+<li>如图，新建容组件化项目，与上篇一样，需要添加依赖等配置，这次新增几个依赖如下。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def nav_version = <span class="string">"2.3.0-alpha04"</span></span><br><span class="line">  implementation <span class="string">"androidx.navigation:navigation-fragment-ktx:<span class="variable">$nav_version</span>"</span></span><br><span class="line">  implementation <span class="string">"androidx.navigation:navigation-ui-ktx:<span class="variable">$nav_version</span>"</span></span><br><span class="line">  implementation <span class="string">"androidx.navigation:navigation-dynamic-features-fragment:<span class="variable">$nav_version</span>"</span></span><br><span class="line">  androidTestImplementation <span class="string">"androidx.navigation:navigation-testing:<span class="variable">$nav_version</span>"</span></span><br></pre></td></tr></table></figure>
+<img src="https://gitee.com/nieaowei/images/raw/master/blog/20200330065204.png" alt></li>
+<li>新建两个空白Fragment。<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200330070954.png" alt></li>
+<li>新建一个navigation资源文件<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200331175556.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200330071229.png" alt></li>
+<li>构建MainActivity并设置视图，配置导航主机。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mLayout: LinearLayout <span class="comment">//总体布局</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mToolbar: Toolbar      <span class="comment">//顶部工具栏</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mFragmentContainer: FragmentContainerView; <span class="comment">//Fragment容器</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mNavHostFragment: NavHostFragment <span class="comment">//导航主机</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mBottomNavigationView: BottomNavigationView <span class="comment">//底部导航</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        initView()</span><br><span class="line">        setContentView(mLayout)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">initView</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//总体布局处理</span></span><br><span class="line">        mLayout = LinearLayout(<span class="keyword">this</span>)</span><br><span class="line">        <span class="keyword">val</span> params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)</span><br><span class="line">        mLayout.layoutParams = params</span><br><span class="line">        mLayout.orientation = LinearLayout.VERTICAL</span><br><span class="line">        <span class="comment">//底部导航处理</span></span><br><span class="line">        mBottomNavigationView = BottomNavigationView(<span class="keyword">this</span>)</span><br><span class="line">        mBottomNavigationView.setBackgroundColor(Color.YELLOW)</span><br><span class="line">        mLayout.addView(mBottomNavigationView)</span><br><span class="line">        <span class="comment">//顶部工具栏处理</span></span><br><span class="line">        mToolbar = Toolbar(<span class="keyword">this</span>)</span><br><span class="line">        mToolbar.title = <span class="string">"Hello Android"</span></span><br><span class="line">        mLayout.addView(mToolbar)</span><br><span class="line">        <span class="comment">//初始化Fragment容器</span></span><br><span class="line">        mFragmentContainer = FragmentContainerView(<span class="keyword">this</span>)</span><br><span class="line">        mFragmentContainer.id=R.id.nav_host</span><br><span class="line">        mLayout.addView(mFragmentContainer)</span><br><span class="line">        <span class="comment">//初始化导航主机</span></span><br><span class="line">        mNavHostFragment = NavHostFragment.create(R.navigation.nav)</span><br><span class="line">        supportFragmentManager.beginTransaction()</span><br><span class="line">                .replace(R.id.nav_host,mNavHostFragment)</span><br><span class="line">                .setPrimaryNavigationFragment(mNavHostFragment)<span class="comment">//设置默认导航主机</span></span><br><span class="line">                .commit()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//开启支持导航</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSupportNavigateUp</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> findNavController(R.id.nav_host_fragment_container).navigateUp()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+	
+	</div>
+  <a type="button" href="/2020/3VJHNG4.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/1B5R51M.html" >Kotlin安卓开发-Activity间跳转和数据传递（二）</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-03-25  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>Fragment在Android3.0之后变得非常常见，很多app也开始尝试一个activity+多个Fragment的开发模式，相比于activity，Fragment在界面切换管理上是非常方便的，今天主要还是学习jetpack来实现组件化开发。jetpack是谷歌新推出的ui开发包，借鉴了vue、flutter等数据驱动UI的思维，让数据和ui的交互变得更容易了，甚至不用去设置监听器了,甚至你不需要Fragment了。</p>
+<h2 id="2-新建项目"><a href="#2-新建项目" class="headerlink" title="2. 新建项目"></a>2. 新建项目</h2><ol>
+<li>新建一个Kotlin项目<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327132009.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327134943.png" alt></li>
+<li>新建两个空Activity。<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327193929.png" alt></li>
+<li>在Module build.gradle，加入如下配置 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composeOptions &#123;</span><br><span class="line">        kotlinCompilerExtensionVersion <span class="string">"$compose_compiler_extension_version"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327193606.png" alt></li>
+<li>导入JetPack相关依赖，将Module build.gradle中的依赖修改为如下，最后构建一下项目</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    def compose_version = <span class="string">"0.1.0-dev07"</span></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span></span><br><span class="line">    implementation(<span class="string">"androidx.compose:compose-runtime:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-framework:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-layout:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-material:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-foundation:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-animation:$compose_version"</span>)</span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-tooling:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-android-text:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-animation-core:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-core:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-geometry:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-graphics:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-material:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-unit:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-util:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-vector:$compose_version"</span></span><br><span class="line"></span><br><span class="line">    implementation(<span class="string">'androidx.appcompat:appcompat:1.1.0'</span>)</span><br><span class="line">    implementation(<span class="string">'androidx.activity:activity-ktx:1.1.0'</span>)</span><br><span class="line">    implementation <span class="string">"androidx.core:core-ktx:1.2.0"</span></span><br><span class="line"></span><br><span class="line">    androidTestImplementation(<span class="string">"junit:junit:4.13"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.test:rules:1.2.0"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.test:runner:1.2.0"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.ui:ui-platform:$compose_version"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.ui:ui-test:$compose_version"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327131149.png" alt></p>
+<h2 id="3-构建一个带标签输入框"><a href="#3-构建一个带标签输入框" class="headerlink" title="3. 构建一个带标签输入框"></a>3. 构建一个带标签输入框</h2><ol>
+<li>为了将组件化编程思维贯彻到底，首先就构建一个带标签的输入框。</li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200328172534.png" alt></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//label : 标签名</span></span><br><span class="line"><span class="comment">//state : 绑定的数据</span></span><br><span class="line"><span class="comment">//modifier : 布局样式</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">EditText</span><span class="params">(label:<span class="type">String</span>, state : <span class="type">MutableState</span>&lt;<span class="type">String</span>&gt;,modifier: <span class="type">Modifier</span>)</span></span>&#123;</span><br><span class="line">        Row(modifier = modifier) &#123;</span><br><span class="line">            Text(</span><br><span class="line">                    text = label,</span><br><span class="line">                    style = (MaterialTheme.typography()).h6</span><br><span class="line">            )</span><br><span class="line">            Surface(border = Border(<span class="number">1</span>.dp, Color.Black),modifier = LayoutPadding(start = <span class="number">5</span>.dp) ) &#123;</span><br><span class="line">                TextField(</span><br><span class="line">                        textStyle = (MaterialTheme.typography()).h6,</span><br><span class="line">                        value = state.value,</span><br><span class="line">                        onValueChange = &#123;</span><br><span class="line">                            state.value = it</span><br><span class="line">                        &#125;,</span><br><span class="line">                        modifier = LayoutPadding(start = <span class="number">5</span>.dp)</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-构建第一个Activity的界面"><a href="#4-构建第一个Activity的界面" class="headerlink" title="4. 构建第一个Activity的界面"></a>4. 构建第一个Activity的界面</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContent &#123;</span><br><span class="line">            MaterialTheme &#123;</span><br><span class="line">            		<span class="comment">//接收其他Activity传来的参数</span></span><br><span class="line">                DefaultPreview(<span class="keyword">this</span>.intent.extras)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        MainActivity.context = <span class="keyword">this</span>.applicationContext</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">lateinit</span> <span class="keyword">var</span> context: Context;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//由于带参数组件不可预览，所以这个默认传参用于预览</span></span><br><span class="line"><span class="meta">@Preview</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">PreviewUI</span><span class="params">()</span></span> &#123;</span><br><span class="line">    DefaultPreview(bundle = <span class="literal">null</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">DefaultPreview</span><span class="params">(bundle: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line"><span class="comment">//数据驱动UI思维，使用`state`方法创建一个`MutableState`类型数据变量，</span></span><br><span class="line"><span class="comment">//用于输入框数据绑定</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> input = state() &#123; <span class="string">""</span> &#125;</span><br><span class="line">    Scaffold(</span><br><span class="line">        topAppBar = &#123;</span><br><span class="line">            TopAppBar(title = &#123; Text(text = <span class="string">"Intent"</span>) &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        bodyContent = &#123;</span><br><span class="line">            Column(modifier = LayoutPadding(<span class="number">5</span>.dp)) &#123;</span><br><span class="line">                EditText(</span><br><span class="line">                    label = <span class="string">"第一个Activity:"</span>,</span><br><span class="line">                    state = input,</span><br><span class="line">                    modifier = LayoutWidth(width = <span class="number">300</span>.dp)</span><br><span class="line">                )</span><br><span class="line">                <span class="keyword">if</span> (bundle != <span class="literal">null</span>) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = bundle.getString(<span class="string">"msg"</span>, <span class="string">"第二个Activity传递值"</span>),</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"第二个Activity传递值"</span>,</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">                Button(</span><br><span class="line">                    modifier = LayoutPadding(<span class="number">5</span>.dp),</span><br><span class="line">                    onClick = &#123;</span><br><span class="line">                    	<span class="comment">//传递参数跳转</span></span><br><span class="line">                        <span class="keyword">val</span> intent = Intent(MainActivity.context, MainActivity2::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">                        <span class="keyword">val</span> bundle1: Bundle = Bundle()</span><br><span class="line">                        bundle1.putString(<span class="string">"msg"</span>, input.value)</span><br><span class="line">                        intent.putExtras(bundle1)</span><br><span class="line">                        MainActivity.context.startActivity(intent)</span><br><span class="line">                    &#125;</span><br><span class="line">                ) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"跳转到第二个Activity"</span></span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">EditText</span><span class="params">(label: <span class="type">String</span>, state: <span class="type">MutableState</span>&lt;<span class="type">String</span>&gt;, modifier: <span class="type">Modifier</span>)</span></span> &#123;</span><br><span class="line">    Row(modifier = modifier) &#123;</span><br><span class="line">        Text(</span><br><span class="line">            text = label,</span><br><span class="line">            style = (MaterialTheme.typography()).h6</span><br><span class="line">        )</span><br><span class="line">        Surface(border = Border(<span class="number">1</span>.dp, Color.Black), modifier = LayoutPadding(start = <span class="number">5</span>.dp)) &#123;</span><br><span class="line">            TextField(</span><br><span class="line">                textStyle = (MaterialTheme.typography()).h6,</span><br><span class="line">                value = state.value,</span><br><span class="line">                onValueChange = &#123;</span><br><span class="line">                    state.value = it</span><br><span class="line">                &#125;,</span><br><span class="line">                modifier = LayoutPadding(start = <span class="number">5</span>.dp)</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200328174932.png" alt></p>
+<h2 id="5-构建第二个Activity的界面"><a href="#5-构建第二个Activity的界面" class="headerlink" title="5. 构建第二个Activity的界面"></a>5. 构建第二个Activity的界面</h2><p>两个代码差别不大。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity2</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContent &#123;</span><br><span class="line">            DefaultPreview2(<span class="keyword">this</span>.intent.extras)</span><br><span class="line">        &#125;</span><br><span class="line">        MainActivity2.context = <span class="keyword">this</span>.applicationContext</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">lateinit</span> <span class="keyword">var</span> context: Context;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Preview</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">PreviewUI2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    DefaultPreview2(bundle = <span class="literal">null</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">DefaultPreview2</span><span class="params">(bundle: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    Scaffold(</span><br><span class="line">        topAppBar = &#123;</span><br><span class="line">            TopAppBar(title = &#123; Text(text = <span class="string">"Intent"</span>) &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        bodyContent = &#123;</span><br><span class="line">            Column(modifier = LayoutPadding(<span class="number">5</span>.dp)) &#123;</span><br><span class="line">                Text(</span><br><span class="line">                    text = <span class="string">"第二个Activity"</span>,</span><br><span class="line">                    style = (MaterialTheme.typography()).h6</span><br><span class="line">                )</span><br><span class="line">                <span class="keyword">if</span> (bundle != <span class="literal">null</span>) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = bundle.getString(<span class="string">"msg"</span>, <span class="string">"第一个Activity传递值"</span>),</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"第一个Activity传递值"</span>,</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">                Button(</span><br><span class="line">                    modifier = LayoutPadding(<span class="number">5</span>.dp),</span><br><span class="line">                    onClick = &#123;</span><br><span class="line">                        <span class="keyword">val</span> intent = Intent(MainActivity2.context, MainActivity::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">                        <span class="keyword">val</span> bundle1: Bundle = Bundle()</span><br><span class="line">                        bundle1.putString(<span class="string">"msg"</span>, <span class="string">"nieaowei"</span>)</span><br><span class="line">                        intent.putExtras(bundle1)</span><br><span class="line">                        MainActivity2.context.startActivity(intent)</span><br><span class="line">                    &#125;</span><br><span class="line">                ) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"返回到第一个Activity"</span></span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200328185113.png" alt></p>
+<h2 id="6-结果演示"><a href="#6-结果演示" class="headerlink" title="6. 结果演示"></a>6. 结果演示</h2><p><img src="https://s1.ax1x.com/2020/03/28/GAG1eA.gif" alt></p>
+<h2 id="7-源代码"><a href="#7-源代码" class="headerlink" title="7. 源代码"></a>7. 源代码</h2><p>下载地址：<a href="https://www.lanzous.com/iaqoyih" target="_blank" rel="noopener">https://www.lanzous.com/iaqoyih</a></p>
+
+	
+	</div>
+  <a type="button" href="/2020/1B5R51M.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/2EQXTDP.html" >Git服务器双向同步代码的使用</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-03-23  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h3 id="1-创建支持工作目录的远程仓库"><a href="#1-创建支持工作目录的远程仓库" class="headerlink" title="1. 创建支持工作目录的远程仓库"></a>1. 创建支持工作目录的远程仓库</h3><p>远程服务器初始化仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init &lt;仓库名&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置允许远程接收文件"><a href="#2-设置允许远程接收文件" class="headerlink" title="2. 设置允许远程接收文件"></a>2. 设置允许远程接收文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config receive.denyCurrentBranch ignore</span><br></pre></td></tr></table></figure>
+<h3 id="3-建立接受钩子文件"><a href="#3-建立接受钩子文件" class="headerlink" title="3. 建立接受钩子文件"></a>3. 建立接受钩子文件</h3><p>在远程仓库,post-receive 钩子文件中添加自动更新工作目录内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WORK_TREE='../'</span><br><span class="line">git  --work-tree="$&#123;WORK_TREE&#125;" reset --hard</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2020/2EQXTDP.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/22X88J.html" >Docker部署Mysql数据库</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-03-23  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>docker安装：<a href="https://www.nekilc.com/2020/22X88J.html">Centos、Ubuntu安装Docker</a></p>
+<h2 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7.28</span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=12345 -p 3306:3306 -d mysql:5.7.28</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-指定本机配置文件"><a href="#2-指定本机配置文件" class="headerlink" title="2. 指定本机配置文件"></a>2. 指定本机配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v /my/custom:/etc/mysql/conf.d</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-持久化数据-指定本机数据储存"><a href="#3-持久化数据-指定本机数据储存" class="headerlink" title="3. 持久化数据/指定本机数据储存"></a>3. 持久化数据/指定本机数据储存</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v /my/own/datadir:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2020/22X88J.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/1X1JYEX.html" >Kotlin安卓开发-环境搭建（一）</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-02-29  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>本文旨在小白也能够顺利安装安卓开发环境，解决虚拟设备、SDK、GRADLE的路径修改问题。</p>
+<h2 id="2-Java开发环境"><a href="#2-Java开发环境" class="headerlink" title="2. Java开发环境"></a>2. Java开发环境</h2><p>该教程无需手动安装Java环境。</p>
+<h2 id="3-集成开发环境（Android-Studio）"><a href="#3-集成开发环境（Android-Studio）" class="headerlink" title="3. 集成开发环境（Android Studio）"></a>3. 集成开发环境（Android Studio）</h2><h3 id="3-1-下载安装JetBrain的ToolBox"><a href="#3-1-下载安装JetBrain的ToolBox" class="headerlink" title="3.1. 下载安装JetBrain的ToolBox"></a>3.1. 下载安装JetBrain的ToolBox</h3><p><a href="https://www.lanzous.com/iaa5pje" target="_blank" rel="noopener">点击下载</a></p>
+<h3 id="3-2-修改ToolBox的安装地址"><a href="#3-2-修改ToolBox的安装地址" class="headerlink" title="3.2. 修改ToolBox的安装地址"></a>3.2. 修改ToolBox的安装地址</h3><ol>
+<li><p>打开ToolBox的设置<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787643_20200315163947962_127009905.png" alt></p>
+</li>
+<li><p>选择路径并应用</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787643_20200315164457880_56728217.png" alt></p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787645_20200315165345379_406917145.png" alt></p>
+</li>
+<li><p>返回工具列表，找到AS ，可以选择你想要的版本，个人喜欢最新版</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787645_20200315164649245_2095887498.png" alt></p>
+<h3 id="3-3-配置SDK路径"><a href="#3-3-配置SDK路径" class="headerlink" title="3.3. 配置SDK路径"></a>3.3. 配置SDK路径</h3><ol>
+<li><p>等待安装完成，打开AS。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315165809435_1468523967.png" alt></p>
+</li>
+<li><p>提示不能增加AndroidSDK，原因是因为需要设置代理，没有代理的话直接取消，会打开配置界面。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315165903140_452758398.png" alt></p>
+</li>
+<li><p>关掉如下配置界面，会回到启动界面。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315170030096_975833865.png" alt></p>
+</li>
+<li><p>打开设置。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787647_20200315170748645_423692269.png" alt></p>
+</li>
+<li><p>找到如下界面，点击edit编辑按钮</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787647_20200315170841832_2087675278.png" alt></p>
+</li>
+<li><p>选择你需要安装的位置后，一路next，然后等待很长一段时间，我使用了代理，所以非常快。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787648_20200315170938889_1970572660.png" alt></p>
+</li>
+<li><p>结束之后你会看到如下界面，此时路径已经修改，说明你成功了。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787648_20200315171553399_921892586.png" alt> </p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787649_20200315171654184_154179797.png" alt></p>
+</li>
+</ol>
+<h3 id="3-4-配置安卓虚拟设备"><a href="#3-4-配置安卓虚拟设备" class="headerlink" title="3.4. 配置安卓虚拟设备"></a>3.4. 配置安卓虚拟设备</h3><ol>
+<li><p>进行如下操作，以进行下一步，勾选HAXM ，然后应用（apply)。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787650_20200315172321074_502469578.png" alt></p>
+</li>
+<li><p>应用后会出现一个界面，一路next，建议该界面下选择2gb。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787651_20200315172442554_1100497442.png" alt></p>
+</li>
+<li><p>关闭AS，进行环境变量配置。</p>
+<p>a. 打开window设置，界面搜索 编辑系统环境变量。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787651_20200315182609043_1942115051.png" alt><br>b. 选择环境变量。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182623931_755197930.png" alt><br>c. 新建一个名为 ANDROID_SDK_HOME的环境变量，变量值填写你自己的路径,然后确定 以及 应用。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182643838_478493330.png" alt></p>
+</li>
+<li><p>再次启动AS，启动界面，选择如下设置去设置安卓虚拟设备。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787649_20200315171857442_1434569897.png" alt></p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787650_20200315171933598_1017354010.png" alt></p>
+</li>
+<li><p>选择一个设备，当然你也可以自定义设备信息（屏幕尺寸、颜色深度等等）。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182949443_2134231754.png" alt></p>
+</li>
+<li><p>下一步之后，会看到这个界面，下载一个安卓系统镜像,左下角提示没有选择系统镜像，你需要点击相应安卓版本的下载（Download）按钮下载</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182926933_1994992024.png" alt></p>
+</li>
+<li><p>点击下载后会弹出如下界面。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183303409_1132399407.png" alt><br>等待完成即可。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183327788_881726167.png" alt></p>
+</li>
+<li><p>完成之后，下载按钮消失了，点击选择它，然后下一步就完成了。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183357684_1750000052.png" alt></p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787654_20200315183449234_1537261378.png" alt></p>
+</li>
+</ol>
+<h3 id="3-5-配置GRADLE路径"><a href="#3-5-配置GRADLE路径" class="headerlink" title="3.5. 配置GRADLE路径"></a>3.5. 配置GRADLE路径</h3><p><img src="https://gitee.com/nieaowei/images/raw/master/1584787655_20200315183847591_1762060673.png" alt></p>
+
+	
+	</div>
+  <a type="button" href="/2020/1X1JYEX.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/1DYJH86.html" >使用Dokcer快速部署Hexo博客</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-02-14  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="使用Dokcer快速部署Hexo博客"><a href="#使用Dokcer快速部署Hexo博客" class="headerlink" title="使用Dokcer快速部署Hexo博客"></a>使用Dokcer快速部署Hexo博客</h1>
+	
+	</div>
+  <a type="button" href="/2020/1DYJH86.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2020/3HG63WA.html" >GoHttp包详解</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2020-02-13  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="1-使用示例"><a href="#1-使用示例" class="headerlink" title="1. 使用示例"></a>1. 使用示例</h2><h3 id="1-1-服务器平滑关机Shutdown"><a href="#1-1-服务器平滑关机Shutdown" class="headerlink" title="1.1. 服务器平滑关机Shutdown()"></a>1.1. 服务器平滑关机<code>Shutdown()</code></h3><p>根据源代码可知，它会等待所有子连接都被关闭才会结束，通过ctx或定时器才可停止该操作。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(srv *Server)</span> <span class="title">Shutdown</span><span class="params">(ctx context.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	atomic.StoreInt32(&amp;srv.inShutdown, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	srv.mu.Lock()</span><br><span class="line">	lnerr := srv.closeListenersLocked()</span><br><span class="line">	srv.closeDoneChanLocked()</span><br><span class="line">	<span class="keyword">for</span> _, f := <span class="keyword">range</span> srv.onShutdown &#123;</span><br><span class="line">		<span class="keyword">go</span> f()</span><br><span class="line">	&#125;</span><br><span class="line">	srv.mu.Unlock()</span><br><span class="line"></span><br><span class="line">	ticker := time.NewTicker(shutdownPollInterval)</span><br><span class="line">	<span class="keyword">defer</span> ticker.Stop()</span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> srv.closeIdleConns() &#123;</span><br><span class="line">			<span class="keyword">return</span> lnerr</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">select</span> &#123;</span><br><span class="line">		<span class="keyword">case</span> &lt;-ctx.Done():</span><br><span class="line">			<span class="keyword">return</span> ctx.Err()</span><br><span class="line">		<span class="keyword">case</span> &lt;-ticker.C:</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-静态文件服务器请求过滤示例"><a href="#1-2-静态文件服务器请求过滤示例" class="headerlink" title="1.2. 静态文件服务器请求过滤示例"></a>1.2. 静态文件服务器请求过滤示例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">HttpHandler</span><span class="params">(h http.Handler)</span> <span class="title">http</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(writer http.ResponseWriter, request *http.Request)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="literal">true</span> &#123;</span><br><span class="line">			http.Redirect(writer,request,<span class="string">"http://www.baidu.com"</span>,<span class="number">302</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		h.ServeHTTP(writer,request)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/"</span>,HttpHandler(http.FileServer(http.Dir(<span class="string">"/Users/nieaowei/Desktop/blog/public"</span>))))</span><br><span class="line">	http.ListenAndServe(<span class="string">"0.0.0.0:80"</span>,<span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2020/3HG63WA.html#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+
+   
+    
+     <a href="/" type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left"></i> 上一页</a>
+      
+
+        <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+ 
+       <a href="/page/3/" type="button" class="btn btn-default ">下一页<i class="fa fa-arrow-circle-o-right"></i></a>     
+        
+
+  
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Git/">Git<span>1</span></a></li>
+		
+			<li><a href="/categories/Go语言/">Go语言<span>15</span></a></li>
+		
+			<li><a href="/categories/Java/">Java<span>2</span></a></li>
+		
+			<li><a href="/categories/安卓/">安卓<span>4</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>5</span></a></li>
+		
+			<li><a href="/categories/杂文/">杂文<span>4</span></a></li>
+		
+			<li><a href="/categories/系统架构/">系统架构<span>2</span></a></li>
+		
+			<li><a href="/categories/运维/">运维<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
+		
+			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
+		
+			<li><a href="/tags/Mysql/">Mysql<span>2</span></a></li>
+		
+			<li><a href="/tags/Docker/">Docker<span>2</span></a></li>
+		
+			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
+		
+			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+		
+			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
+		
+			<li><a href="/tags/Centos/">Centos<span>1</span></a></li>
+		
+			<li><a href="/tags/Golang/">Golang<span>1</span></a></li>
+		
+			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
+		
+			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
+		
+			<li><a href="/tags/Gin/">Gin<span>1</span></a></li>
+		
+			<li><a href="/tags/Java/">Java<span>3</span></a></li>
+		
+			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
+		
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2020/8BV7RJ.html"  title="对于基础的网络知识学习。" ><i class="fa fa-file-o"></i>Go语言详解网络代理</a>
+      </li>
+    
+      <li>
+        <a href="/2020/94VGB6.html" ><i class="fa fa-file-o"></i>Go语言Tcp和Udp使用实例</a>
+      </li>
+    
+      <li>
+        <a href="/2020/1TTQ6FN.html" ><i class="fa fa-file-o"></i>网络开发基础</a>
+      </li>
+    
+      <li>
+        <a href="/2020/33KJF3Z.html" ><i class="fa fa-file-o"></i>Kotlin安卓开发-有序广播</a>
+      </li>
+    
+      <li>
+        <a href="/2020/1M052X8.html" ><i class="fa fa-file-o"></i>Docker-Etcd集群搭建</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>链接</h4>
+	<ul class="blogroll list-unstyled">
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/wzpan/hexo-theme-freemind" title="Freemind's Github repository." target="_blank"]);">Freemind</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/kristopolous/BOOTSTRA.386" title="BOOTSTRA.386's Github repository." target="_blank"]);">BOOTSTRA.386</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow/hexo-theme-freemind.386" title="Freemind.386's Github repository." target="_blank"]);">Freemind.386</a></li>
+	
+		<li><i class="fa fa-github"></i><a href="http://www.github.com/blackshow" title="My Github account." target="_blank"]);">My Github</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2020 Nekilc
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
