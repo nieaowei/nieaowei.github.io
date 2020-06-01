@@ -155,55 +155,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-数据库的完整性设计"><a href="#1-数据库的完整性设计" class="headerlink" title="1. 数据库的完整性设计"></a>1. 数据库的完整性设计</h2><hr>
-<h3 id="1-1-数据完整性设计理解"><a href="#1-1-数据完整性设计理解" class="headerlink" title="1.1. 数据完整性设计理解"></a>1.1. 数据完整性设计理解</h3><p>数据库完整性是指数据库中数据的正确性和相容性。数据库完整性由各种各样的完整性约束来保证，因此可以说数据库完整性设计就是数据庠完整性约束的设计。数据库完整性约束可以通过DBMS<a href="数据库管理系统。">^DBMS</a>或应用程序来实现，基于DBMS的完整性约束作为模式的一部分存入数据库中。通过DBMS实现的数据库完整性按照数据库设计步骤进行设计，而由应用软件实现的数据库完整性则纳入应用软件设计。</p>
-<hr>
-<h3 id="1-2-数据库完整性设计原则"><a href="#1-2-数据库完整性设计原则" class="headerlink" title="1.2. 数据库完整性设计原则"></a>1.2. 数据库完整性设计原则</h3><ol>
-<li>静态约束应尽量包含在数据库模式中，而动态约束由应用程序实现。</li>
-<li>触发器性能开销大，非用不可时使用before触发器。</li>
-<li>制定完整性约束的命名规范。</li>
-<li>根据业务规则对数据库完整性进行测试，排除约束冲突。</li>
-</ol>
-<hr>
-<h3 id="1-3-数据库完整性的作用"><a href="#1-3-数据库完整性的作用" class="headerlink" title="1.3. 数据库完整性的作用"></a>1.3. 数据库完整性的作用</h3><ul>
-<li>防止合法用户使用数据库时向数据库中添加不合语义的数据。</li>
-<li>降低应用程序的复杂性，提高应用程序的运行效率。</li>
-<li>比应用程序更容易实现数据库的完整性。</li>
-</ul>
-<hr>
-<h3 id="1-4-六类数据库完整性约束"><a href="#1-4-六类数据库完整性约束" class="headerlink" title="1.4. 六类数据库完整性约束"></a>1.4. 六类数据库完整性约束</h3><ol>
-<li>列级静态约束</li>
-<li>元组级静态约束</li>
-<li>关系级静态约束</li>
-<li>列级动态约束</li>
-<li>元组级动态约束</li>
-<li>关系级动态约束</li>
-</ol>
-<hr>
-<h3 id="1-5-数据库完整性设计示例"><a href="#1-5-数据库完整性设计示例" class="headerlink" title="1.5. 数据库完整性设计示例"></a>1.5. 数据库完整性设计示例</h3><ol>
-<li><p>需求分析阶段</p>
-<ul>
-<li><p>经过系统分析员、数据库分析员和用户的共同努力，确定系统模型中应该包含的对象，如人事及工资管理系统中的部门、员工和经理等，以及各种业务规则。</p>
-</li>
-<li><p>在完成寻找业务规则的工作之后，确定要作为数据库完整性的业务规则，并对业务规则进行分类。其中作为数据库模式一部分的完整性设计按下面的过程进行，而由应用软件来实现的数据库完整性设计将按照软件工程的方法进行。</p>
-</li>
-</ul>
-</li>
-<li><p>概念结构设计阶段</p>
-<ul>
-<li>概念结构设计阶段是将依据需求分析的结果转换成一个独立于具体DBMS的概念模型，即实体关系图（Entity-RelationshipDiagram,ERD）。在概念结构设计阶段就要开始数据库完整性设计的实质阶段，因为此阶段的实体关系将在逻辑结构设计阶段转化为实体完整性约束和参照完整性约束，到逻辑结构设计阶段将完成设计的主要工作。</li>
-</ul>
-</li>
-<li><p>逻辑结构设计阶段</p>
-<ul>
-<li><p>此阶段就是将概念结构转换为某个DBMS所支持的数据模型，并对其进行优化，包括对关系模型的规范化。此时，依据DBMS提供的完整性约束机制，对尚未加入逻辑结构中的完整性约束列表，逐条选择合适的方式加以实现。</p>
-</li>
-<li><p>在逻辑结构设计阶段结束时，作为数据库模式一部分的完整性设计也就基本完成了。每种业务规则都可能有好几种实现方式，应该选择对数据库性能影响最小的一种，有时需通过实际测试来决定。</p>
-</li>
-</ul>
-</li>
-</ol>
-
+		
 	
 	</div>
   <a type="button" href="/2020/YE6KFM.html#more" class="btn btn-default more">阅读此文</a>
@@ -230,57 +182,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-对于select-要时刻保持谨慎的态度"><a href="#1-对于select-要时刻保持谨慎的态度" class="headerlink" title="1. 对于select *要时刻保持谨慎的态度"></a>1. 对于select *要时刻保持谨慎的态度</h2><p>绝大多数情况，是不需要<code>select *</code>的。一旦使用了这种语句，便会让优化器无法完成索引覆盖扫描这类优化，而且还会增加额外的I/O、内存和CPU的消耗。<br>当然，使用<code>select *</code>也并不是全是坏处，合理的使用<code>select *</code>可以简化开发，提高相同代码的复用性。  </p>
-<hr>
-<h2 id="2-是否扫描的太多额外的记录"><a href="#2-是否扫描的太多额外的记录" class="headerlink" title="2. 是否扫描的太多额外的记录"></a>2. 是否扫描的太多额外的记录</h2><p>有时候会发现某些查询可能需要读取几千行数据，但是仅返回几条或者很少的结果，可以使用以下方式去优化：</p>
-<ul>
-<li>看看能否改表结构。例如使用汇总表</li>
-<li>看看获取数据结果的方式是否最优，获取路劲是否已经是最短。<br>使用覆盖索引，把所有需要的列都放到索引中，以减少返回表中对应行中取数据的步骤。</li>
-</ul>
-<hr>
-<h2 id="3-切分某些SQL语句"><a href="#3-切分某些SQL语句" class="headerlink" title="3. 切分某些SQL语句"></a>3. 切分某些SQL语句</h2><p>传统的互联网系统中，强调网络连接尽量少，数据层尽可能在一次连接中完成尽可能多的工作，防止建立多次链接，但是这种想法对于MySQL并不适用，MySQL从设计上让连接和断开都很轻量，在一般服务器上可以支持每秒超过10万的查询。<br>所以对于有些场景下，可以将一个大的查询“分而治之”，切分成小查询，然后再组合起来。例如以下情况：</p>
-<ul>
-<li>对于全量数据查询变成分页。假如一张表中有数千万条数据，一次<code>select all</code>，肯定是不行的。可以换成一次取一部分，把一次的压力分摊。</li>
-<li>删除大量旧数据的时候，不要一个大的语句一次性清完，推荐一次删一万条。如果用一个大的语句一次性完成的话，可能需要一次锁住大量数据，占满大量日志事务，让Mysql停在那儿了，为避免这种情况发生，最好一次性删除一万条左右的数据，然后每次删完暂停一会儿再操作，将服务器上的一次性压力分散。</li>
-</ul>
-<p>注意：虽然Mysql建立连接十分轻量，但是这不意味着可以逐条循环中查询然后再拼接，这样效率依然是非常慢，而且通常是工作中sql优化的点。  </p>
-<hr>
-<h2 id="4-慎用join操作"><a href="#4-慎用join操作" class="headerlink" title="4. 慎用join操作"></a>4. 慎用<code>join</code>操作</h2><p>这算是一条禁忌吧，很多公司的互联网产品都杜绝join操作，换成先从一张表中先取出数据id，再从另外一张表中使用<code>where in</code>查询的两次单表查询操作。主要是以下几点原因：</p>
-<ul>
-<li>让应用的缓存(redis、memcache等)更高效。例如在第一张表中查询出部分id了，如果命中了缓存，就可以省去一条<code>where in</code>语句了。</li>
-<li>更容易应对业务的发展，方便对数据库进行拆分，更容易做到高性能和高扩展。</li>
-<li>对where in中的id进行升序排序后，查询效率比join的随机关联更高效</li>
-<li>减少多余的查询。在应用层中两次查询，意味着对某条记录应用只需要查询一次，而使用<code>join</code>可能需要重复的扫描访问一部分数据。</li>
-<li>单张表查询可以减少锁的竞争。<br>假如非用不可，可以采用以下方式来优化：</li>
-<li>确保<code>ON</code>或者<code>using</code>子句中的列上有索引</li>
-<li>确保任何的<code>group by</code>和<code>order by</code>中的表达式只涉及到一个表中的列。</li>
-</ul>
-<hr>
-<h2 id="5-在性能要求比较高的场景中，杜绝查询中使用临时表"><a href="#5-在性能要求比较高的场景中，杜绝查询中使用临时表" class="headerlink" title="5. 在性能要求比较高的场景中，杜绝查询中使用临时表"></a>5. 在性能要求比较高的场景中，杜绝查询中使用临时表</h2><p>MySQL的临时表示没有任何索引的，使用临时表一般都意味着性能比较低,因此在对性能要求比较高的场景中，最好不要使用带有临时表的操作：</p>
-<ul>
-<li>未带索引的字段上的<code>group by</code>操作。</li>
-<li>UNION查询。</li>
-<li>查询语句中的子查询。</li>
-<li>部分<code>order by</code>操作，例如<code>distinct</code>函数和<code>order by</code>一起使用且<code>distinct</code>和<code>order by</code>同一个字段。再例如某些情况下<code>group by</code>和<code>order by</code>字段不同。<br>具体是否用到临时表，可以通过explain来查看，查看Extra列的结果，如果出现<code>Using temporary</code>则需要注意。</li>
-</ul>
-<hr>
-<h2 id="6-count-函数优化"><a href="#6-count-函数优化" class="headerlink" title="6. count()函数优化"></a>6. <code>count()</code>函数优化</h2><p><code>count()</code>函数有一点需要特别注意：它是不统计值为NULL的字段的！所以:</p>
-<ul>
-<li>不能指定查询结果的某一列，来统计结果行数。即<code>count(xx column)</code> 不太好。</li>
-<li>如果想要统计结果集，就使用<code>count(\*)</code>，性能也会很好。</li>
-<li>尽量不使用子查询</li>
-<li>尽量别使用子查询，尽可能的使用关联来代替</li>
-</ul>
-<hr>
-<h2 id="7-优化分页limit"><a href="#7-优化分页limit" class="headerlink" title="7. 优化分页limit"></a>7. 优化分页<code>limit</code></h2><p>通常我们在分页的时候，通常使用的是limit 50, 10这种语句。数据少还不错，但是当数据偏移量非常大的时候，性能就会出现问题，例如select xx,xxx from test_table limit 100000020, 20。扫描了100000020条数据，才返回20条数据。这个时候我们可以用一下两种方式来优化：</p>
-<ul>
-<li>利用between and和主键索引</li>
-<li>利用主键自增id，我们如果知道了分页的上边界，以上查询可以改写为：<br><code>select xxx, xxx from test_table where id between xxxxx and xxxx</code>。<br>利用自增主键索引、<code>order by</code>加<code>limit</code>，不使用<code>offset</code></li>
-</ul>
-<p>limit和offset的问题，其实就是offset的问题，它会导致MySQL扫描大量不需要的行然后再抛弃掉。如果使用某个标签记录上一次所取数据的位置，那么下次就可以直接从书签位置开始扫描，这样就可以避免使用offset。<br>例如以上查询可以改为:<br>第一组数据：<code>select xxx, xxxx from test_table order by id desc limit 20;</code><br>这样就拿到了本次数据和下次数据的分解id值，则下一页查询就知道可以：<br><code>select xxx, xxx from test_table where id &lt; &#39;上页id分界值&#39; order by id desc limit 20</code></p>
-<hr>
-<h2 id="8-熟悉并灵活使用explain"><a href="#8-熟悉并灵活使用explain" class="headerlink" title="8. 熟悉并灵活使用explain"></a>8. 熟悉并灵活使用<code>explain</code></h2><p>以下是mysql执行查询的整个过程，explain可以查看图中标红部分，</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/1905944.html#more" class="btn btn-default more">阅读此文</a>
@@ -307,19 +209,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="六种负载均衡算法"><a href="#六种负载均衡算法" class="headerlink" title="六种负载均衡算法"></a>六种负载均衡算法</h1><hr>
-<h2 id="1-轮询法"><a href="#1-轮询法" class="headerlink" title="1. 轮询法"></a>1. 轮询法</h2><p>将请求按顺序轮流地分配到后端服务器上，它均衡地对待后端的每一台服务器，而不关心服务器实际的连接数和当前的系统负载。</p>
-<hr>
-<h2 id="2-随机法"><a href="#2-随机法" class="headerlink" title="2. 随机法"></a>2. 随机法</h2><p>通过系统的随机算法，根据后端服务器的列表大小值来随机选取其中的一台服务器进行访问。由概率统计理论可以得知，随着客户端调用服务端的次数增多，其实际效果越来越接近于平均分配调用量到后端的每一台服务器，也就是轮询的结果。</p>
-<hr>
-<h2 id="3-源地址哈希法"><a href="#3-源地址哈希法" class="headerlink" title="3. 源地址哈希法"></a>3. 源地址哈希法</h2><p>源地址哈希的思想是根据获取客户端的IP地址，通过哈希函数计算得到的一个数值，用该数值对服务器列表的大小进行取模运算，得到的结果便是客服端要访问服务器的序号。采用源地址哈希法进行负载均衡，同一IP地址的客户端，当后端服务器列表不变时，它每次都会映射到同一台后端服务器进行访问。</p>
-<hr>
-<h2 id="4-加权轮询法"><a href="#4-加权轮询法" class="headerlink" title="4. 加权轮询法"></a>4. 加权轮询法</h2><p>不同的后端服务器可能机器的配置和当前系统的负载并不相同，因此它们的抗压能力也不相同。给配置高、负载低的机器配置更高的权重，让其处理更多的请；而配置低、负载高的机器，给其分配较低的权重，降低其系统负载，加权轮询能很好地处理这一问题，并将请求顺序且按照权重分配到后端。</p>
-<hr>
-<h2 id="5-加权随机法"><a href="#5-加权随机法" class="headerlink" title="5. 加权随机法"></a>5. 加权随机法</h2><p>与加权轮询法一样，加权随机法也根据后端机器的配置，系统的负载分配不同的权重。不同的是，它是按照权重随机请求后端服务器，而非顺序。</p>
-<hr>
-<h2 id="6-最小连接数法"><a href="#6-最小连接数法" class="headerlink" title="6. 最小连接数法"></a>6. 最小连接数法</h2><p>最小连接数算法比较灵活和智能，由于后端服务器的配置不尽相同，对于请求的处理有快有慢，它是根据后端服务器当前的连接情况，动态地选取其中当前积压连接数最少的一台服务器来处理当前的请求，尽可能地提高后端服务的利用效率，将负责合理地分流到每一台服务器。</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/FC7S68.html#more" class="btn btn-default more">阅读此文</a>
@@ -346,21 +236,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<p>Golang 支持在一个平台下生成另一个平台可执行程序的交叉编译功能。</p>
-<hr>
-<h2 id="1-Mac-os"><a href="#1-Mac-os" class="headerlink" title="1. Mac os"></a>1. Mac os</h2><p>Mac下编译Linux, Windows平台的64位可执行程序：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="2-Linux"><a href="#2-Linux" class="headerlink" title="2. Linux"></a>2. Linux</h2><p>Linux下编译Mac, Windows平台的64位可执行程序：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go</span><br><span class="line">CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="3-Windows"><a href="#3-Windows" class="headerlink" title="3. Windows"></a>3. Windows</h2><p>Windows下编译Mac, Linux平台的64位可执行程序：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go</span><br><span class="line">CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows<br>GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm</p>
-</blockquote>
-
+		
 	
 	</div>
   <a type="button" href="/2020/3F6APKH.html#more" class="btn btn-default more">阅读此文</a>
@@ -441,31 +317,31 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/tags/Docker/">Docker<span>2</span></a></li>
 		
-			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
-		
-			<li><a href="/tags/Golang/">Golang<span>1</span></a></li>
-		
-			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
+			<li><a href="/tags/Java/">Java<span>3</span></a></li>
 		
 			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
 		
-			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
+			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
 		
 			<li><a href="/tags/Gin/">Gin<span>1</span></a></li>
 		
+			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
+		
+			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
+		
+			<li><a href="/tags/Golang/">Golang<span>1</span></a></li>
+		
 			<li><a href="/tags/Centos/">Centos<span>1</span></a></li>
-		
-			<li><a href="/tags/Java/">Java<span>3</span></a></li>
-		
-			<li><a href="/tags/Android/">Android<span>3</span></a></li>
-		
-			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
-		
-			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
 		
 			<li><a href="/tags/Mysql/">Mysql<span>2</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
+			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+		
+			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
+		
+			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
+		
+			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -491,7 +367,7 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
-        <a href="/2020/33KJF3Z.html" ><i class="fa fa-file-o"></i>Kotlin安卓开发-有序广播</a>
+        <a href="/2020/1309D84.html" ><i class="fa fa-file-o"></i>JetPack Compose-有序广播</a>
       </li>
     
       <li>
@@ -507,13 +383,7 @@ var _hmt = _hmt || [];
 	<h4>链接</h4>
 	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/wzpan/hexo-theme-freemind" title="Freemind's Github repository." target="_blank"]);">Freemind</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/kristopolous/BOOTSTRA.386" title="BOOTSTRA.386's Github repository." target="_blank"]);">BOOTSTRA.386</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow/hexo-theme-freemind.386" title="Freemind.386's Github repository." target="_blank"]);">Freemind.386</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/blackshow" title="My Github account." target="_blank"]);">My Github</a></li>
+		<li><i class="fa fa-github"></i><a href="https://www.hieiko.com" title="hieiko's blog." target="_blank"]);">Hieiko</a></li>
 	
 	</ul>
 </div>
@@ -530,10 +400,10 @@ var _hmt = _hmt || [];
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2020 Nekilc
+  &copy; 2020 <a href="https://www.nekilc.com" target="_blank">Nekilc</a> 
   
-      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
-     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.    
+      <!-- with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.     -->
 </p>
  </footer>
 </div> <!-- container-narrow -->

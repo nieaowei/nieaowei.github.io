@@ -155,36 +155,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-路由介绍"><a href="#1-路由介绍" class="headerlink" title="1. 路由介绍"></a>1. 路由介绍</h2><p>在web项目中，路由可以说是URL到函数的映射。举个例子，你访问<code>https://www.baidu.com/</code>的时候，浏览器或默认执行GET方法，此时的路由就是<code>/</code>，在你后端代码中，会根据请求的<code>/</code>去执行相应的函数并返回相应的内容。</p>
-<h2 id="2-请求类型"><a href="#2-请求类型" class="headerlink" title="2. 请求类型"></a>2. 请求类型</h2><h3 id="2-1-Get"><a href="#2-1-Get" class="headerlink" title="2.1. Get"></a>2.1. Get</h3><ol>
-<li>代码如下<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.GET(</span><br><span class="line">		<span class="string">"/get"</span>,<span class="comment">//路由</span></span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"get"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
-<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000514.png" alt></li>
-</ol>
-<h3 id="2-2-Post"><a href="#2-2-Post" class="headerlink" title="2.2. Post"></a>2.2. Post</h3><ol>
-<li>代码如下<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.POST(</span><br><span class="line">		<span class="string">"/get"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"post"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
-<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000539.png" alt><h3 id="2-3-Delete"><a href="#2-3-Delete" class="headerlink" title="2.3. Delete"></a>2.3. Delete</h3></li>
-<li>代码如下<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.DELETE(</span><br><span class="line">		<span class="string">"/delete"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"delete"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure></li>
-<li>结果如下<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000630.png" alt></li>
-</ol>
-<h3 id="2-4-Any方法的使用"><a href="#2-4-Any方法的使用" class="headerlink" title="2.4. Any方法的使用"></a>2.4. Any方法的使用</h3><p>any可以将一个路由对应多个请求类型。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ginRouter.Any(</span><br><span class="line">		<span class="string">"/any"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"any"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
-<ol>
-<li>GET<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002411.png" alt></li>
-<li>POST<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002353.png" alt></li>
-<li>PUT<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002338.png" alt></li>
-<li>DELETE<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408002227.png" alt><h3 id="2-5-完整代码"><a href="#2-5-完整代码" class="headerlink" title="2.5. 完整代码"></a>2.5. 完整代码</h3></li>
-</ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/get"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"get"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.POST(</span><br><span class="line">		<span class="string">"/get"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"post"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.DELETE(</span><br><span class="line">		<span class="string">"/delete"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"delete"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Any(</span><br><span class="line">		<span class="string">"/any"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>: <span class="string">"any"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	err := ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-6-正则路由"><a href="#2-6-正则路由" class="headerlink" title="2.6. 正则路由"></a>2.6. 正则路由</h3><p>正则路由可以将指定前缀url全部指向一个函数。</p>
-<ol>
-<li>代码如下</li>
-</ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/pre/*a"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>,gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>:<span class="string">"helloworld"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>结果<br>此时可以看见，将<code>/pre</code>前缀路径的<code>Get</code>请求全都指向了那一个执行方法。<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408010351.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408010408.png" alt></li>
-</ol>
-
+		
 	
 	</div>
   <a type="button" href="/2020/3R57ZBM.html#more" class="btn btn-default more">阅读此文</a>
@@ -211,26 +182,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-简言"><a href="#1-简言" class="headerlink" title="1. 简言"></a>1. 简言</h2><p>Gin是一个Go语言编写的高性能的Web框架，可以用于mvc结构或者是mvvm架构的web项目，在GitHub上有24k+的Star。</p>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><p><code>go get -u github.com/gin-gonic/gin</code></p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200407234412.png" alt></p>
-<h2 id="3-HelloWorld代码"><a href="#3-HelloWorld代码" class="headerlink" title="3. HelloWorld代码"></a>3. HelloWorld代码</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ginRouter := gin.Default()</span><br><span class="line">	ginRouter.GET(</span><br><span class="line">		<span class="string">"/"</span>,</span><br><span class="line">		<span class="function"><span class="keyword">func</span><span class="params">(context *gin.Context)</span></span> &#123;</span><br><span class="line">			context.JSON(<span class="number">200</span>,gin.H&#123;</span><br><span class="line">				<span class="string">"msg"</span>:<span class="string">"helloword"</span>,</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;,</span><br><span class="line">	)</span><br><span class="line">	err := ginRouter.Run(<span class="string">":8088"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-Http测试"><a href="#4-Http测试" class="headerlink" title="4. Http测试"></a>4. Http测试</h2><ul>
-<li>使用Postman测试工具</li>
-<li>使用浏览器直接访问</li>
-<li>使用Goland自带的Http测试，新建http后缀的文件。<br>  <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200408000043.png" alt></li>
-<li>使用终端的Curl命令<br>  <code>curl -X 方法（get/post....）</code></li>
-</ul>
-<h2 id="5-运行结果"><a href="#5-运行结果" class="headerlink" title="5. 运行结果"></a>5. 运行结果</h2><ol>
-<li><p>使用终端</p>
-<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200407235206.png" alt></p>
-</li>
-<li><p>使用浏览器访问</p>
-<p> <img src="https://gitee.com/nieaowei/images/raw/master/blog/20200407235314.png" alt></p>
-</li>
-</ol>
-
+		
 	
 	</div>
   <a type="button" href="/2020/3KDWDKB.html#more" class="btn btn-default more">阅读此文</a>
@@ -257,18 +209,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-使用官方脚本自动安装"><a href="#1-使用官方脚本自动安装" class="headerlink" title="1. 使用官方脚本自动安装"></a>1. 使用官方脚本自动安装</h2><p><code>curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</code></p>
-<h2 id="2-常用命令"><a href="#2-常用命令" class="headerlink" title="2. 常用命令"></a>2. 常用命令</h2><ul>
-<li>启动docker服务<br><code>systemctl start docker</code></li>
-<li>查看运行容器<br><code>docker ps</code></li>
-<li>查看所有容器<br><code>docker ps -a</code></li>
-<li>启动容器<br><code>docker start 容器名称或id</code></li>
-<li>设置开机自启<br><code>systemctl enable docker</code></li>
-<li>停止docker服务<br><code>systemctl stop docker</code></li>
-<li>拉取镜像<br><code>docker pull 镜像地址</code></li>
-<li>新建容器并运行<br><code>docker run -d -p本地端口:容器端口 --name 自定义容器名称 镜像名称</code></li>
-</ul>
-
+		
 	
 	</div>
   <a type="button" href="/2020/28VBK0S.html#more" class="btn btn-default more">阅读此文</a>
@@ -281,7 +222,7 @@ var _hmt = _hmt || [];
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
-			<a href="/2020/3VJHNG4.html" >Kotlin安卓开发-Fragment和navigation初探（三）</a>
+			<a href="/2020/TCZD4D.html" >JetPack Compose-Fragment和navigation初探（三）</a>
 		</h3>
 		</div>
 	<div class="col-md-4">
@@ -295,18 +236,10 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-简言"><a href="#1-简言" class="headerlink" title="1. 简言"></a>1. 简言</h2><p>依然坚持减少xml的使用，使用JetPack组件化编程，本次将探究Fragment的生命周期，以及实现Navigation进行Fragment间的跳转。</p>
-<h2 id="2-新建项目"><a href="#2-新建项目" class="headerlink" title="2. 新建项目"></a>2. 新建项目</h2><ol>
-<li>如图，新建容组件化项目，与上篇一样，需要添加依赖等配置，这次新增几个依赖如下。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def nav_version = <span class="string">"2.3.0-alpha04"</span></span><br><span class="line">  implementation <span class="string">"androidx.navigation:navigation-fragment-ktx:<span class="variable">$nav_version</span>"</span></span><br><span class="line">  implementation <span class="string">"androidx.navigation:navigation-ui-ktx:<span class="variable">$nav_version</span>"</span></span><br><span class="line">  implementation <span class="string">"androidx.navigation:navigation-dynamic-features-fragment:<span class="variable">$nav_version</span>"</span></span><br><span class="line">  androidTestImplementation <span class="string">"androidx.navigation:navigation-testing:<span class="variable">$nav_version</span>"</span></span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/nieaowei/images/raw/master/blog/20200330065204.png" alt></li>
-<li>新建两个空白Fragment。<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200330070954.png" alt></li>
-<li>新建一个navigation资源文件<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200331175556.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200330071229.png" alt></li>
-<li>构建MainActivity并设置视图，配置导航主机。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mLayout: LinearLayout <span class="comment">//总体布局</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mToolbar: Toolbar      <span class="comment">//顶部工具栏</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mFragmentContainer: FragmentContainerView; <span class="comment">//Fragment容器</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mNavHostFragment: NavHostFragment <span class="comment">//导航主机</span></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> mBottomNavigationView: BottomNavigationView <span class="comment">//底部导航</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        initView()</span><br><span class="line">        setContentView(mLayout)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">initView</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">//总体布局处理</span></span><br><span class="line">        mLayout = LinearLayout(<span class="keyword">this</span>)</span><br><span class="line">        <span class="keyword">val</span> params = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)</span><br><span class="line">        mLayout.layoutParams = params</span><br><span class="line">        mLayout.orientation = LinearLayout.VERTICAL</span><br><span class="line">        <span class="comment">//底部导航处理</span></span><br><span class="line">        mBottomNavigationView = BottomNavigationView(<span class="keyword">this</span>)</span><br><span class="line">        mBottomNavigationView.setBackgroundColor(Color.YELLOW)</span><br><span class="line">        mLayout.addView(mBottomNavigationView)</span><br><span class="line">        <span class="comment">//顶部工具栏处理</span></span><br><span class="line">        mToolbar = Toolbar(<span class="keyword">this</span>)</span><br><span class="line">        mToolbar.title = <span class="string">"Hello Android"</span></span><br><span class="line">        mLayout.addView(mToolbar)</span><br><span class="line">        <span class="comment">//初始化Fragment容器</span></span><br><span class="line">        mFragmentContainer = FragmentContainerView(<span class="keyword">this</span>)</span><br><span class="line">        mFragmentContainer.id=R.id.nav_host</span><br><span class="line">        mLayout.addView(mFragmentContainer)</span><br><span class="line">        <span class="comment">//初始化导航主机</span></span><br><span class="line">        mNavHostFragment = NavHostFragment.create(R.navigation.nav)</span><br><span class="line">        supportFragmentManager.beginTransaction()</span><br><span class="line">                .replace(R.id.nav_host,mNavHostFragment)</span><br><span class="line">                .setPrimaryNavigationFragment(mNavHostFragment)<span class="comment">//设置默认导航主机</span></span><br><span class="line">                .commit()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//开启支持导航</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onSupportNavigateUp</span><span class="params">()</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> findNavController(R.id.nav_host_fragment_container).navigateUp()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+		
 	
 	</div>
-  <a type="button" href="/2020/3VJHNG4.html#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/TCZD4D.html#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -316,7 +249,7 @@ var _hmt = _hmt || [];
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
-			<a href="/2020/1B5R51M.html" >Kotlin安卓开发-Activity间跳转和数据传递（二）</a>
+			<a href="/2020/VZZEZQ.html" >JetPack Compose-Activity间跳转和数据传递（二）</a>
 		</h3>
 		</div>
 	<div class="col-md-4">
@@ -330,32 +263,10 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>Fragment在Android3.0之后变得非常常见，很多app也开始尝试一个activity+多个Fragment的开发模式，相比于activity，Fragment在界面切换管理上是非常方便的，今天主要还是学习jetpack来实现组件化开发。jetpack是谷歌新推出的ui开发包，借鉴了vue、flutter等数据驱动UI的思维，让数据和ui的交互变得更容易了，甚至不用去设置监听器了,甚至你不需要Fragment了。</p>
-<h2 id="2-新建项目"><a href="#2-新建项目" class="headerlink" title="2. 新建项目"></a>2. 新建项目</h2><ol>
-<li>新建一个Kotlin项目<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327132009.png" alt><br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327134943.png" alt></li>
-<li>新建两个空Activity。<br><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327193929.png" alt></li>
-<li>在Module build.gradle，加入如下配置 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composeOptions &#123;</span><br><span class="line">        kotlinCompilerExtensionVersion <span class="string">"$compose_compiler_extension_version"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327193606.png" alt></li>
-<li>导入JetPack相关依赖，将Module build.gradle中的依赖修改为如下，最后构建一下项目</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    def compose_version = <span class="string">"0.1.0-dev07"</span></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span></span><br><span class="line">    implementation(<span class="string">"androidx.compose:compose-runtime:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-framework:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-layout:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-material:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-foundation:$compose_version"</span>)</span><br><span class="line">    implementation(<span class="string">"androidx.ui:ui-animation:$compose_version"</span>)</span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-tooling:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-android-text:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-animation-core:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-core:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-geometry:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-graphics:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-material:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-unit:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-util:$compose_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.ui:ui-vector:$compose_version"</span></span><br><span class="line"></span><br><span class="line">    implementation(<span class="string">'androidx.appcompat:appcompat:1.1.0'</span>)</span><br><span class="line">    implementation(<span class="string">'androidx.activity:activity-ktx:1.1.0'</span>)</span><br><span class="line">    implementation <span class="string">"androidx.core:core-ktx:1.2.0"</span></span><br><span class="line"></span><br><span class="line">    androidTestImplementation(<span class="string">"junit:junit:4.13"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.test:rules:1.2.0"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.test:runner:1.2.0"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.ui:ui-platform:$compose_version"</span>)</span><br><span class="line">    androidTestImplementation(<span class="string">"androidx.ui:ui-test:$compose_version"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200327131149.png" alt></p>
-<h2 id="3-构建一个带标签输入框"><a href="#3-构建一个带标签输入框" class="headerlink" title="3. 构建一个带标签输入框"></a>3. 构建一个带标签输入框</h2><ol>
-<li>为了将组件化编程思维贯彻到底，首先就构建一个带标签的输入框。</li>
-</ol>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200328172534.png" alt></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//label : 标签名</span></span><br><span class="line"><span class="comment">//state : 绑定的数据</span></span><br><span class="line"><span class="comment">//modifier : 布局样式</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">EditText</span><span class="params">(label:<span class="type">String</span>, state : <span class="type">MutableState</span>&lt;<span class="type">String</span>&gt;,modifier: <span class="type">Modifier</span>)</span></span>&#123;</span><br><span class="line">        Row(modifier = modifier) &#123;</span><br><span class="line">            Text(</span><br><span class="line">                    text = label,</span><br><span class="line">                    style = (MaterialTheme.typography()).h6</span><br><span class="line">            )</span><br><span class="line">            Surface(border = Border(<span class="number">1</span>.dp, Color.Black),modifier = LayoutPadding(start = <span class="number">5</span>.dp) ) &#123;</span><br><span class="line">                TextField(</span><br><span class="line">                        textStyle = (MaterialTheme.typography()).h6,</span><br><span class="line">                        value = state.value,</span><br><span class="line">                        onValueChange = &#123;</span><br><span class="line">                            state.value = it</span><br><span class="line">                        &#125;,</span><br><span class="line">                        modifier = LayoutPadding(start = <span class="number">5</span>.dp)</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-构建第一个Activity的界面"><a href="#4-构建第一个Activity的界面" class="headerlink" title="4. 构建第一个Activity的界面"></a>4. 构建第一个Activity的界面</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContent &#123;</span><br><span class="line">            MaterialTheme &#123;</span><br><span class="line">            		<span class="comment">//接收其他Activity传来的参数</span></span><br><span class="line">                DefaultPreview(<span class="keyword">this</span>.intent.extras)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        MainActivity.context = <span class="keyword">this</span>.applicationContext</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">lateinit</span> <span class="keyword">var</span> context: Context;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//由于带参数组件不可预览，所以这个默认传参用于预览</span></span><br><span class="line"><span class="meta">@Preview</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">PreviewUI</span><span class="params">()</span></span> &#123;</span><br><span class="line">    DefaultPreview(bundle = <span class="literal">null</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">DefaultPreview</span><span class="params">(bundle: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line"><span class="comment">//数据驱动UI思维，使用`state`方法创建一个`MutableState`类型数据变量，</span></span><br><span class="line"><span class="comment">//用于输入框数据绑定</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> input = state() &#123; <span class="string">""</span> &#125;</span><br><span class="line">    Scaffold(</span><br><span class="line">        topAppBar = &#123;</span><br><span class="line">            TopAppBar(title = &#123; Text(text = <span class="string">"Intent"</span>) &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        bodyContent = &#123;</span><br><span class="line">            Column(modifier = LayoutPadding(<span class="number">5</span>.dp)) &#123;</span><br><span class="line">                EditText(</span><br><span class="line">                    label = <span class="string">"第一个Activity:"</span>,</span><br><span class="line">                    state = input,</span><br><span class="line">                    modifier = LayoutWidth(width = <span class="number">300</span>.dp)</span><br><span class="line">                )</span><br><span class="line">                <span class="keyword">if</span> (bundle != <span class="literal">null</span>) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = bundle.getString(<span class="string">"msg"</span>, <span class="string">"第二个Activity传递值"</span>),</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"第二个Activity传递值"</span>,</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">                Button(</span><br><span class="line">                    modifier = LayoutPadding(<span class="number">5</span>.dp),</span><br><span class="line">                    onClick = &#123;</span><br><span class="line">                    	<span class="comment">//传递参数跳转</span></span><br><span class="line">                        <span class="keyword">val</span> intent = Intent(MainActivity.context, MainActivity2::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">                        <span class="keyword">val</span> bundle1: Bundle = Bundle()</span><br><span class="line">                        bundle1.putString(<span class="string">"msg"</span>, input.value)</span><br><span class="line">                        intent.putExtras(bundle1)</span><br><span class="line">                        MainActivity.context.startActivity(intent)</span><br><span class="line">                    &#125;</span><br><span class="line">                ) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"跳转到第二个Activity"</span></span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">EditText</span><span class="params">(label: <span class="type">String</span>, state: <span class="type">MutableState</span>&lt;<span class="type">String</span>&gt;, modifier: <span class="type">Modifier</span>)</span></span> &#123;</span><br><span class="line">    Row(modifier = modifier) &#123;</span><br><span class="line">        Text(</span><br><span class="line">            text = label,</span><br><span class="line">            style = (MaterialTheme.typography()).h6</span><br><span class="line">        )</span><br><span class="line">        Surface(border = Border(<span class="number">1</span>.dp, Color.Black), modifier = LayoutPadding(start = <span class="number">5</span>.dp)) &#123;</span><br><span class="line">            TextField(</span><br><span class="line">                textStyle = (MaterialTheme.typography()).h6,</span><br><span class="line">                value = state.value,</span><br><span class="line">                onValueChange = &#123;</span><br><span class="line">                    state.value = it</span><br><span class="line">                &#125;,</span><br><span class="line">                modifier = LayoutPadding(start = <span class="number">5</span>.dp)</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200328174932.png" alt></p>
-<h2 id="5-构建第二个Activity的界面"><a href="#5-构建第二个Activity的界面" class="headerlink" title="5. 构建第二个Activity的界面"></a>5. 构建第二个Activity的界面</h2><p>两个代码差别不大。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity2</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContent &#123;</span><br><span class="line">            DefaultPreview2(<span class="keyword">this</span>.intent.extras)</span><br><span class="line">        &#125;</span><br><span class="line">        MainActivity2.context = <span class="keyword">this</span>.applicationContext</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">lateinit</span> <span class="keyword">var</span> context: Context;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Preview</span></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">PreviewUI2</span><span class="params">()</span></span> &#123;</span><br><span class="line">    DefaultPreview2(bundle = <span class="literal">null</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Composable</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">DefaultPreview2</span><span class="params">(bundle: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    Scaffold(</span><br><span class="line">        topAppBar = &#123;</span><br><span class="line">            TopAppBar(title = &#123; Text(text = <span class="string">"Intent"</span>) &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        bodyContent = &#123;</span><br><span class="line">            Column(modifier = LayoutPadding(<span class="number">5</span>.dp)) &#123;</span><br><span class="line">                Text(</span><br><span class="line">                    text = <span class="string">"第二个Activity"</span>,</span><br><span class="line">                    style = (MaterialTheme.typography()).h6</span><br><span class="line">                )</span><br><span class="line">                <span class="keyword">if</span> (bundle != <span class="literal">null</span>) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = bundle.getString(<span class="string">"msg"</span>, <span class="string">"第一个Activity传递值"</span>),</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"第一个Activity传递值"</span>,</span><br><span class="line">                        style = (MaterialTheme.typography()).h6</span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">                Button(</span><br><span class="line">                    modifier = LayoutPadding(<span class="number">5</span>.dp),</span><br><span class="line">                    onClick = &#123;</span><br><span class="line">                        <span class="keyword">val</span> intent = Intent(MainActivity2.context, MainActivity::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK</span><br><span class="line">                        <span class="keyword">val</span> bundle1: Bundle = Bundle()</span><br><span class="line">                        bundle1.putString(<span class="string">"msg"</span>, <span class="string">"nieaowei"</span>)</span><br><span class="line">                        intent.putExtras(bundle1)</span><br><span class="line">                        MainActivity2.context.startActivity(intent)</span><br><span class="line">                    &#125;</span><br><span class="line">                ) &#123;</span><br><span class="line">                    Text(</span><br><span class="line">                        text = <span class="string">"返回到第一个Activity"</span></span><br><span class="line">                    )</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/blog/20200328185113.png" alt></p>
-<h2 id="6-结果演示"><a href="#6-结果演示" class="headerlink" title="6. 结果演示"></a>6. 结果演示</h2><p><img src="https://s1.ax1x.com/2020/03/28/GAG1eA.gif" alt></p>
-<h2 id="7-源代码"><a href="#7-源代码" class="headerlink" title="7. 源代码"></a>7. 源代码</h2><p>下载地址：<a href="https://www.lanzous.com/iaqoyih" target="_blank" rel="noopener">https://www.lanzous.com/iaqoyih</a></p>
-
+		
 	
 	</div>
-  <a type="button" href="/2020/1B5R51M.html#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/VZZEZQ.html#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -379,11 +290,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h3 id="1-创建支持工作目录的远程仓库"><a href="#1-创建支持工作目录的远程仓库" class="headerlink" title="1. 创建支持工作目录的远程仓库"></a>1. 创建支持工作目录的远程仓库</h3><p>远程服务器初始化仓库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init &lt;仓库名&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="2-设置允许远程接收文件"><a href="#2-设置允许远程接收文件" class="headerlink" title="2. 设置允许远程接收文件"></a>2. 设置允许远程接收文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config receive.denyCurrentBranch ignore</span><br></pre></td></tr></table></figure>
-<h3 id="3-建立接受钩子文件"><a href="#3-建立接受钩子文件" class="headerlink" title="3. 建立接受钩子文件"></a>3. 建立接受钩子文件</h3><p>在远程仓库,post-receive 钩子文件中添加自动更新工作目录内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WORK_TREE='../'</span><br><span class="line">git  --work-tree="$&#123;WORK_TREE&#125;" reset --hard</span><br></pre></td></tr></table></figure>
+		
 	
 	</div>
   <a type="button" href="/2020/2EQXTDP.html#more" class="btn btn-default more">阅读此文</a>
@@ -410,12 +317,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<p>docker安装：<a href="https://www.nekilc.com/2020/22X88J.html">Centos、Ubuntu安装Docker</a></p>
-<h2 id="1-简单使用"><a href="#1-简单使用" class="headerlink" title="1. 简单使用"></a>1. 简单使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.7.28</span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=12345 -p 3306:3306 -d mysql:5.7.28</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-指定本机配置文件"><a href="#2-指定本机配置文件" class="headerlink" title="2. 指定本机配置文件"></a>2. 指定本机配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v /my/custom:/etc/mysql/conf.d</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-持久化数据-指定本机数据储存"><a href="#3-持久化数据-指定本机数据储存" class="headerlink" title="3. 持久化数据/指定本机数据储存"></a>3. 持久化数据/指定本机数据储存</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-v /my/own/datadir:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+		
 	
 	</div>
   <a type="button" href="/2020/22X88J.html#more" class="btn btn-default more">阅读此文</a>
@@ -428,7 +330,7 @@ var _hmt = _hmt || [];
 <div class="row">
 	<div class="col-md-8">
 		<h3 class="title">
-			<a href="/2020/1X1JYEX.html" >Kotlin安卓开发-环境搭建（一）</a>
+			<a href="/2020/2K0XH5G.html" >JetPack Compose 安卓开发-环境搭建（一）</a>
 		</h3>
 		</div>
 	<div class="col-md-4">
@@ -442,77 +344,10 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>本文旨在小白也能够顺利安装安卓开发环境，解决虚拟设备、SDK、GRADLE的路径修改问题。</p>
-<h2 id="2-Java开发环境"><a href="#2-Java开发环境" class="headerlink" title="2. Java开发环境"></a>2. Java开发环境</h2><p>该教程无需手动安装Java环境。</p>
-<h2 id="3-集成开发环境（Android-Studio）"><a href="#3-集成开发环境（Android-Studio）" class="headerlink" title="3. 集成开发环境（Android Studio）"></a>3. 集成开发环境（Android Studio）</h2><h3 id="3-1-下载安装JetBrain的ToolBox"><a href="#3-1-下载安装JetBrain的ToolBox" class="headerlink" title="3.1. 下载安装JetBrain的ToolBox"></a>3.1. 下载安装JetBrain的ToolBox</h3><p><a href="https://www.lanzous.com/iaa5pje" target="_blank" rel="noopener">点击下载</a></p>
-<h3 id="3-2-修改ToolBox的安装地址"><a href="#3-2-修改ToolBox的安装地址" class="headerlink" title="3.2. 修改ToolBox的安装地址"></a>3.2. 修改ToolBox的安装地址</h3><ol>
-<li><p>打开ToolBox的设置<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787643_20200315163947962_127009905.png" alt></p>
-</li>
-<li><p>选择路径并应用</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787643_20200315164457880_56728217.png" alt></p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787645_20200315165345379_406917145.png" alt></p>
-</li>
-<li><p>返回工具列表，找到AS ，可以选择你想要的版本，个人喜欢最新版</p>
-</li>
-</ol>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787645_20200315164649245_2095887498.png" alt></p>
-<h3 id="3-3-配置SDK路径"><a href="#3-3-配置SDK路径" class="headerlink" title="3.3. 配置SDK路径"></a>3.3. 配置SDK路径</h3><ol>
-<li><p>等待安装完成，打开AS。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315165809435_1468523967.png" alt></p>
-</li>
-<li><p>提示不能增加AndroidSDK，原因是因为需要设置代理，没有代理的话直接取消，会打开配置界面。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315165903140_452758398.png" alt></p>
-</li>
-<li><p>关掉如下配置界面，会回到启动界面。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315170030096_975833865.png" alt></p>
-</li>
-<li><p>打开设置。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787647_20200315170748645_423692269.png" alt></p>
-</li>
-<li><p>找到如下界面，点击edit编辑按钮</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787647_20200315170841832_2087675278.png" alt></p>
-</li>
-<li><p>选择你需要安装的位置后，一路next，然后等待很长一段时间，我使用了代理，所以非常快。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787648_20200315170938889_1970572660.png" alt></p>
-</li>
-<li><p>结束之后你会看到如下界面，此时路径已经修改，说明你成功了。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787648_20200315171553399_921892586.png" alt> </p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787649_20200315171654184_154179797.png" alt></p>
-</li>
-</ol>
-<h3 id="3-4-配置安卓虚拟设备"><a href="#3-4-配置安卓虚拟设备" class="headerlink" title="3.4. 配置安卓虚拟设备"></a>3.4. 配置安卓虚拟设备</h3><ol>
-<li><p>进行如下操作，以进行下一步，勾选HAXM ，然后应用（apply)。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787650_20200315172321074_502469578.png" alt></p>
-</li>
-<li><p>应用后会出现一个界面，一路next，建议该界面下选择2gb。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787651_20200315172442554_1100497442.png" alt></p>
-</li>
-<li><p>关闭AS，进行环境变量配置。</p>
-<p>a. 打开window设置，界面搜索 编辑系统环境变量。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787651_20200315182609043_1942115051.png" alt><br>b. 选择环境变量。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182623931_755197930.png" alt><br>c. 新建一个名为 ANDROID_SDK_HOME的环境变量，变量值填写你自己的路径,然后确定 以及 应用。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182643838_478493330.png" alt></p>
-</li>
-<li><p>再次启动AS，启动界面，选择如下设置去设置安卓虚拟设备。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787649_20200315171857442_1434569897.png" alt></p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787650_20200315171933598_1017354010.png" alt></p>
-</li>
-<li><p>选择一个设备，当然你也可以自定义设备信息（屏幕尺寸、颜色深度等等）。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182949443_2134231754.png" alt></p>
-</li>
-<li><p>下一步之后，会看到这个界面，下载一个安卓系统镜像,左下角提示没有选择系统镜像，你需要点击相应安卓版本的下载（Download）按钮下载</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182926933_1994992024.png" alt></p>
-</li>
-<li><p>点击下载后会弹出如下界面。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183303409_1132399407.png" alt><br>等待完成即可。<br><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183327788_881726167.png" alt></p>
-</li>
-<li><p>完成之后，下载按钮消失了，点击选择它，然后下一步就完成了。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183357684_1750000052.png" alt></p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787654_20200315183449234_1537261378.png" alt></p>
-</li>
-</ol>
-<h3 id="3-5-配置GRADLE路径"><a href="#3-5-配置GRADLE路径" class="headerlink" title="3.5. 配置GRADLE路径"></a>3.5. 配置GRADLE路径</h3><p><img src="https://gitee.com/nieaowei/images/raw/master/1584787655_20200315183847591_1762060673.png" alt></p>
-
+		
 	
 	</div>
-  <a type="button" href="/2020/1X1JYEX.html#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/2K0XH5G.html#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 		
@@ -536,7 +371,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="使用Dokcer快速部署Hexo博客"><a href="#使用Dokcer快速部署Hexo博客" class="headerlink" title="使用Dokcer快速部署Hexo博客"></a>使用Dokcer快速部署Hexo博客</h1>
+		
 	
 	</div>
   <a type="button" href="/2020/1DYJH86.html#more" class="btn btn-default more">阅读此文</a>
@@ -563,12 +398,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-使用示例"><a href="#1-使用示例" class="headerlink" title="1. 使用示例"></a>1. 使用示例</h2><h3 id="1-1-服务器平滑关机Shutdown"><a href="#1-1-服务器平滑关机Shutdown" class="headerlink" title="1.1. 服务器平滑关机Shutdown()"></a>1.1. 服务器平滑关机<code>Shutdown()</code></h3><p>根据源代码可知，它会等待所有子连接都被关闭才会结束，通过ctx或定时器才可停止该操作。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(srv *Server)</span> <span class="title">Shutdown</span><span class="params">(ctx context.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	atomic.StoreInt32(&amp;srv.inShutdown, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	srv.mu.Lock()</span><br><span class="line">	lnerr := srv.closeListenersLocked()</span><br><span class="line">	srv.closeDoneChanLocked()</span><br><span class="line">	<span class="keyword">for</span> _, f := <span class="keyword">range</span> srv.onShutdown &#123;</span><br><span class="line">		<span class="keyword">go</span> f()</span><br><span class="line">	&#125;</span><br><span class="line">	srv.mu.Unlock()</span><br><span class="line"></span><br><span class="line">	ticker := time.NewTicker(shutdownPollInterval)</span><br><span class="line">	<span class="keyword">defer</span> ticker.Stop()</span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> srv.closeIdleConns() &#123;</span><br><span class="line">			<span class="keyword">return</span> lnerr</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">select</span> &#123;</span><br><span class="line">		<span class="keyword">case</span> &lt;-ctx.Done():</span><br><span class="line">			<span class="keyword">return</span> ctx.Err()</span><br><span class="line">		<span class="keyword">case</span> &lt;-ticker.C:</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-静态文件服务器请求过滤示例"><a href="#1-2-静态文件服务器请求过滤示例" class="headerlink" title="1.2. 静态文件服务器请求过滤示例"></a>1.2. 静态文件服务器请求过滤示例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">HttpHandler</span><span class="params">(h http.Handler)</span> <span class="title">http</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(writer http.ResponseWriter, request *http.Request)</span></span> &#123;</span><br><span class="line">		<span class="keyword">if</span> <span class="literal">true</span> &#123;</span><br><span class="line">			http.Redirect(writer,request,<span class="string">"http://www.baidu.com"</span>,<span class="number">302</span>)</span><br><span class="line">		&#125;</span><br><span class="line">		h.ServeHTTP(writer,request)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	http.HandleFunc(<span class="string">"/"</span>,HttpHandler(http.FileServer(http.Dir(<span class="string">"/Users/nieaowei/Desktop/blog/public"</span>))))</span><br><span class="line">	http.ListenAndServe(<span class="string">"0.0.0.0:80"</span>,<span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+		
 	
 	</div>
   <a type="button" href="/2020/3HG63WA.html#more" class="btn btn-default more">阅读此文</a>
@@ -647,33 +477,33 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Mysql/">Mysql<span>2</span></a></li>
-		
-			<li><a href="/tags/Java/">Java<span>3</span></a></li>
-		
-			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
-		
 			<li><a href="/tags/Gin/">Gin<span>1</span></a></li>
-		
-			<li><a href="/tags/Centos/">Centos<span>1</span></a></li>
 		
 			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
 		
-			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
 		
-			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
-		
-			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
+			<li><a href="/tags/Java/">Java<span>3</span></a></li>
 		
 			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
 		
-			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
-		
-			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
-		
 			<li><a href="/tags/Golang/">Golang<span>1</span></a></li>
 		
+			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
+		
+			<li><a href="/tags/Centos/">Centos<span>1</span></a></li>
+		
+			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
+		
 			<li><a href="/tags/Docker/">Docker<span>2</span></a></li>
+		
+			<li><a href="/tags/Mysql/">Mysql<span>2</span></a></li>
+		
+			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
+		
+			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+		
+			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -699,7 +529,7 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
-        <a href="/2020/33KJF3Z.html" ><i class="fa fa-file-o"></i>Kotlin安卓开发-有序广播</a>
+        <a href="/2020/1309D84.html" ><i class="fa fa-file-o"></i>JetPack Compose-有序广播</a>
       </li>
     
       <li>
@@ -715,13 +545,7 @@ var _hmt = _hmt || [];
 	<h4>链接</h4>
 	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/wzpan/hexo-theme-freemind" title="Freemind's Github repository." target="_blank"]);">Freemind</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/kristopolous/BOOTSTRA.386" title="BOOTSTRA.386's Github repository." target="_blank"]);">BOOTSTRA.386</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow/hexo-theme-freemind.386" title="Freemind.386's Github repository." target="_blank"]);">Freemind.386</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/blackshow" title="My Github account." target="_blank"]);">My Github</a></li>
+		<li><i class="fa fa-github"></i><a href="https://www.hieiko.com" title="hieiko's blog." target="_blank"]);">Hieiko</a></li>
 	
 	</ul>
 </div>
@@ -738,10 +562,10 @@ var _hmt = _hmt || [];
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2020 Nekilc
+  &copy; 2020 <a href="https://www.nekilc.com" target="_blank">Nekilc</a> 
   
-      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
-     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.    
+      <!-- with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.     -->
 </p>
  </footer>
 </div> <!-- container-narrow -->

@@ -155,21 +155,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><h3 id="1-1-channel介绍"><a href="#1-1-channel介绍" class="headerlink" title="1.1. channel介绍"></a>1.1. channel介绍</h3><p>goroutine 奉行通过通信来共享内存，而不是共享内存来通信，而channel就是其中的通信机制，可以接受和发送消息。</p>
-<h3 id><a href="#" class="headerlink" title></a></h3><h2 id="2-使用示例"><a href="#2-使用示例" class="headerlink" title="2. 使用示例"></a>2. 使用示例</h2><h3 id="2-1-基础使用"><a href="#2-1-基础使用" class="headerlink" title="2.1. 基础使用"></a>2.1. 基础使用</h3><ol>
-<li>发送消息</li>
-</ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">	ch &lt;- <span class="number">123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>接收消息</li>
-</ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line">	ch &lt;- <span class="number">123</span></span><br><span class="line">	recv ,ok := &lt;- ch</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		fmt.Println(<span class="string">"channel is closed."</span>)</span><br><span class="line">		<span class="keyword">return</span> </span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(recv)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>关闭通道<br>关闭通道不会影响已发送的数据被接收，只有当关闭通道后已经发送的数据被接收完后去接收数据才会报false。</li>
-</ol>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>,<span class="number">1</span>)</span><br><span class="line">	ch &lt;<span class="number">-1</span></span><br><span class="line">	<span class="built_in">close</span>(ch)</span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> i,ok:=&lt;-ch :</span><br><span class="line">		<span class="keyword">if</span> !ok &#123;</span><br><span class="line">			fmt.Println(ok)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">"into"</span>,i)</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">		fmt.Println(<span class="string">"no into"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//ch &lt;- 1</span></span><br><span class="line">	n ,ok:= &lt;-ch</span><br><span class="line">	<span class="keyword">if</span> !ok &#123;</span><br><span class="line">		fmt.Println(ok)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(n)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+		
 	
 	</div>
   <a type="button" href="/2020/1FFNQNE.html#more" class="btn btn-default more">阅读此文</a>
@@ -196,8 +182,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-ElasticSearch的介绍"><a href="#1-ElasticSearch的介绍" class="headerlink" title="1. ElasticSearch的介绍"></a>1. ElasticSearch的介绍</h2><p>ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java语言开发的，并作为Apache许可条款下的开放源码发布，是一种流行的企业级搜索引擎。ElasticSearch用于云计算中，能够达到实时搜索，稳定，可靠，快速，安装使用方便。官方客户端在Java、.NET（C#）、PHP、Python、Apache Groovy、Ruby和许多其他语言中都是可用的。根据DB-Engines的排名显示，Elasticsearch是最受欢迎的企业搜索引擎，其次是Apache Solr，也是基于Lucene。</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/2AATQ45.html#more" class="btn btn-default more">阅读此文</a>
@@ -224,23 +209,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-Kafka介绍"><a href="#1-Kafka介绍" class="headerlink" title="1. Kafka介绍"></a>1. Kafka介绍</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1. 简介"></a>1.1. 简介</h3><p>一个分布式、支持分区的（partition）、多副本的（replica），基于zookeeper协调的分布式消息系统，它的最大的特性就是可以实时的处理大量数据以满足各种需求场景。</p>
-<h3 id="1-2-开发语言"><a href="#1-2-开发语言" class="headerlink" title="1.2. 开发语言"></a>1.2. 开发语言</h3><p>Scala、Java</p>
-<h3 id="1-3-特性"><a href="#1-3-特性" class="headerlink" title="1.3. 特性"></a>1.3. 特性</h3><ul>
-<li>高吞吐、低延迟：每秒几十万处理能力；</li>
-<li>可扩展：支持集群，热扩展；</li>
-<li>持久性、可靠性：持久化到本地磁盘，支持数据备份；</li>
-<li>容错性：允许集群节点失效；</li>
-<li>高并发：支持千级并发；</li>
-</ul>
-<h3 id="1-4-使用场景"><a href="#1-4-使用场景" class="headerlink" title="1.4. 使用场景"></a>1.4. 使用场景</h3><ul>
-<li>日志收集</li>
-<li>消息系统</li>
-<li>活动跟踪</li>
-<li>监控数据</li>
-<li>流处理</li>
-</ul>
-<h2 id="2-使用示例"><a href="#2-使用示例" class="headerlink" title="2. 使用示例"></a>2. 使用示例</h2><h3 id="2-1-生产者示例"><a href="#2-1-生产者示例" class="headerlink" title="2.1. 生产者示例"></a>2.1. 生产者示例</h3><h3 id="2-2-消费者示例"><a href="#2-2-消费者示例" class="headerlink" title="2.2. 消费者示例"></a>2.2. 消费者示例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/Shopify/sarama"</span></span><br><span class="line">	<span class="string">"sync"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	syncWait := sync.WaitGroup&#123;&#125;</span><br><span class="line">	consumer , err:= sarama.NewConsumer([]<span class="keyword">string</span>&#123;<span class="string">"localhost:9092"</span>,<span class="string">","</span>&#125;,<span class="literal">nil</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"Failed to start consumer."</span>,err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	partList,err:= consumer.Partitions(<span class="string">"data"</span>)<span class="comment">//获取分区列表</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"Failed to get the list of partitions."</span>,err)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(partList)</span><br><span class="line">	<span class="comment">//对每个分区单独开启线程去读取消息</span></span><br><span class="line">	<span class="keyword">for</span> pactition := <span class="keyword">range</span> partList &#123;</span><br><span class="line">		pc,err:= consumer.ConsumePartition(<span class="string">"data"</span>,<span class="keyword">int32</span>(pactition),sarama.OffsetNewest)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			fmt.Println(<span class="string">"Failed to start consumer for partition"</span>,pactition,err)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">defer</span> pc.AsyncClose()</span><br><span class="line">		<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">(partitioner sarama.PartitionConsumer)</span></span> &#123;</span><br><span class="line">			syncWait.Add(<span class="number">1</span>)</span><br><span class="line">			<span class="keyword">for</span> msg := <span class="keyword">range</span> pc.Messages() &#123;</span><br><span class="line">				fmt.Println(msg.Partition,msg.Offset,msg.Topic,msg.Key,msg.Value)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;(pc)</span><br><span class="line">	&#125;</span><br><span class="line">	syncWait.Wait()</span><br><span class="line">	consumer.Close()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		
 	
 	</div>
   <a type="button" href="/2020/3EG8DED.html#more" class="btn btn-default more">阅读此文</a>
@@ -267,8 +236,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-场景描述"><a href="#1-场景描述" class="headerlink" title="1. 场景描述"></a>1. 场景描述</h2><p>需要等待其他协程完成工作才能使当前协程继续执行下去的情况下，需要等待其他协程的完成。</p>
-<h2 id="2-使用示例"><a href="#2-使用示例" class="headerlink" title="2. 使用示例"></a>2. 使用示例</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"sync"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">defer</span> fmt.Println(<span class="string">"主线程退出"</span>)</span><br><span class="line">	syncWait := sync.WaitGroup&#123;&#125;</span><br><span class="line">	syncWait.Add(<span class="number">3</span>)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ &#123;</span><br><span class="line">		<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">(num <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">			time.Sleep(time.Second)</span><br><span class="line">			fmt.Println(num)</span><br><span class="line">			syncWait.Done()</span><br><span class="line">		&#125;(i)</span><br><span class="line">	&#125;</span><br><span class="line">	syncWait.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+		
 	
 	</div>
   <a type="button" href="/2020/3N2EAPR.html#more" class="btn btn-default more">阅读此文</a>
@@ -295,45 +263,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-Context包介绍"><a href="#1-Context包介绍" class="headerlink" title="1. Context包介绍"></a>1. Context包介绍</h2><h3 id="1-1-结构解析"><a href="#1-1-结构解析" class="headerlink" title="1.1. 结构解析"></a>1.1. 结构解析</h3><pre class="mermaid">graph TB;
-    idx[empty]
-　　id1[BackGround]
-　　id2[子Context]
-　　id3[子Context]
-　　id4[子Context]
-　　id5[子Context]
-　　id6[子Context]
-　　id7[子Context]
-　　id0[.....]
-　　id02[.....]
-　　id03[.....]
-　　id0000[......]
-　　idx-->|创建|id1
-　　id0-->|......|id0000
-　　id1-->id2
-　　id1-->id3
-　　id1-->|......|id0
-　　id2-->id4
-　　id2-->id5
-　　id2-->|......|id02
-　　id3-->id6
-　　id3-->id7
-　　id3-->|......|id03</pre>
-
-<h3 id="1-2-应用场景"><a href="#1-2-应用场景" class="headerlink" title="1.2. 应用场景"></a>1.2. 应用场景</h3><ul>
-<li>web开发中，单个请求对应多个协程的数据交互；当该次请求的某个环节出现不可继续的错误，则取消该context，并通知该次请求的所有协程退出，并释放资源。</li>
-<li>分布式系统中，全链路追踪</li>
-<li>超时控制</li>
-</ul>
-<h2 id="2-使用场景示例"><a href="#2-使用场景示例" class="headerlink" title="2. 使用场景示例"></a>2. 使用场景示例</h2><h3 id="2-1-单context多协程控制退出"><a href="#2-1-单context多协程控制退出" class="headerlink" title="2.1. 单context多协程控制退出"></a>2.1. 单context多协程控制退出</h3><p>在该场景下，多个协程使用一个context，当该context取消时，所有使用该ctx的协程都会收到通知；关于这点可能有些疑惑，难道通道不是只能接收一次数据吗？查看源码可知，cacel操作实际上关闭了done通道，而select操作对于通道关闭也是会接收到结果的，关于这一点在以下代码中进行验证。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>,<span class="number">1</span>)</span><br><span class="line">	<span class="built_in">close</span>(ch)</span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> &lt;- ch:</span><br><span class="line">		fmt.Println(<span class="string">"通道已经关闭"</span>)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ch1 := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>,<span class="number">1</span>)</span><br><span class="line">	ch1 &lt;- <span class="number">1</span></span><br><span class="line">	<span class="keyword">select</span> &#123;</span><br><span class="line">	<span class="keyword">case</span> &lt;- ch1:</span><br><span class="line">		fmt.Println(<span class="string">"通道接收到了数据"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"context"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pro</span><span class="params">(ctx context.Context, num <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> ; ;  &#123;</span><br><span class="line">		<span class="keyword">select</span> &#123;</span><br><span class="line">		<span class="keyword">case</span> &lt;- ctx.Done():</span><br><span class="line">			fmt.Println(num,<span class="string">"号 exit."</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			fmt.Println(num,<span class="string">"号协程。"</span>)</span><br><span class="line">			time.Sleep(time.Second)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ctx,cancel := context.WithCancel(context.Background())</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i&lt;<span class="number">10</span> ; i++ &#123;</span><br><span class="line">		<span class="keyword">go</span> pro(ctx,i)</span><br><span class="line">	&#125;</span><br><span class="line">	time.Sleep(time.Second*<span class="number">3</span>)</span><br><span class="line">	cancel()</span><br><span class="line">	time.Sleep(time.Second*<span class="number">3</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-多context多协程控制退出"><a href="#2-2-多context多协程控制退出" class="headerlink" title="2.2. 多context多协程控制退出"></a>2.2. 多context多协程控制退出</h3><p>在该场景下，若父context被取消，则所有子context都会收到取消通知。若取消子context，则不会影响父context以及同级context。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"context"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pro</span><span class="params">(ctx context.Context, num <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">for</span> &#123;</span><br><span class="line">		<span class="keyword">select</span> &#123;</span><br><span class="line">		<span class="keyword">case</span> &lt;-ctx.Done():</span><br><span class="line">			fmt.Println(num, <span class="string">"号 exit."</span>)</span><br><span class="line">			<span class="keyword">return</span></span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			fmt.Println(num, <span class="string">"号协程。"</span>)</span><br><span class="line">			time.Sleep(time.Second)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ctx, cancel := context.WithCancel(context.Background())</span><br><span class="line">	ctx1, cancel1 := context.WithCancel(ctx)</span><br><span class="line">	ctx2, cancel2 := context.WithCancel(ctx1)</span><br><span class="line">	<span class="keyword">go</span> pro(ctx, <span class="number">0</span>)</span><br><span class="line">	<span class="keyword">go</span> pro(ctx1, <span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> pro(ctx2, <span class="number">2</span>)</span><br><span class="line">	time.Sleep(time.Second * <span class="number">3</span>)</span><br><span class="line">	option:= <span class="number">2</span></span><br><span class="line">	<span class="keyword">if</span> option == <span class="number">0</span> &#123;</span><br><span class="line">		cancel()</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> option == <span class="number">1</span> &#123;</span><br><span class="line">		cancel1()</span><br><span class="line">	&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		cancel2()</span><br><span class="line">	&#125;</span><br><span class="line">	time.Sleep(time.Second * <span class="number">3</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3-全链路追踪"><a href="#2-3-全链路追踪" class="headerlink" title="2.3. 全链路追踪"></a>2.3. 全链路追踪</h3>
+		
 	
 	</div>
   <a type="button" href="/2020/73XEZ7.html#more" class="btn btn-default more">阅读此文</a>
@@ -360,19 +290,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="SpringBoot和SpringMVC的区别"><a href="#SpringBoot和SpringMVC的区别" class="headerlink" title="SpringBoot和SpringMVC的区别"></a>SpringBoot和SpringMVC的区别</h1><p>spring boot只是一个配置工具,整合工具,辅助工具.</p>
-<p>springmvc是框架,项目中实际运行的代码</p>
-<p>Spring 框架就像一个家族，有众多衍生产品例如 boot、security、jpa等等。但他们的基础都是Spring 的ioc和 aop，ioc 提供了依赖注入的容器， aop解决了面向横切面的编程，然后在此两者的基础上实现了其他延伸产品的高级功能。</p>
-<p>Spring MVC提供了一种轻度耦合的方式来开发web应用。它是Spring的一个模块，是一个web框架。通过Dispatcher Servlet, ModelAndView 和 View Resolver，开发web应用变得很容易。解决的问题领域是网站应用程序或者服务开发——URL路由、Session、模板引擎、静态Web资源等等。</p>
-<p>Spring Boot实现了自动配置，降低了项目搭建的复杂度。它主要是为了解决使用Spring框架需要进行大量的配置太麻烦的问题，所以它并不是用来替代Spring的解决方案，而是和Spring框架紧密结合用于提升Spring开发者体验的工具。同时它集成了大量常用的第三方库配置(例如Jackson, JDBC, Mongo, Redis, Mail等等)，Spring Boot应用中这些第三方库几乎可以零配置的开箱即用(out-of-the-box)。</p>
-<p>Spring Boot只是承载者，辅助你简化项目搭建过程的。如果承载的是WEB项目，使用Spring MVC作为MVC框架，那么工作流程和你上面描述的是完全一样的，因为这部分工作是Spring MVC做的而不是Spring Boot。</p>
-<p>对使用者来说，换用Spring Boot以后，项目初始化方法变了，配置文件变了，另外就是不需要单独安装Tomcat这类容器服务器了，maven打出jar包直接跑起来就是个网站，但你最核心的业务逻辑实现与业务流程实现没有任何变化。</p>
-<p>总结：Spring 最初利用“工厂模式”（DI）和“代理模式”（AOP）解耦应用组件。大家觉得挺好用，于是按照这种模式搞了一个 MVC框架（一些用Spring 解耦的组件），用开发 web 应用（ SpringMVC ）。然后发现每次开发都写很多样板代码，为了简化工作流程，于是开发出了一些“懒人整合包”（starter），这套就是 Spring Boot。</p>
-<p>所以，用最简练的语言概括就是：</p>
-<p>Spring 是一个“引擎”；</p>
-<p>Spring MVC 是基于Spring的一个 MVC 框架；</p>
-<p>Spring Boot 是基于Spring4的条件注册的一套快速开发整合包。</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/2QV9ZH2.html#more" class="btn btn-default more">阅读此文</a>
@@ -399,8 +317,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="SpringBoot-入门-注解（一）"><a href="#SpringBoot-入门-注解（一）" class="headerlink" title="SpringBoot 入门 注解（一）"></a>SpringBoot 入门 注解（一）</h1><h2 id="1-SpringBootApplicatio"><a href="#1-SpringBootApplicatio" class="headerlink" title="1. @SpringBootApplicatio"></a>1. <code>@SpringBootApplicatio</code></h2><p>程序入口。</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/ZP5TVN.html#more" class="btn btn-default more">阅读此文</a>
@@ -427,7 +344,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="Hexo搭建静态博客"><a href="#Hexo搭建静态博客" class="headerlink" title="Hexo搭建静态博客"></a>Hexo搭建静态博客</h1>
+		
 	
 	</div>
   <a type="button" href="/2020/2B45ZZT.html#more" class="btn btn-default more">阅读此文</a>
@@ -454,29 +371,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="1-etcd介绍"><a href="#1-etcd介绍" class="headerlink" title="1. etcd介绍"></a>1. etcd介绍</h2><h3 id="1-1-概念"><a href="#1-1-概念" class="headerlink" title="1.1. 概念"></a>1.1. 概念</h3><p>高可用的分布式key-value存储，用于配置共享和服务发现。</p>
-<h3 id="1-2-类似项目"><a href="#1-2-类似项目" class="headerlink" title="1.2. 类似项目"></a>1.2. 类似项目</h3><ul>
-<li>zookeeper</li>
-<li>consul</li>
-</ul>
-<h3 id="1-3-开发语言"><a href="#1-3-开发语言" class="headerlink" title="1.3. 开发语言"></a>1.3. 开发语言</h3><p> GoLang</p>
-<h3 id="1-4-特性"><a href="#1-4-特性" class="headerlink" title="1.4. 特性"></a>1.4. 特性</h3><ul>
-<li>提供restful的http接口；</li>
-<li>基于raft算法的强一致性[^强一致性]、高可用服务存储每一款；</li>
-</ul>
-<h3 id="1-5-应用场景"><a href="#1-5-应用场景" class="headerlink" title="1.5. 应用场景"></a>1.5. 应用场景</h3><ul>
-<li>服务发现和服务注册</li>
-<li>配置中心</li>
-<li>分布式锁</li>
-<li>主机选举</li>
-</ul>
-<h3 id="1-6-Docker部署etcd"><a href="#1-6-Docker部署etcd" class="headerlink" title="1.6. Docker部署etcd"></a>1.6. Docker部署etcd</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /tmp/etcd-data.tmp &amp;&amp; mkdir -p /tmp/etcd-data.tmp &amp;&amp; \</span><br><span class="line">  docker rmi gcr.io/etcd-development/etcd:v3.4.5 || true &amp;&amp; \</span><br><span class="line">  docker run \</span><br><span class="line">  -p 2379:2379 \</span><br><span class="line">  -p 2380:2380 \</span><br><span class="line">  --mount type=bind,source=/tmp/etcd-data.tmp,destination=/etcd-data \</span><br><span class="line">  --name etcd-gcr-v3.4.5 \</span><br><span class="line">  gcr.io/etcd-development/etcd:v3.4.5 \</span><br><span class="line">  /usr/local/bin/etcd \</span><br><span class="line">  --name s1 \</span><br><span class="line">  --data-dir /etcd-data \</span><br><span class="line">  --listen-client-urls http://0.0.0.0:2379 \</span><br><span class="line">  --advertise-client-urls http://0.0.0.0:2379 \</span><br><span class="line">  --listen-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">  --initial-advertise-peer-urls http://0.0.0.0:2380 \</span><br><span class="line">  --initial-cluster s1=http://0.0.0.0:2380 \</span><br><span class="line">  --initial-cluster-token tkn \</span><br><span class="line">  --initial-cluster-state new \</span><br><span class="line">  --log-level info \</span><br><span class="line">  --logger zap \</span><br><span class="line">  --log-outputs stderr</span><br><span class="line"></span><br><span class="line">docker exec etcd-gcr-v3.4.5 /bin/sh -c "/usr/local/bin/etcd --version"</span><br><span class="line">docker exec etcd-gcr-v3.4.5 /bin/sh -c "/usr/local/bin/etcdctl version"</span><br><span class="line">docker exec etcd-gcr-v3.4.5 /bin/sh -c "/usr/local/bin/etcdctl endpoint health"</span><br><span class="line">docker exec etcd-gcr-v3.4.5 /bin/sh -c "/usr/local/bin/etcdctl put foo bar"</span><br><span class="line">docker exec etcd-gcr-v3.4.5 /bin/sh -c "/usr/local/bin/etcdctl get foo"</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-7-注意事项"><a href="#1-7-注意事项" class="headerlink" title="1.7. 注意事项"></a>1.7. 注意事项</h3><ol>
-<li>使用etcdctl v3 版本时，需要设置环境变量 <code>ETCDCTL_API=3</code>。</li>
-</ol>
-<p>[^强一致性]: 强一致性: 在有多台服务器的场景下，任意一台数据发生改变，你所读取到的数据均为已改变的数据。</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/1946C60.html#more" class="btn btn-default more">阅读此文</a>
@@ -503,20 +398,7 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="LVS原理介绍"><a href="#LVS原理介绍" class="headerlink" title="LVS原理介绍"></a>LVS原理介绍</h1><hr>
-<h2 id="1-LVS是什么？"><a href="#1-LVS是什么？" class="headerlink" title="1. LVS是什么？"></a>1. LVS是什么？</h2><hr>
-<ul>
-<li>LVS，全称Linux Virtual Server，是国人章文嵩发起的一个开源项目。</li>
-<li>在社区具有很大的热度，是一个基于四层、具有强大性能的反向代理服务器。</li>
-<li>早期使用lvs需要修改内核才能使用，但是由于性能优异，现在已经被收入内核。</li>
-<li>LVS通过工作于内核的ipvs模块来实现功能，其主要工作于netfilter 的INPUT链上。</li>
-<li>而用户需要对ipvs进行操作配置则需要使用ipvsadm这个工具。</li>
-<li>ipvsadm主要用于设置lvs模型、调度方式以及指定后端主机。</li>
-</ul>
-<h2 id="2-LVS中的角色"><a href="#2-LVS中的角色" class="headerlink" title="2. LVS中的角色"></a>2. LVS中的角色</h2><hr>
-<p>LVS的一些相关术语</p>
-<p>LVS的模型中有两个角色：<br>调度器:Director，又称为Dispatcher，Balancer<br>调度器主要用于接受用户请求。<br>真实主机:Real Server，简称为RS。<br>用于真正处理用户的请求。<br>而为了更好地理解，我们将所在角色的IP地址分为以下三种：<br>Director Virtual IP:调度器用于与客户端通信的IP地址，简称为VIP<br>Director IP:调度器用于与RealServer通信的IP地址，简称为DIP。<br>Real Server : 后端主机的用于与调度器通信的IP地址，简称为RIP。</p>
-
+		
 	
 	</div>
   <a type="button" href="/2020/224PAWM.html#more" class="btn btn-default more">阅读此文</a>
@@ -595,33 +477,33 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
-		
-			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
+			<li><a href="/tags/Docker/">Docker<span>2</span></a></li>
 		
 			<li><a href="/tags/Java/">Java<span>3</span></a></li>
 		
-			<li><a href="/tags/Gin/">Gin<span>1</span></a></li>
-		
-			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>3</span></a></li>
 		
 			<li><a href="/tags/Mysql/">Mysql<span>2</span></a></li>
 		
-			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+			<li><a href="/tags/Redis/">Redis<span>1</span></a></li>
 		
-			<li><a href="/tags/Docker/">Docker<span>2</span></a></li>
+			<li><a href="/tags/Kafka/">Kafka<span>1</span></a></li>
+		
+			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
 		
 			<li><a href="/tags/Golang/">Golang<span>1</span></a></li>
 		
-			<li><a href="/tags/Kotlin/">Kotlin<span>1</span></a></li>
+			<li><a href="/tags/Android/">Android<span>3</span></a></li>
+		
+			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
+		
+			<li><a href="/tags/Gin/">Gin<span>1</span></a></li>
+		
+			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
 		
 			<li><a href="/tags/Centos/">Centos<span>1</span></a></li>
 		
 			<li><a href="/tags/Ubuntu/">Ubuntu<span>1</span></a></li>
-		
-			<li><a href="/tags/安卓/">安卓<span>1</span></a></li>
-		
-			<li><a href="/tags/Go语言/">Go语言<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -647,7 +529,7 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
-        <a href="/2020/33KJF3Z.html" ><i class="fa fa-file-o"></i>Kotlin安卓开发-有序广播</a>
+        <a href="/2020/1309D84.html" ><i class="fa fa-file-o"></i>JetPack Compose-有序广播</a>
       </li>
     
       <li>
@@ -663,13 +545,7 @@ var _hmt = _hmt || [];
 	<h4>链接</h4>
 	<ul class="blogroll list-unstyled">
 	
-		<li><i class="fa fa-github"></i><a href="https://github.com/wzpan/hexo-theme-freemind" title="Freemind's Github repository." target="_blank"]);">Freemind</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/kristopolous/BOOTSTRA.386" title="BOOTSTRA.386's Github repository." target="_blank"]);">BOOTSTRA.386</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="https://github.com/blackshow/hexo-theme-freemind.386" title="Freemind.386's Github repository." target="_blank"]);">Freemind.386</a></li>
-	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/blackshow" title="My Github account." target="_blank"]);">My Github</a></li>
+		<li><i class="fa fa-github"></i><a href="https://www.hieiko.com" title="hieiko's blog." target="_blank"]);">Hieiko</a></li>
 	
 	</ul>
 </div>
@@ -686,10 +562,10 @@ var _hmt = _hmt || [];
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2020 Nekilc
+  &copy; 2020 <a href="https://www.nekilc.com" target="_blank">Nekilc</a> 
   
-      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
-     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.    
+      <!-- with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/" target="_blank" rel="noopener">Freemind.386</a>.     -->
 </p>
  </footer>
 </div> <!-- container-narrow -->
