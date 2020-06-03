@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>数据库并发控制优化</title>
+      <link href="/2020/VBR358.html"/>
+      <url>/2020/VBR358.html</url>
+      
+        <content type="html"><![CDATA[<hr><hr><h1 id="1-乐观锁方案"><a href="#1-乐观锁方案" class="headerlink" title="1. 乐观锁方案"></a>1. 乐观锁方案</h1><h1 id="2-悲观锁方案"><a href="#2-悲观锁方案" class="headerlink" title="2. 悲观锁方案"></a>2. 悲观锁方案</h1><h1 id="3-状态值方案"><a href="#3-状态值方案" class="headerlink" title="3. 状态值方案"></a>3. 状态值方案</h1><h1 id="4-缓存方案"><a href="#4-缓存方案" class="headerlink" title="4. 缓存方案"></a>4. 缓存方案</h1><h1 id="5-队列方案"><a href="#5-队列方案" class="headerlink" title="5. 队列方案"></a>5. 队列方案</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据库 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JetPack Compose 安卓开发-新建项目</title>
       <link href="/2020/3W9CXS5.html"/>
       <url>/2020/3W9CXS5.html</url>
