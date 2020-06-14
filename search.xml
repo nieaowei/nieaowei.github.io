@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>JetPack Compose 安卓开发-通知示例</title>
+      <link href="/2020/BRR9PZ.html"/>
+      <url>/2020/BRR9PZ.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-系统版本更迭历史"><a href="#1-系统版本更迭历史" class="headerlink" title="1. 系统版本更迭历史"></a>1. 系统版本更迭历史</h1><ol><li><p>Android4.1(API16)</p><ul><li>支持展开式通知</li><li>支持为通知增加按钮</li><li>允许在设置中关闭通知</li></ul></li><li><p>Android4.4(API19和API20)</p><ul><li>支持通知侦听器服务器</li></ul></li><li><p>Android5(API21)</p><ul><li>添加<code>setPriority()</code>方法以设置通知的权重</li><li>支持浮动通知和锁定屏幕的通知</li><li>支持配置勿扰模式</li></ul></li><li><p>Android7.0(API24)</p><ul><li>支持通知内连回复</li></ul></li><li><p>Android8.0(API26)</p><ul><li>必须将通知放入特定的渠道(channel)中</li><li>按渠道关闭通知</li><li>应用图标显示通知</li><li>权重设置由<code>NotificationCompat.Builder.setPriority()</code>更换为<code>NotificationChannel.setImportance()</code></li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安卓 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据库并发控制优化</title>
       <link href="/2020/VBR358.html"/>
       <url>/2020/VBR358.html</url>
