@@ -68,9 +68,9 @@
             
             <tag> Java </tag>
             
-            <tag> Android </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android </tag>
             
             <tag> 安卓 </tag>
             
@@ -393,9 +393,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> Kotlin </tag>
+            
+            <tag> Android </tag>
             
         </tags>
       
@@ -481,25 +481,6 @@
             <tag> 安卓 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>使用Dokcer快速部署Hexo博客</title>
-      <link href="/2020/1DYJH86.html"/>
-      <url>/2020/1DYJH86.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="使用Dokcer快速部署Hexo博客"><a href="#使用Dokcer快速部署Hexo博客" class="headerlink" title="使用Dokcer快速部署Hexo博客"></a>使用Dokcer快速部署Hexo博客</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 杂文 </category>
-          
-      </categories>
-      
       
     </entry>
     
@@ -653,25 +634,6 @@
             <tag> Redis </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>SpringBoot入门（一）</title>
-      <link href="/2020/ZP5TVN.html"/>
-      <url>/2020/ZP5TVN.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="SpringBoot-入门-注解（一）"><a href="#SpringBoot-入门-注解（一）" class="headerlink" title="SpringBoot 入门 注解（一）"></a>SpringBoot 入门 注解（一）</h1><h2 id="1-SpringBootApplicatio"><a href="#1-SpringBootApplicatio" class="headerlink" title="1. @SpringBootApplicatio"></a>1. <code>@SpringBootApplicatio</code></h2><p>程序入口。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
       
     </entry>
     
