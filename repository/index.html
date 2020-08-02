@@ -215,7 +215,7 @@
         <div v-for="repo in repos_sorted" key="{{this.id}}" class="repo">
             <header>
                 <h3 class="repo-title">
-                    <a href="{{ this.html_url }}">{{this.full_name}}</a>
+                    <a href="{{ this.html_url }}">{{ mysplit(this.full_name,'/') }}</a>
                 </h3>
             </header>
             <p class="repo-body">
