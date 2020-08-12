@@ -3,15 +3,18 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <title>归档: 2020 | Nekilc</title>
-    <meta name="description" content="代码给你，PPT给我。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nekilc">
-<meta property="og:url" content="http://www.nekilc.com/archives/2020/index.html">
+    <title>Element-UI中Table高度自适应问题 | Nekilc</title>
+    <meta name="description" content="我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现El-table这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将El-table的max-height属性绑定到 Vue 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。 代码如下： 123456789mounted () &amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Element-UI中Table高度自适应问题">
+<meta property="og:url" content="http://www.nekilc.com/3XDPK46.html">
 <meta property="og:site_name" content="Nekilc">
-<meta property="og:description" content="代码给你，PPT给我。">
+<meta property="og:description" content="我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现El-table这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将El-table的max-height属性绑定到 Vue 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。 代码如下： 123456789mounted () &amp;#1">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-12T22:40:24.883Z">
+<meta property="article:modified_time" content="2020-08-12T22:47:20.540Z">
 <meta property="article:author" content="Nekilc">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
 
     
@@ -22,6 +25,11 @@
 
 
 
+    
+    
+    
+    
+        <link href="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css" rel="stylesheet">
     
     
     
@@ -175,130 +183,96 @@
 </header>
 
         <section class="main-section">
-            <main class="flex-1 px-4 py-12 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+            
+    <main class="flex-1 px-4 py-12 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    
+
     <article class="content article article-archives article-type-list" itemscope="">
         <header class="article-header">
-            <h1 itemprop="title">归档</h1>
-            <p class="text-gray-600">共 2 篇文章</p>
-        </header>
-        <div class="article-body">
             
     
-    <section class="year-archive">
-    <header>
-        <h1><a >2020</a></h1>
-    </header>
-    <div class="archive-content">
-        
-            <a href="/3XDPK46.html" class="post-item">
-                <div class="post-time">08-13</div>
-                <div class="post-title">Element-UI中Table高度自适应问题</div>
-            </a>
-        
-            <a href="/YE6KFM.html" class="post-item">
-                <div class="post-time">02-06</div>
-                <div class="post-title">数据完整性设计理解</div>
-            </a>
-        
-    </div>
-</section>
+        <h1 class="article-title text-lg" itemprop="name">
+            Element-UI中Table高度自适应问题
+        </h1>
+    
 
 
+
+            <p class="article-meta mb-3 text-xs">
+                <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/3XDPK46.html" class="article-date">
+	  <time datetime="2020-08-12T22:40:24.883Z" itemprop="datePublished">8月 13</time>
+	</a>
+</span>
+
+                
+    <span class="article-category">
+    <i class="iconfont icon-folder"></i>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </span>
+
+
+                
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Vue/" rel="tag">Vue</a>
+  </span>
+
+
+                <span class="_partial/post-comment"><i class="icon icon-comment"></i>
+                    <a href="/3XDPK46.html#comments" class="article-comment-link">
+                        评论
+                    </a>
+                </span>
+                
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 196(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+            </p>
+        </header>
+        <div class="marked-body article-body">
+            <a id="more"></a>
+<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
+<p>代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
         </div>
+        
+<blockquote class="copyright">
+    <p><strong>本文链接 : </strong><a class="permalink" href="http://www.nekilc.com/3XDPK46.html">http://www.nekilc.com/3XDPK46.html</a></p>
+    <p><strong>This article is available under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> License</strong></p>
+</blockquote>
+
+
     </article>
+    
+    <section id="comments">
+        
+    </section>
+
+
     
 
 </main>
+
+
 <aside style="" id="sidebar" class="aside aside-fixture">
-    <div class="widgets">
-        
+    <div class="toc-sidebar">
+        <nav id="toc" class="article-toc">
+            <h3 class="toc-title">文章目录</h3>
             
-    <div class="widget">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget-body">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-        
-            
-    <div class="widget">
-        <h3 class="widget-title">
-            标签
-        </h3>
-        <div class="widget-body">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-        
-            
-    <div class="widget">
-        
-        <h3 class="widget-title">标签云</h3>
-        
-        <div class="widget-body tagcloud">
-            <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13px;">数据库</a>
-        </div>
-    </div>
-
-
-        
-            
-    <div class="widget">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget-body">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-        
-            
-<div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-        <ul class="recent-post-list list-unstyled">
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            <a class="category-link" href="/categories/Vue/">Vue</a>
-                        </p>
-                        <p class="item-title">
-                            <a href="/3XDPK46.html" class="title">Element-UI中Table高度自适应问题</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2020-08-12T22:40:24.883Z" itemprop="datePublished">2020-08-13</time>
-                        </p>
-                    </div>
-                </li>
-            
-                <li>
-                    <div class="recent-post">
-                        <p class="item-category">
-                            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-                        </p>
-                        <p class="item-title">
-                            <a href="/YE6KFM.html" class="title">数据完整性设计理解</a>
-                        </p>
-                        <p class="item-date">
-                            <time datetime="2020-02-05T19:06:37.000Z" itemprop="datePublished">2020-02-06</time>
-                        </p>
-                    </div>
-                </li>
-            
-        </ul>
-    </div>
-</div>
-
-
-        
+        </nav>
     </div>
 </aside>
+
+
+
 
 
         </section>
