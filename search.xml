@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Element-UI中Table高度自适应问题</title>
-    <url>/3XDPK46.html</url>
-    <content><![CDATA[<a id="more"></a>
-<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
-<p>代码如下：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>效果如图：<br>
-<img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Vue引用类型的监听watch</title>
     <url>/XH9XQ6.html</url>
     <content><![CDATA[<p>和Vue watch之间的小故事。</p>
@@ -36,6 +19,143 @@
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Element-UI中Table高度自适应问题</title>
+    <url>/3XDPK46.html</url>
+    <content><![CDATA[<a id="more"></a>
+<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
+<p>代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>效果如图：<br>
+<img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kotlin安卓开发-环境搭建（一）</title>
+    <url>/1X1JYEX.html</url>
+    <content><![CDATA[<h2 id="前言">前言</h2>
+<p>本文旨在小白也能够顺利安装安卓开发环境，解决虚拟设备、SDK、GRADLE的路径修改问题。</p>
+<h2 id="Java开发环境">Java开发环境</h2>
+<p>该教程无需手动安装Java环境。</p>
+<h2 id="集成开发环境（Android-Studio）">集成开发环境（Android Studio）</h2>
+<h3 id="下载安装JetBrain的ToolBox">. 下载安装JetBrain的ToolBox</h3>
+<p><a href="https://www.lanzous.com/iaa5pje" target="_blank" rel="noopener">点击下载</a></p>
+<h3 id="修改ToolBox的安装地址">. 修改ToolBox的安装地址</h3>
+<ol>
+<li>
+<p>打开ToolBox的设置</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787643_20200315163947962_127009905.png" alt=""></p>
+</li>
+<li>
+<p>选择你想存储该应用程序的路径并应用</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787643_20200315164457880_56728217.png" alt=""></p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787645_20200315165345379_406917145.png" alt=""></p>
+</li>
+<li>
+<p>返回工具列表，找到AS</p>
+</li>
+</ol>
+<p>可以选择你想要的版本，个人喜欢最新版</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787645_20200315164649245_2095887498.png" alt=""></p>
+<h3 id="配置SDK路径">. 配置SDK路径</h3>
+<ol>
+<li>
+<p>等待安装完成，打开AS</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315165809435_1468523967.png" alt=""></p>
+</li>
+<li>
+<p>提示不能增加AndroidSDK，原因是因为需要设置代理，没有代理的话直接取消，会打开配置界面<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315165903140_452758398.png" alt=""></p>
+</li>
+<li>
+<p>关掉如下配置界面，会回到启动界面<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787646_20200315170030096_975833865.png" alt=""></p>
+</li>
+<li>
+<p>打开设置<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787647_20200315170748645_423692269.png" alt=""></p>
+</li>
+<li>
+<p>找到如下界面，点击edit编辑按钮<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787647_20200315170841832_2087675278.png" alt=""></p>
+</li>
+<li>
+<p>选择你需要安装的位置后，一路next，然后等待很长一段时间，我使用了代理，所以非常快。<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787648_20200315170938889_1970572660.png" alt=""></p>
+</li>
+<li>
+<p>结束之后你会看到如下界面，此时路径已经修改，说明你成功了<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787648_20200315171553399_921892586.png" alt=""></p>
+</li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787649_20200315171654184_154179797.png" alt=""></p>
+<h3 id="配置安卓虚拟设备">. 配置安卓虚拟设备</h3>
+<ol>
+<li>
+<p>进行如下操作，以进行下一步，勾选HAXM ，然后应用（apply）<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787650_20200315172321074_502469578.png" alt=""></p>
+</li>
+<li>
+<p>应用后会出现一个界面，一路next，建议该界面下选择2gb<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787651_20200315172442554_1100497442.png" alt=""></p>
+</li>
+<li>
+<p>关闭AS，进行环境变量配置</p>
+</li>
+</ol>
+<p>打开window设置，界面搜索 编辑系统环境变量</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787651_20200315182609043_1942115051.png" alt=""></p>
+<p>选择环境变量</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182623931_755197930.png" alt=""></p>
+<p>新建一个名为 ANDROID_SDK_HOME的环境变量，变量值填写你自己的路径,然后确定 以及 应用</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182643838_478493330.png" alt=""></p>
+<ol start="4">
+<li>再次启动AS，启动界面，选择如下设置去设置安卓虚拟设备<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787649_20200315171857442_1434569897.png" alt=""></li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787650_20200315171933598_1017354010.png" alt=""></p>
+<ol start="5">
+<li>
+<p>选择一个设备，当然你也可以自定义设备信息（屏幕尺寸、颜色深度等等），<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182949443_2134231754.png" alt=""></p>
+</li>
+<li>
+<p>下一步之后，会看到这个界面，下载一个安卓系统镜像<br>
+左下角提示没有选择系统镜像，你需要点击相应安卓版本的下载（Download）按钮下载<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787652_20200315182926933_1994992024.png" alt=""></p>
+</li>
+<li>
+<p>点击下载后会弹出如下界面</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183303409_1132399407.png" alt=""><br>
+等待完成即可<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183327788_881726167.png" alt=""></p>
+<ol start="8">
+<li>完成之后，下载按钮消失了，点击选择它，然后下一步就完成了<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/1584787653_20200315183357684_1750000052.png" alt=""></li>
+</ol>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787654_20200315183449234_1537261378.png" alt=""></p>
+<h3 id="配置GRADLE路径">. 配置GRADLE路径</h3>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/1584787655_20200315183847591_1762060673.png" alt=""></p>
+<h2 id="调试">调试</h2>
+<h3 id="虚拟设备调试">. 虚拟设备调试</h3>
+<h3 id="真实设备调试">. 真实设备调试</h3>
+]]></content>
+      <categories>
+        <category>安卓</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
