@@ -3,14 +3,16 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <title>标签: 数据库 | Nekilc</title>
-    <meta name="description" content="代码给你，PPT给我。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nekilc">
-<meta property="og:url" content="http://www.nekilc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+    <title>Docker-Redis集群搭建 | Nekilc</title>
+    <meta name="description" content="新建docker网桥 docker network create --driver bridge --subnet&#x3D;172.19.0.0&#x2F;16 redis-bridge  新建脚本文件  123456789101112port $&amp;#123;PORT&amp;#125;protected-mode nobind 0.0.0.0requirepass 123456789masterauth 12345678">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker-Redis集群搭建">
+<meta property="og:url" content="http://www.nekilc.com/25EVPV8.html">
 <meta property="og:site_name" content="Nekilc">
-<meta property="og:description" content="代码给你，PPT给我。">
+<meta property="og:description" content="新建docker网桥 docker network create --driver bridge --subnet&#x3D;172.19.0.0&#x2F;16 redis-bridge  新建脚本文件  123456789101112port $&amp;#123;PORT&amp;#125;protected-mode nobind 0.0.0.0requirepass 123456789masterauth 12345678">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-21T05:39:12.389Z">
+<meta property="article:modified_time" content="2020-09-21T10:30:55.729Z">
 <meta property="article:author" content="Nekilc">
 <meta name="twitter:card" content="summary">
 
@@ -22,6 +24,11 @@
 
 
 
+    
+    
+    
+    
+        <link href="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css" rel="stylesheet">
     
     
     
@@ -175,42 +182,109 @@
 </header>
 
         <section class="main-section">
-            <main class="flex-1 px-4 py-12 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+            
+    <main class="flex-1 px-4 py-12 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    
+
     <article class="content article article-archives article-type-list" itemscope="">
         <header class="article-header">
-            <h1 itemprop="title">标签 : 数据库</h1>
-            <p class="text-gray-600">共 2 篇文章</p>
-        </header>
-        <div class="article-body">
             
     
-        <section class="year-archive">
-    <header>
-        <h1><a >2020</a></h1>
-    </header>
-    <div class="archive-content">
-        
-            <a href="/22X88J.html" class="post-item">
-                <div class="post-time">09-23</div>
-                <div class="post-title">Docker部署Mysql数据库</div>
-            </a>
-        
-            <a href="/YE6KFM.html" class="post-item">
-                <div class="post-time">02-06</div>
-                <div class="post-title">数据完整性设计理解</div>
-            </a>
-        
-    </div>
-</section>
-
+        <h1 class="article-title text-lg" itemprop="name">
+            Docker-Redis集群搭建
+        </h1>
     
 
 
+
+            <p class="article-meta mb-3 text-xs">
+                <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/25EVPV8.html" class="article-date">
+	  <time datetime="2020-09-21T05:39:12.389Z" itemprop="datePublished">9月 21</time>
+	</a>
+</span>
+
+                
+    <span class="article-category">
+    <i class="iconfont icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+  </span>
+
+
+                
+
+                <span class="_partial/post-comment"><i class="icon icon-comment"></i>
+                    <a href="/25EVPV8.html#comments" class="article-comment-link">
+                        评论
+                    </a>
+                </span>
+                
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 287(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+            </p>
+        </header>
+        <div class="marked-body article-body">
+            <h1 id="新建docker网桥">新建docker网桥</h1>
+<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
+<ol>
+<li>新建脚本文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过脚本文件生成各节点配置文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动所有节点。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>创建集群。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>验证集群</li>
+</ol>
+
         </div>
+        
+<blockquote class="copyright">
+    <p><strong>本文链接 : </strong><a class="permalink" href="http://www.nekilc.com/25EVPV8.html">http://www.nekilc.com/25EVPV8.html</a></p>
+    <p><strong>This article is available under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> License</strong></p>
+</blockquote>
+
+
     </article>
+    
+    <section id="comments">
+        
+    </section>
+
+
     
 
 </main>
+
+
+<aside style="" id="sidebar" class="aside aside-fixture">
+    <div class="toc-sidebar">
+        <nav id="toc" class="article-toc">
+            <h3 class="toc-title">文章目录</h3>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#新建docker网桥"><span class="toc-number">1.</span> <span class="toc-text">新建docker网桥</span></a></li></ol>
+        </nav>
+    </div>
+</aside>
+
+
+
+
 
         </section>
         <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">

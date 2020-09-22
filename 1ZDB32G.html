@@ -3,15 +3,18 @@
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <title>标签: 数据库 | Nekilc</title>
-    <meta name="description" content="代码给你，PPT给我。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nekilc">
-<meta property="og:url" content="http://www.nekilc.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+    <title>Sync包Once源码解析 | Nekilc</title>
+    <meta name="description" content="根据源码中的描述，可以总结出：一个Once只能被使用一次 12345678910&#x2F;&#x2F; Once is an object that will perform exactly one action.type Once struct &amp;#123;	&#x2F;&#x2F; done indicates whether the action has been performed.	&#x2F;&#x2F; It is first in the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sync包Once源码解析">
+<meta property="og:url" content="http://www.nekilc.com/1ZDB32G.html">
 <meta property="og:site_name" content="Nekilc">
-<meta property="og:description" content="代码给你，PPT给我。">
+<meta property="og:description" content="根据源码中的描述，可以总结出：一个Once只能被使用一次 12345678910&#x2F;&#x2F; Once is an object that will perform exactly one action.type Once struct &amp;#123;	&#x2F;&#x2F; done indicates whether the action has been performed.	&#x2F;&#x2F; It is first in the">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-18T13:36:10.937Z">
+<meta property="article:modified_time" content="2020-09-19T04:37:39.190Z">
 <meta property="article:author" content="Nekilc">
+<meta property="article:tag" content="Golang">
 <meta name="twitter:card" content="summary">
 
     
@@ -22,6 +25,11 @@
 
 
 
+    
+    
+    
+    
+        <link href="//cdn.jsdelivr.net/npm/lightgallery.js@1.1.3/dist/css/lightgallery.min.css" rel="stylesheet">
     
     
     
@@ -175,42 +183,100 @@
 </header>
 
         <section class="main-section">
-            <main class="flex-1 px-4 py-12 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+            
+    <main class="flex-1 px-4 py-12 md:px-5 lg:px-8 lg:py-4 relative min-h-screen">
+    
+
     <article class="content article article-archives article-type-list" itemscope="">
         <header class="article-header">
-            <h1 itemprop="title">标签 : 数据库</h1>
-            <p class="text-gray-600">共 2 篇文章</p>
-        </header>
-        <div class="article-body">
             
     
-        <section class="year-archive">
-    <header>
-        <h1><a >2020</a></h1>
-    </header>
-    <div class="archive-content">
-        
-            <a href="/22X88J.html" class="post-item">
-                <div class="post-time">09-23</div>
-                <div class="post-title">Docker部署Mysql数据库</div>
-            </a>
-        
-            <a href="/YE6KFM.html" class="post-item">
-                <div class="post-time">02-06</div>
-                <div class="post-title">数据完整性设计理解</div>
-            </a>
-        
-    </div>
-</section>
-
+        <h1 class="article-title text-lg" itemprop="name">
+            Sync包Once源码解析
+        </h1>
     
 
 
+
+            <p class="article-meta mb-3 text-xs">
+                <span class="article-date">
+    <i class="iconfont icon-calendar-check"></i>
+	<a href="/1ZDB32G.html" class="article-date">
+	  <time datetime="2020-09-18T13:36:10.937Z" itemprop="datePublished">9月 18</time>
+	</a>
+</span>
+
+                
+    <span class="article-category">
+    <i class="iconfont icon-folder"></i>
+    <a class="article-category-link" href="/categories/Golang/">Golang</a>
+  </span>
+
+
+                
+    <span class="article-tags">
+    <i class="iconfont icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Golang/" rel="tag">Golang</a>
+  </span>
+
+
+                <span class="_partial/post-comment"><i class="icon icon-comment"></i>
+                    <a href="/1ZDB32G.html#comments" class="article-comment-link">
+                        评论
+                    </a>
+                </span>
+                
+    
+        <span class="post-wordcount" itemprop="wordCount">字数统计: 304(字)</span>
+    
+    
+        <span class="post-readcount" itemprop="timeRequired">阅读时长: 1(分)</span>
+    
+
+
+            </p>
+        </header>
+        <div class="marked-body article-body">
+            <p>根据源码中的描述，可以总结出：一个Once只能被使用一次</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Once is an object that will perform exactly one action.</span></span><br><span class="line"><span class="keyword">type</span> Once <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// done indicates whether the action has been performed.</span></span><br><span class="line">	<span class="comment">// It is first in the struct because it is used in the hot path.</span></span><br><span class="line">	<span class="comment">// The hot path is inlined at every call site.</span></span><br><span class="line">	<span class="comment">// Placing done first allows more compact instructions on some architectures (amd64/x86),</span></span><br><span class="line">	<span class="comment">// and fewer instructions (to calculate offset) on other architectures.</span></span><br><span class="line">	done <span class="keyword">uint32</span></span><br><span class="line">	m    Mutex</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span> <span class="title">Do</span><span class="params">(f <span class="keyword">func</span>()</span>)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> atomic.LoadUint32(&amp;o.done) == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="comment">// Outlined slow-path to allow inlining of the fast-path.</span></span><br><span class="line">		o.doSlow(f)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span> <span class="title">doSlow</span><span class="params">(f <span class="keyword">func</span>()</span>)</span> &#123;</span><br><span class="line">	o.m.Lock()</span><br><span class="line">	<span class="keyword">defer</span> o.m.Unlock()</span><br><span class="line">	<span class="keyword">if</span> o.done == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> atomic.StoreUint32(&amp;o.done, <span class="number">1</span>)</span><br><span class="line">		f()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以从这段代码看到它使用了atomic包，这是golang提供的原子操作相关的包。<br>
+关于原子操作，在操作系统这门课的教科书上市这样描述的：<br>
+一个操作中所有的动作要么全做，要么全部做。换言之，它是一个不可分割的基本单位。原子操作在系统态下执行，常驻内存。<br>
+简而言之，原子操作是不可中断的。所以在这里，无论是读(load)或者写(store)操作，同时只能存在一种操作，要么读,要么写。</p>
+
         </div>
+        
+<blockquote class="copyright">
+    <p><strong>本文链接 : </strong><a class="permalink" href="http://www.nekilc.com/1ZDB32G.html">http://www.nekilc.com/1ZDB32G.html</a></p>
+    <p><strong>This article is available under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a> License</strong></p>
+</blockquote>
+
+
     </article>
+    
+    <section id="comments">
+        
+    </section>
+
+
     
 
 </main>
+
+
+<aside style="" id="sidebar" class="aside aside-fixture">
+    <div class="toc-sidebar">
+        <nav id="toc" class="article-toc">
+            <h3 class="toc-title">文章目录</h3>
+            
+        </nav>
+    </div>
+</aside>
+
+
+
+
 
         </section>
         <footer class="hidden lg:block fixed bottom-0 left-0 sm:w-1/12 lg:w-1/6 bg-gray-100 z-40">
