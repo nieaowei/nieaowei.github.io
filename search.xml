@@ -1,69 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>数据完整性设计理解</title>
-    <url>/YE6KFM.html</url>
-    <content><![CDATA[<p>数据库完整性是指数据库中数据的正确性和相容性。数据库完整性由各种各样的完整性约束来保证，因此可以说数据库完整性设计就是数据庠完整性约束的设计。数据库完整性约束可以通过DBMS<a href="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E3%80%82">^DBMS</a>或应用程序来实现，基于DBMS的完整性约束作为模式的一部分存入数据库中。通过DBMS实现的数据库完整性按照数据库设计步骤进行设计，而由应用软件实现的数据库完整性则纳入应用软件设计。</p>
-<a id="more"></a>
-<h1 id="1-数据库完整性设计原则">1. 数据库完整性设计原则</h1>
-<ol>
-<li>静态约束应尽量包含在数据库模式中，而动态约束由应用程序实现。</li>
-<li>触发器性能开销大，非用不可时使用before触发器。</li>
-<li>制定完整性约束的命名规范。</li>
-<li>根据业务规则对数据库完整性进行测试，排除约束冲突。</li>
-</ol>
-<h1 id="2-数据库完整性的作用">2. 数据库完整性的作用</h1>
-<ul>
-<li>防止合法用户使用数据库时向数据库中添加不合语义的数据。</li>
-<li>降低应用程序的复杂性，提高应用程序的运行效率。</li>
-<li>比应用程序更容易实现数据库的完整性。</li>
-</ul>
-<h1 id="3-六类数据库完整性约束">3. 六类数据库完整性约束</h1>
-<ol>
-<li>列级静态约束</li>
-<li>元组级静态约束</li>
-<li>关系级静态约束</li>
-<li>列级动态约束</li>
-<li>元组级动态约束</li>
-<li>关系级动态约束</li>
-</ol>
-<h1 id="4-数据库完整性设计示例">4. 数据库完整性设计示例</h1>
-<ol>
-<li>
-<p>需求分析阶段</p>
-<ul>
-<li>
-<p>经过系统分析员、数据库分析员和用户的共同努力，确定系统模型中应该包含的对象，如人事及工资管理系统中的部门、员工和经理等，以及各种业务规则。</p>
-</li>
-<li>
-<p>在完成寻找业务规则的工作之后，确定要作为数据库完整性的业务规则，并对业务规则进行分类。其中作为数据库模式一部分的完整性设计按下面的过程进行，而由应用软件来实现的数据库完整性设计将按照软件工程的方法进行。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>概念结构设计阶段</p>
-<ul>
-<li>概念结构设计阶段是将依据需求分析的结果转换成一个独立于具体DBMS的概念模型，即实体关系图（Entity-RelationshipDiagram,ERD）。在概念结构设计阶段就要开始数据库完整性设计的实质阶段，因为此阶段的实体关系将在逻辑结构设计阶段转化为实体完整性约束和参照完整性约束，到逻辑结构设计阶段将完成设计的主要工作。</li>
-</ul>
-</li>
-<li>
-<p>逻辑结构设计阶段</p>
-<ul>
-<li>
-<p>此阶段就是将概念结构转换为某个DBMS所支持的数据模型，并对其进行优化，包括对关系模型的规范化。此时，依据DBMS提供的完整性约束机制，对尚未加入逻辑结构中的完整性约束列表，逐条选择合适的方式加以实现。</p>
-</li>
-<li>
-<p>在逻辑结构设计阶段结束时，作为数据库模式一部分的完整性设计也就基本完成了。每种业务规则都可能有好几种实现方式，应该选择对数据库性能影响最小的一种，有时需通过实际测试来决定。</p>
-</li>
-</ul>
-</li>
-</ol>
+    <title>Sync包Once源码解析</title>
+    <url>/1ZDB32G.html</url>
+    <content><![CDATA[<p>根据源码中的描述，可以总结出：一个Once只能被使用一次</p>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Once is an object that will perform exactly one action.</span></span><br><span class="line"><span class="keyword">type</span> Once <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// done indicates whether the action has been performed.</span></span><br><span class="line">	<span class="comment">// It is first in the struct because it is used in the hot path.</span></span><br><span class="line">	<span class="comment">// The hot path is inlined at every call site.</span></span><br><span class="line">	<span class="comment">// Placing done first allows more compact instructions on some architectures (amd64/x86),</span></span><br><span class="line">	<span class="comment">// and fewer instructions (to calculate offset) on other architectures.</span></span><br><span class="line">	done <span class="keyword">uint32</span></span><br><span class="line">	m    Mutex</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span> <span class="title">Do</span><span class="params">(f <span class="keyword">func</span>()</span>)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> atomic.LoadUint32(&amp;o.done) == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="comment">// Outlined slow-path to allow inlining of the fast-path.</span></span><br><span class="line">		o.doSlow(f)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span> <span class="title">doSlow</span><span class="params">(f <span class="keyword">func</span>()</span>)</span> &#123;</span><br><span class="line">	o.m.Lock()</span><br><span class="line">	<span class="keyword">defer</span> o.m.Unlock()</span><br><span class="line">	<span class="keyword">if</span> o.done == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> atomic.StoreUint32(&amp;o.done, <span class="number">1</span>)</span><br><span class="line">		f()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以从这段代码看到它使用了atomic包，这是golang提供的原子操作相关的包。<br>
+关于原子操作，在操作系统这门课的教科书上市这样描述的：<br>
+一个操作中所有的动作要么全做，要么全部做。换言之，它是一个不可分割的基本单位。原子操作在系统态下执行，常驻内存。<br>
+简而言之，原子操作是不可中断的。所以在这里，无论是读(load)或者写(store)操作，同时只能存在一种操作，要么读,要么写。</p>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>Golang</category>
       </categories>
       <tags>
-        <tag>数据库</tag>
+        <tag>Golang</tag>
       </tags>
   </entry>
   <entry>
@@ -75,6 +27,27 @@
 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <p>效果如图：<br>
 <img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue引用类型的监听watch</title>
+    <url>/XH9XQ6.html</url>
+    <content><![CDATA[<p>和Vue watch之间的小故事。</p>
+<a id="more"></a>
+<p>在今天的项目编写中，遇到了vue监听起作用，但无法知道具体哪个值变化的问题，在搜索了一会后，几乎千篇一律的让我加deep监听属性，但是都忽略一个问题，他们确实解决了监听的问题，其实在打印新旧值的时候你会发现，两个值是一样的并无新旧值区别，原因是因为引用传递，所以监听到的是引用的地址。在那个时间点，那个引用地址存的就是你修改后的值,也就是说监听回调的新旧值参数对象是同一个地址同一个引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line"><span class="actionscript">      deep: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当你通过其他事件将obj.a赋予新值时，譬如4，那么控制台输出的会是：<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/B2E75423-FFF9-494E-8F37-75BBD9C73F0E.png" alt=""></p>
+<p>那么解决这个问题的方法就是使用computed去获取单个属性，然后监听这个computed的值：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">        obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    a: <span class="function"><span class="keyword">function</span><span class="params">()</span>: number</span>&#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="keyword">this</span>.obj.a</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    a: &#123;</span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>结果如下了。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/20200817034855.png" alt=""></p>
 ]]></content>
       <categories>
         <category>Vue</category>
@@ -204,24 +177,98 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue引用类型的监听watch</title>
-    <url>/XH9XQ6.html</url>
-    <content><![CDATA[<p>和Vue watch之间的小故事。</p>
-<a id="more"></a>
-<p>在今天的项目编写中，遇到了vue监听起作用，但无法知道具体哪个值变化的问题，在搜索了一会后，几乎千篇一律的让我加deep监听属性，但是都忽略一个问题，他们确实解决了监听的问题，其实在打印新旧值的时候你会发现，两个值是一样的并无新旧值区别，原因是因为引用传递，所以监听到的是引用的地址。在那个时间点，那个引用地址存的就是你修改后的值,也就是说监听回调的新旧值参数对象是同一个地址同一个引用。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line"><span class="actionscript">      deep: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>当你通过其他事件将obj.a赋予新值时，譬如4，那么控制台输出的会是：<br>
-<img src="https://gitee.com/nieaowei/images/raw/master/B2E75423-FFF9-494E-8F37-75BBD9C73F0E.png" alt=""></p>
-<p>那么解决这个问题的方法就是使用computed去获取单个属性，然后监听这个computed的值：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">        obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    a: <span class="function"><span class="keyword">function</span><span class="params">()</span>: number</span>&#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="keyword">this</span>.obj.a</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    a: &#123;</span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>结果如下了。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/20200817034855.png" alt=""></p>
+    <title>Docker-Redis集群搭建</title>
+    <url>/25EVPV8.html</url>
+    <content><![CDATA[<h1 id="新建docker网桥">新建docker网桥</h1>
+<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
+<ol>
+<li>新建脚本文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过脚本文件生成各节点配置文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动所有节点。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>创建集群。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>验证集群</li>
+</ol>
 ]]></content>
       <categories>
-        <category>Vue</category>
+        <category>运维</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数据完整性设计理解</title>
+    <url>/YE6KFM.html</url>
+    <content><![CDATA[<p>数据库完整性是指数据库中数据的正确性和相容性。数据库完整性由各种各样的完整性约束来保证，因此可以说数据库完整性设计就是数据庠完整性约束的设计。数据库完整性约束可以通过DBMS<a href="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E3%80%82">^DBMS</a>或应用程序来实现，基于DBMS的完整性约束作为模式的一部分存入数据库中。通过DBMS实现的数据库完整性按照数据库设计步骤进行设计，而由应用软件实现的数据库完整性则纳入应用软件设计。</p>
+<a id="more"></a>
+<h1 id="1-数据库完整性设计原则">1. 数据库完整性设计原则</h1>
+<ol>
+<li>静态约束应尽量包含在数据库模式中，而动态约束由应用程序实现。</li>
+<li>触发器性能开销大，非用不可时使用before触发器。</li>
+<li>制定完整性约束的命名规范。</li>
+<li>根据业务规则对数据库完整性进行测试，排除约束冲突。</li>
+</ol>
+<h1 id="2-数据库完整性的作用">2. 数据库完整性的作用</h1>
+<ul>
+<li>防止合法用户使用数据库时向数据库中添加不合语义的数据。</li>
+<li>降低应用程序的复杂性，提高应用程序的运行效率。</li>
+<li>比应用程序更容易实现数据库的完整性。</li>
+</ul>
+<h1 id="3-六类数据库完整性约束">3. 六类数据库完整性约束</h1>
+<ol>
+<li>列级静态约束</li>
+<li>元组级静态约束</li>
+<li>关系级静态约束</li>
+<li>列级动态约束</li>
+<li>元组级动态约束</li>
+<li>关系级动态约束</li>
+</ol>
+<h1 id="4-数据库完整性设计示例">4. 数据库完整性设计示例</h1>
+<ol>
+<li>
+<p>需求分析阶段</p>
+<ul>
+<li>
+<p>经过系统分析员、数据库分析员和用户的共同努力，确定系统模型中应该包含的对象，如人事及工资管理系统中的部门、员工和经理等，以及各种业务规则。</p>
+</li>
+<li>
+<p>在完成寻找业务规则的工作之后，确定要作为数据库完整性的业务规则，并对业务规则进行分类。其中作为数据库模式一部分的完整性设计按下面的过程进行，而由应用软件来实现的数据库完整性设计将按照软件工程的方法进行。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>概念结构设计阶段</p>
+<ul>
+<li>概念结构设计阶段是将依据需求分析的结果转换成一个独立于具体DBMS的概念模型，即实体关系图（Entity-RelationshipDiagram,ERD）。在概念结构设计阶段就要开始数据库完整性设计的实质阶段，因为此阶段的实体关系将在逻辑结构设计阶段转化为实体完整性约束和参照完整性约束，到逻辑结构设计阶段将完成设计的主要工作。</li>
+</ul>
+</li>
+<li>
+<p>逻辑结构设计阶段</p>
+<ul>
+<li>
+<p>此阶段就是将概念结构转换为某个DBMS所支持的数据模型，并对其进行优化，包括对关系模型的规范化。此时，依据DBMS提供的完整性约束机制，对尚未加入逻辑结构中的完整性约束列表，逐条选择合适的方式加以实现。</p>
+</li>
+<li>
+<p>在逻辑结构设计阶段结束时，作为数据库模式一部分的完整性设计也就基本完成了。每种业务规则都可能有好几种实现方式，应该选择对数据库性能影响最小的一种，有时需通过实际测试来决定。</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
   <entry>
@@ -233,7 +280,11 @@
 <h2 id="2-指定本机配置文件">2. 指定本机配置文件</h2>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/custom:/etc/mysql/conf.d</span><br></pre></td></tr></table></figure>
 <h2 id="3-持久化数据-指定本机数据储存">3. 持久化数据/指定本机数据储存</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/own/datadir:/var/lib/mysql</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/own/datadir:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+<h3 id="4-指定字符集">4. 指定字符集</h3>
+<pre><code class="language-shell">--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+`</code></pre>
+]]></content>
       <categories>
         <category>运维</category>
       </categories>
@@ -266,53 +317,6 @@
 ]]></content>
       <categories>
         <category>杂文</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Sync包Once源码解析</title>
-    <url>/1ZDB32G.html</url>
-    <content><![CDATA[<p>根据源码中的描述，可以总结出：一个Once只能被使用一次</p>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Once is an object that will perform exactly one action.</span></span><br><span class="line"><span class="keyword">type</span> Once <span class="keyword">struct</span> &#123;</span><br><span class="line">	<span class="comment">// done indicates whether the action has been performed.</span></span><br><span class="line">	<span class="comment">// It is first in the struct because it is used in the hot path.</span></span><br><span class="line">	<span class="comment">// The hot path is inlined at every call site.</span></span><br><span class="line">	<span class="comment">// Placing done first allows more compact instructions on some architectures (amd64/x86),</span></span><br><span class="line">	<span class="comment">// and fewer instructions (to calculate offset) on other architectures.</span></span><br><span class="line">	done <span class="keyword">uint32</span></span><br><span class="line">	m    Mutex</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span> <span class="title">Do</span><span class="params">(f <span class="keyword">func</span>()</span>)</span> &#123;</span><br><span class="line">	<span class="keyword">if</span> atomic.LoadUint32(&amp;o.done) == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="comment">// Outlined slow-path to allow inlining of the fast-path.</span></span><br><span class="line">		o.doSlow(f)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(o *Once)</span> <span class="title">doSlow</span><span class="params">(f <span class="keyword">func</span>()</span>)</span> &#123;</span><br><span class="line">	o.m.Lock()</span><br><span class="line">	<span class="keyword">defer</span> o.m.Unlock()</span><br><span class="line">	<span class="keyword">if</span> o.done == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> atomic.StoreUint32(&amp;o.done, <span class="number">1</span>)</span><br><span class="line">		f()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以从这段代码看到它使用了atomic包，这是golang提供的原子操作相关的包。<br>
-关于原子操作，在操作系统这门课的教科书上市这样描述的：<br>
-一个操作中所有的动作要么全做，要么全部做。换言之，它是一个不可分割的基本单位。原子操作在系统态下执行，常驻内存。<br>
-简而言之，原子操作是不可中断的。所以在这里，无论是读(load)或者写(store)操作，同时只能存在一种操作，要么读,要么写。</p>
-]]></content>
-      <categories>
-        <category>Golang</category>
-      </categories>
-      <tags>
-        <tag>Golang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker-Redis集群搭建</title>
-    <url>/25EVPV8.html</url>
-    <content><![CDATA[<h1 id="新建docker网桥">新建docker网桥</h1>
-<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
-<ol>
-<li>新建脚本文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>通过脚本文件生成各节点配置文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>启动所有节点。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>创建集群。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>验证集群</li>
-</ol>
-]]></content>
-      <categories>
-        <category>运维</category>
       </categories>
   </entry>
 </search>
