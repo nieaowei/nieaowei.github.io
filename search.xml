@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Element-UI中Table高度自适应问题</title>
+    <url>/3XDPK46.html</url>
+    <content><![CDATA[<a id="more"></a>
+<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
+<p>代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>效果如图：<br>
+<img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Sync包Once源码解析</title>
     <url>/1ZDB32G.html</url>
     <content><![CDATA[<p>根据源码中的描述，可以总结出：一个Once只能被使用一次</p>
@@ -16,23 +33,6 @@
       </categories>
       <tags>
         <tag>Golang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Element-UI中Table高度自适应问题</title>
-    <url>/3XDPK46.html</url>
-    <content><![CDATA[<a id="more"></a>
-<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
-<p>代码如下：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>效果如图：<br>
-<img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -54,6 +54,172 @@
       </categories>
       <tags>
         <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据完整性设计理解</title>
+    <url>/YE6KFM.html</url>
+    <content><![CDATA[<p>数据库完整性是指数据库中数据的正确性和相容性。数据库完整性由各种各样的完整性约束来保证，因此可以说数据库完整性设计就是数据庠完整性约束的设计。数据库完整性约束可以通过DBMS<a href="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E3%80%82">^DBMS</a>或应用程序来实现，基于DBMS的完整性约束作为模式的一部分存入数据库中。通过DBMS实现的数据库完整性按照数据库设计步骤进行设计，而由应用软件实现的数据库完整性则纳入应用软件设计。</p>
+<a id="more"></a>
+<h1 id="1-数据库完整性设计原则">1. 数据库完整性设计原则</h1>
+<ol>
+<li>静态约束应尽量包含在数据库模式中，而动态约束由应用程序实现。</li>
+<li>触发器性能开销大，非用不可时使用before触发器。</li>
+<li>制定完整性约束的命名规范。</li>
+<li>根据业务规则对数据库完整性进行测试，排除约束冲突。</li>
+</ol>
+<h1 id="2-数据库完整性的作用">2. 数据库完整性的作用</h1>
+<ul>
+<li>防止合法用户使用数据库时向数据库中添加不合语义的数据。</li>
+<li>降低应用程序的复杂性，提高应用程序的运行效率。</li>
+<li>比应用程序更容易实现数据库的完整性。</li>
+</ul>
+<h1 id="3-六类数据库完整性约束">3. 六类数据库完整性约束</h1>
+<ol>
+<li>列级静态约束</li>
+<li>元组级静态约束</li>
+<li>关系级静态约束</li>
+<li>列级动态约束</li>
+<li>元组级动态约束</li>
+<li>关系级动态约束</li>
+</ol>
+<h1 id="4-数据库完整性设计示例">4. 数据库完整性设计示例</h1>
+<ol>
+<li>
+<p>需求分析阶段</p>
+<ul>
+<li>
+<p>经过系统分析员、数据库分析员和用户的共同努力，确定系统模型中应该包含的对象，如人事及工资管理系统中的部门、员工和经理等，以及各种业务规则。</p>
+</li>
+<li>
+<p>在完成寻找业务规则的工作之后，确定要作为数据库完整性的业务规则，并对业务规则进行分类。其中作为数据库模式一部分的完整性设计按下面的过程进行，而由应用软件来实现的数据库完整性设计将按照软件工程的方法进行。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>概念结构设计阶段</p>
+<ul>
+<li>概念结构设计阶段是将依据需求分析的结果转换成一个独立于具体DBMS的概念模型，即实体关系图（Entity-RelationshipDiagram,ERD）。在概念结构设计阶段就要开始数据库完整性设计的实质阶段，因为此阶段的实体关系将在逻辑结构设计阶段转化为实体完整性约束和参照完整性约束，到逻辑结构设计阶段将完成设计的主要工作。</li>
+</ul>
+</li>
+<li>
+<p>逻辑结构设计阶段</p>
+<ul>
+<li>
+<p>此阶段就是将概念结构转换为某个DBMS所支持的数据模型，并对其进行优化，包括对关系模型的规范化。此时，依据DBMS提供的完整性约束机制，对尚未加入逻辑结构中的完整性约束列表，逐条选择合适的方式加以实现。</p>
+</li>
+<li>
+<p>在逻辑结构设计阶段结束时，作为数据库模式一部分的完整性设计也就基本完成了。每种业务规则都可能有好几种实现方式，应该选择对数据库性能影响最小的一种，有时需通过实际测试来决定。</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>6种负载均衡算法Golang实现</title>
+    <url>/3BV5S52.html</url>
+    <content><![CDATA[<h1 id="六种负载均衡算法">六种负载均衡算法</h1>
+<hr>
+<h2 id="1-轮询法">1. 轮询法</h2>
+<p>将请求按顺序轮流地分配到后端服务器上，它均衡地对待后端的每一台服务器，而不关心服务器实际的连接数和当前的系统负载。</p>
+<h2 id="￼0"><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> RoundRobinLoadBalancer <span class="keyword">struct</span> &#123;</span><br><span class="line">	currentIndex <span class="keyword">int</span></span><br><span class="line">	hostList     []*HostUrl</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Format:  192.168.1.1:9999</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r *RoundRobinLoadBalancer)</span> <span class="title">AddHost</span><span class="params">(host *HostUrl, hosts ...*HostUrl)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	r.hostList = <span class="built_in">append</span>(r.hostList, host)</span><br><span class="line">	<span class="keyword">for</span> _, h := <span class="keyword">range</span> hosts &#123;</span><br><span class="line">		r.hostList = <span class="built_in">append</span>(r.hostList, h)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r *RoundRobinLoadBalancer)</span> <span class="title">GetHost</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="params">(*HostUrl, error)</span></span> &#123;</span><br><span class="line">	length := <span class="built_in">len</span>(r.hostList)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> length == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, Error_NoAvailableHost</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> r.currentIndex &gt;= length &#123;</span><br><span class="line">		r.currentIndex = <span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	current := r.currentIndex</span><br><span class="line"></span><br><span class="line">	r.currentIndex = (r.currentIndex + <span class="number">1</span>) % length</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> r.hostList[current], <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2>
+<h2 id="2-随机法">2. 随机法</h2>
+<p>通过系统的随机算法，根据后端服务器的列表大小值来随机选取其中的一台服务器进行访问。由概率统计理论可以得知，随着客户端调用服务端的次数增多，其实际效果越来越接近于平均分配调用量到后端的每一台服务器，也就是轮询的结果。</p>
+<h2 id="￼1"><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> RandomBalance <span class="keyword">struct</span> &#123;</span><br><span class="line">	index    <span class="keyword">uint</span></span><br><span class="line">	hostList []*HostUrl</span><br><span class="line">	conf     BalanceConf</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Format:  192.168.1.1:9999</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r *RandomBalance)</span> <span class="title">AddHost</span><span class="params">(host *HostUrl, hosts ...*HostUrl)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	r.hostList = <span class="built_in">append</span>(r.hostList, host)</span><br><span class="line">	<span class="keyword">for</span> _, h := <span class="keyword">range</span> hosts &#123;</span><br><span class="line">		r.hostList = <span class="built_in">append</span>(r.hostList, h)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r *RandomBalance)</span> <span class="title">GetHost</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="params">(*HostUrl, error)</span></span> &#123;</span><br><span class="line">	length := <span class="built_in">len</span>(r.hostList)</span><br><span class="line">	<span class="keyword">if</span> length == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, Error_NoAvailableHost</span><br><span class="line">	&#125;</span><br><span class="line">	index := rand.Intn(length)</span><br><span class="line">	<span class="keyword">return</span> r.hostList[index], <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2>
+<h2 id="3-源地址哈希法">3. 源地址哈希法</h2>
+<p>源地址哈希的思想是根据获取客户端的IP地址，通过哈希函数计算得到的一个数值，用该数值对服务器列表的大小进行取模运算，得到的结果便是客服端要访问服务器的序号。采用源地址哈希法进行负载均衡，同一IP地址的客户端，当后端服务器列表不变时，它每次都会映射到同一台后端服务器进行访问。</p>
+<h2 id="￼2"><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> ConsistentHashLoadBalancer <span class="keyword">struct</span> &#123;</span><br><span class="line">	hostList []*HostUrl</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Format:  192.168.1.1:9999</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r *ConsistentHashLoadBalancer)</span> <span class="title">AddHost</span><span class="params">(host *HostUrl, hosts ...*HostUrl)</span> <span class="title">error</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	r.hostList = <span class="built_in">append</span>(r.hostList, host)</span><br><span class="line">	<span class="keyword">for</span> _, h := <span class="keyword">range</span> hosts &#123;</span><br><span class="line">		r.hostList = <span class="built_in">append</span>(r.hostList, h)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *ConsistentHashLoadBalancer)</span> <span class="title">GetHost</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="params">(*HostUrl, error)</span></span> &#123;</span><br><span class="line">	length := <span class="built_in">len</span>(c.hostList)</span><br><span class="line">	<span class="keyword">if</span> length == <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span>, Error_NoAvailableHost</span><br><span class="line">	&#125;</span><br><span class="line">	hash := crc32.ChecksumIEEE([]<span class="keyword">byte</span>(key))</span><br><span class="line">	hashAddr := c.hostList[hash%<span class="keyword">uint32</span>(length)]</span><br><span class="line">	<span class="keyword">return</span> hashAddr, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2>
+<h2 id="4-加权轮询法">4. 加权轮询法</h2>
+<p>不同的后端服务器可能机器的配置和当前系统的负载并不相同，因此它们的抗压能力也不相同。给配置高、负载低的机器配置更高的权重，让其处理更多的请；而配置低、负载高的机器，给其分配较低的权重，降低其系统负载，加权轮询能很好地处理这一问题，并将请求顺序且按照权重分配到后端。</p>
+<h2 id="￼3"><figure class="highlight golang"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">type</span> WeightRobinLoadBalance <span class="keyword">struct</span> &#123;</span><br><span class="line">	hostList      []*WeightNode</span><br><span class="line">	currentWeight <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> WeightNode <span class="keyword">struct</span> &#123;</span><br><span class="line">	Weight        <span class="keyword">int</span></span><br><span class="line">	CurrentWeight <span class="keyword">int</span></span><br><span class="line">	Addr          *url.URL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Format:  192.168.1.1:9999 60</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(r *WeightRobinLoadBalance)</span> <span class="title">AddHost</span><span class="params">(host *HostUrl, hosts ...*HostUrl)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">	node := &amp;WeightNode&#123;</span><br><span class="line">		Weight:        host.Weight,</span><br><span class="line">		CurrentWeight: <span class="number">0</span>,</span><br><span class="line">		Addr:          host.URL,</span><br><span class="line">	&#125;</span><br><span class="line">	r.hostList = <span class="built_in">append</span>(r.hostList, node)</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(hosts) != <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">for</span> _, h := <span class="keyword">range</span> hosts &#123;</span><br><span class="line"></span><br><span class="line">			node := &amp;WeightNode&#123;</span><br><span class="line">				Weight:        h.Weight,</span><br><span class="line">				CurrentWeight: <span class="number">0</span>,</span><br><span class="line">				Addr:          h.URL,</span><br><span class="line">			&#125;</span><br><span class="line">			r.hostList = <span class="built_in">append</span>(r.hostList, node)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(w *WeightRobinLoadBalance)</span> <span class="title">GetHost</span><span class="params">(key <span class="keyword">string</span>)</span> <span class="params">(*HostUrl, error)</span></span> &#123;</span><br><span class="line">	total := <span class="number">0</span></span><br><span class="line">	<span class="keyword">var</span> best *WeightNode</span><br><span class="line">	<span class="keyword">for</span> _, node := <span class="keyword">range</span> w.hostList &#123;</span><br><span class="line">		total += node.Weight</span><br><span class="line">		node.CurrentWeight += node.Weight</span><br><span class="line">		<span class="keyword">if</span> best == <span class="literal">nil</span> || node.CurrentWeight &gt; best.CurrentWeight &#123;</span><br><span class="line">			best = node</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> best != <span class="literal">nil</span> &#123;</span><br><span class="line">		best.CurrentWeight -= total</span><br><span class="line">		<span class="keyword">return</span> &amp;HostUrl&#123;</span><br><span class="line">			URL:    best.Addr,</span><br><span class="line">			Weight: best.Weight,</span><br><span class="line">		&#125;, <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">nil</span>, Error_NoAvailableHost</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2>
+<h2 id="5-加权随机法">5. 加权随机法</h2>
+<p>与加权轮询法一样，加权随机法也根据后端机器的配置，系统的负载分配不同的权重。不同的是，它是按照权重随机请求后端服务器，而非顺序。</p>
+<hr>
+<h2 id="6-最小连接数法">6. 最小连接数法</h2>
+<p>最小连接数算法比较灵活和智能，由于后端服务器的配置不尽相同，对于请求的处理有快有慢，它是根据后端服务器当前的连接情况，动态地选取其中当前积压连接数最少的一台服务器来处理当前的请求，尽可能地提高后端服务的利用效率，将负责合理地分流到每一台服务器。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker-Redis集群搭建</title>
+    <url>/25EVPV8.html</url>
+    <content><![CDATA[<h1 id="新建docker网桥">新建docker网桥</h1>
+<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
+<ol>
+<li>新建脚本文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过脚本文件生成各节点配置文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动所有节点。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>创建集群。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>验证集群</li>
+</ol>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Docker部署Mysql数据库</title>
+    <url>/22X88J.html</url>
+    <content><![CDATA[<h1 id="Docker部署Mysql数据库">Docker部署Mysql数据库</h1>
+<h2 id="1-简单使用">1. 简单使用</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mysql:5.7.28</span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=12345 -p 3306:3306 -d mysql:5.7.28</span><br></pre></td></tr></table></figure>
+<h2 id="2-指定本机配置文件">2. 指定本机配置文件</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/custom:/etc/mysql/conf.d</span><br></pre></td></tr></table></figure>
+<h2 id="3-持久化数据-指定本机数据储存">3. 持久化数据/指定本机数据储存</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/own/datadir:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+<h3 id="4-指定字符集">4. 指定字符集</h3>
+<pre><code class="language-shell">--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+`</code></pre>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue打包优化</title>
+    <url>/M4C3K9.html</url>
+    <content><![CDATA[<p>该项目由Vue脚手架生成。</p>
+<p>文件 vue.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> cdn = &#123;</span><br><span class="line">    css: [</span><br><span class="line">        <span class="string">'https://unpkg.com/element-ui/lib/theme-chalk/index.css'</span>,</span><br><span class="line">    ],</span><br><span class="line">    js: [</span><br><span class="line">        <span class="string">'https://unpkg.com/vue@2.6.12/dist/vue.min.js'</span>,</span><br><span class="line">        <span class="string">'https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js'</span>,</span><br><span class="line">        <span class="string">'https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js'</span>,</span><br><span class="line">        <span class="string">'https://cdn.bootcss.com/axios/0.18.0/axios.min.js'</span>,</span><br><span class="line">        <span class="string">'https://cdn.bootcss.com/echarts/4.1.0/echarts.min.js'</span>,</span><br><span class="line">        <span class="string">'https://unpkg.com/element-ui/lib/index.js'</span>,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// eslint-disable-next-line @typescript-eslint/no-var-requires</span></span><br><span class="line"><span class="comment">// 使用 webpack gzip压缩插件</span></span><br><span class="line"><span class="keyword">const</span> CompressionPlugin = <span class="built_in">require</span>(<span class="string">'compression-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    lintOnSave: <span class="literal">false</span>,</span><br><span class="line">    chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//关闭预加载，该功能会预测你下面要做的事情，然后提前加载资源</span></span><br><span class="line">        config.plugins.delete(<span class="string">'prefetch'</span>)</span><br><span class="line">        <span class="comment">// 向 html 文件中注入js、css的cdn</span></span><br><span class="line">        config.plugin(<span class="string">'html'</span>)</span><br><span class="line">            .tap(<span class="function"><span class="params">args</span> =&gt;</span> &#123;</span><br><span class="line">                args[<span class="number">0</span>].cdn = cdn;</span><br><span class="line">                <span class="keyword">return</span> args;</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    configureWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">        config.mode = <span class="string">'production'</span></span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="comment">// 引入插件</span></span><br><span class="line">            plugins: [<span class="keyword">new</span> CompressionPlugin(&#123;</span><br><span class="line">                test: <span class="regexp">/\.js$|\.html$|\.css/</span>, <span class="comment">//匹配文件名</span></span><br><span class="line">                threshold: <span class="number">10240</span>, <span class="comment">//对超过 10k 的数据进行压缩</span></span><br><span class="line">                deleteOriginalAssets: <span class="literal">false</span> <span class="comment">//是否删除原文件</span></span><br><span class="line">            &#125;)],</span><br><span class="line">            resolve: &#123;</span><br><span class="line">                alias: &#123;</span><br><span class="line">                    syyles: <span class="string">'@assets/styles'</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 声明以下模块为外部引入</span></span><br><span class="line">            <span class="comment">// key : value，参照每个资源包导入的地方</span></span><br><span class="line">            <span class="comment">// key 为外部模块名称</span></span><br><span class="line">            <span class="comment">// value 为内部全局引用名称</span></span><br><span class="line">            externals: &#123;</span><br><span class="line">                <span class="string">'vue'</span>: <span class="string">'Vue'</span>,</span><br><span class="line">                <span class="string">'vuex'</span>: <span class="string">'Vuex'</span>,</span><br><span class="line">                <span class="string">'vue-router'</span>: <span class="string">'VueRouter'</span>,</span><br><span class="line">                <span class="string">'axios'</span>: <span class="string">'axios'</span>,</span><br><span class="line">                <span class="string">"echarts"</span>: <span class="string">"echarts"</span>,</span><br><span class="line">                <span class="string">"element-ui"</span>: <span class="string">"ELEMENT"</span><span class="comment">// 这里我暂时也不清楚为什么这么引入</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文件 public/index.html</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"&lt;%= BASE_URL %&gt;favicon.ico"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 使用CDN的CSS文件 注入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">i</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.options.cdn</span> &amp;&amp; <span class="attr">htmlWebpackPlugin.options.cdn.css</span>) &#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用CDN的JS文件 注入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">i</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.options.cdn</span> &amp;&amp; <span class="attr">htmlWebpackPlugin.options.cdn.js</span>) &#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>We're sorry but <span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span> doesn't work properly without JavaScript enabled.</span><br><span class="line">        Please enable it to continue.<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- built files will be auto injected --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    body&#123;</span><br><span class="line">        margin: 0 !important;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.fa-icon</span> &#123;</span></span><br><span class="line">        width: auto ;</span><br><span class="line"><span class="css">        <span class="selector-tag">height</span>: 1<span class="selector-class">.2em</span> ;</span></span><br><span class="line">        max-width: 100%;</span><br><span class="line">        max-height: 100%;</span><br><span class="line"><span class="css">        <span class="selector-tag">margin-right</span>: 0<span class="selector-class">.5em</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>运行 <code>npm run build</code> 打包，结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">File                                    Size                                          Gzipped</span><br><span class="line"></span><br><span class="line"> dist&#x2F;js&#x2F;chunk-vendors.5ff82869.js       1185.98 KiB                                   368.74 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-0ab245a4.96b932f4.js      28.83 KiB                                     7.20 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;app.78e9f699.js                 15.87 KiB                                     4.02 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-b6c1adf0.cdf11fc8.js      14.96 KiB                                     4.83 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-bcab546a.102e35ae.js      7.77 KiB                                      2.95 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-4486737d.63562d86.js      5.56 KiB                                      1.99 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;about.32c62c99.js               4.24 KiB                                      1.70 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-092b5b6d.e0847ea0.js      3.18 KiB                                      1.23 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-2d21e30b.5f9f08f4.js      0.36 KiB                                      0.28 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-vendors.96889e61.css     205.25 KiB                                    32.96 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-0ab245a4.2a37ff65.css    1.60 KiB                                      0.47 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-4486737d.202f9498.css    0.89 KiB                                      0.35 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-b6c1adf0.51307730.css    0.49 KiB                                      0.23 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-bcab546a.0f4b8451.css    0.44 KiB                                      0.22 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;app.0a82b120.css               0.39 KiB                                      0.24 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;about.4c5e0428.css             0.14 KiB                                      0.11 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-092b5b6d.18d1a564.css    0.14 KiB                                      0.12 KiB</span><br></pre></td></tr></table></figure>
+<p>可以发现无论是原件体积或是<code>gzip</code>压缩后的文件体积都减少了很多。而且你可以看见目录下还多了<code>gz</code>结尾的文件，这就是<code>gzip</code>压缩后的文件，接下来就可以使用<code>nginx</code>静态<code>gzip</code>部署了。</p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -175,148 +341,5 @@
         <tag>Java</tag>
         <tag>Android</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Docker-Redis集群搭建</title>
-    <url>/25EVPV8.html</url>
-    <content><![CDATA[<h1 id="新建docker网桥">新建docker网桥</h1>
-<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
-<ol>
-<li>新建脚本文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>通过脚本文件生成各节点配置文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>启动所有节点。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>创建集群。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>验证集群</li>
-</ol>
-]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>数据完整性设计理解</title>
-    <url>/YE6KFM.html</url>
-    <content><![CDATA[<p>数据库完整性是指数据库中数据的正确性和相容性。数据库完整性由各种各样的完整性约束来保证，因此可以说数据库完整性设计就是数据庠完整性约束的设计。数据库完整性约束可以通过DBMS<a href="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E3%80%82">^DBMS</a>或应用程序来实现，基于DBMS的完整性约束作为模式的一部分存入数据库中。通过DBMS实现的数据库完整性按照数据库设计步骤进行设计，而由应用软件实现的数据库完整性则纳入应用软件设计。</p>
-<a id="more"></a>
-<h1 id="1-数据库完整性设计原则">1. 数据库完整性设计原则</h1>
-<ol>
-<li>静态约束应尽量包含在数据库模式中，而动态约束由应用程序实现。</li>
-<li>触发器性能开销大，非用不可时使用before触发器。</li>
-<li>制定完整性约束的命名规范。</li>
-<li>根据业务规则对数据库完整性进行测试，排除约束冲突。</li>
-</ol>
-<h1 id="2-数据库完整性的作用">2. 数据库完整性的作用</h1>
-<ul>
-<li>防止合法用户使用数据库时向数据库中添加不合语义的数据。</li>
-<li>降低应用程序的复杂性，提高应用程序的运行效率。</li>
-<li>比应用程序更容易实现数据库的完整性。</li>
-</ul>
-<h1 id="3-六类数据库完整性约束">3. 六类数据库完整性约束</h1>
-<ol>
-<li>列级静态约束</li>
-<li>元组级静态约束</li>
-<li>关系级静态约束</li>
-<li>列级动态约束</li>
-<li>元组级动态约束</li>
-<li>关系级动态约束</li>
-</ol>
-<h1 id="4-数据库完整性设计示例">4. 数据库完整性设计示例</h1>
-<ol>
-<li>
-<p>需求分析阶段</p>
-<ul>
-<li>
-<p>经过系统分析员、数据库分析员和用户的共同努力，确定系统模型中应该包含的对象，如人事及工资管理系统中的部门、员工和经理等，以及各种业务规则。</p>
-</li>
-<li>
-<p>在完成寻找业务规则的工作之后，确定要作为数据库完整性的业务规则，并对业务规则进行分类。其中作为数据库模式一部分的完整性设计按下面的过程进行，而由应用软件来实现的数据库完整性设计将按照软件工程的方法进行。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>概念结构设计阶段</p>
-<ul>
-<li>概念结构设计阶段是将依据需求分析的结果转换成一个独立于具体DBMS的概念模型，即实体关系图（Entity-RelationshipDiagram,ERD）。在概念结构设计阶段就要开始数据库完整性设计的实质阶段，因为此阶段的实体关系将在逻辑结构设计阶段转化为实体完整性约束和参照完整性约束，到逻辑结构设计阶段将完成设计的主要工作。</li>
-</ul>
-</li>
-<li>
-<p>逻辑结构设计阶段</p>
-<ul>
-<li>
-<p>此阶段就是将概念结构转换为某个DBMS所支持的数据模型，并对其进行优化，包括对关系模型的规范化。此时，依据DBMS提供的完整性约束机制，对尚未加入逻辑结构中的完整性约束列表，逐条选择合适的方式加以实现。</p>
-</li>
-<li>
-<p>在逻辑结构设计阶段结束时，作为数据库模式一部分的完整性设计也就基本完成了。每种业务规则都可能有好几种实现方式，应该选择对数据库性能影响最小的一种，有时需通过实际测试来决定。</p>
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker部署Mysql数据库</title>
-    <url>/22X88J.html</url>
-    <content><![CDATA[<h1 id="Docker部署Mysql数据库">Docker部署Mysql数据库</h1>
-<h2 id="1-简单使用">1. 简单使用</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker pull mysql:5.7.28</span><br><span class="line">docker run --name mysql -e MYSQL_ROOT_PASSWORD=12345 -p 3306:3306 -d mysql:5.7.28</span><br></pre></td></tr></table></figure>
-<h2 id="2-指定本机配置文件">2. 指定本机配置文件</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/custom:/etc/mysql/conf.d</span><br></pre></td></tr></table></figure>
-<h2 id="3-持久化数据-指定本机数据储存">3. 持久化数据/指定本机数据储存</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-v /my/own/datadir:/var/lib/mysql</span><br></pre></td></tr></table></figure>
-<h3 id="4-指定字符集">4. 指定字符集</h3>
-<pre><code class="language-shell">--character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-`</code></pre>
-]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>6种负载均衡算法</title>
-    <url>/FC7S68.html</url>
-    <content><![CDATA[<h1 id="六种负载均衡算法">六种负载均衡算法</h1>
-<hr>
-<h2 id="1-轮询法">1. 轮询法</h2>
-<p>将请求按顺序轮流地分配到后端服务器上，它均衡地对待后端的每一台服务器，而不关心服务器实际的连接数和当前的系统负载。</p>
-<hr>
-<h2 id="2-随机法">2. 随机法</h2>
-<p>通过系统的随机算法，根据后端服务器的列表大小值来随机选取其中的一台服务器进行访问。由概率统计理论可以得知，随着客户端调用服务端的次数增多，其实际效果越来越接近于平均分配调用量到后端的每一台服务器，也就是轮询的结果。</p>
-<hr>
-<h2 id="3-源地址哈希法">3. 源地址哈希法</h2>
-<p>源地址哈希的思想是根据获取客户端的IP地址，通过哈希函数计算得到的一个数值，用该数值对服务器列表的大小进行取模运算，得到的结果便是客服端要访问服务器的序号。采用源地址哈希法进行负载均衡，同一IP地址的客户端，当后端服务器列表不变时，它每次都会映射到同一台后端服务器进行访问。</p>
-<hr>
-<h2 id="4-加权轮询法">4. 加权轮询法</h2>
-<p>不同的后端服务器可能机器的配置和当前系统的负载并不相同，因此它们的抗压能力也不相同。给配置高、负载低的机器配置更高的权重，让其处理更多的请；而配置低、负载高的机器，给其分配较低的权重，降低其系统负载，加权轮询能很好地处理这一问题，并将请求顺序且按照权重分配到后端。</p>
-<hr>
-<h2 id="5-加权随机法">5. 加权随机法</h2>
-<p>与加权轮询法一样，加权随机法也根据后端机器的配置，系统的负载分配不同的权重。不同的是，它是按照权重随机请求后端服务器，而非顺序。</p>
-<hr>
-<h2 id="6-最小连接数法">6. 最小连接数法</h2>
-<p>最小连接数算法比较灵活和智能，由于后端服务器的配置不尽相同，对于请求的处理有快有慢，它是根据后端服务器当前的连接情况，动态地选取其中当前积压连接数最少的一台服务器来处理当前的请求，尽可能地提高后端服务的利用效率，将负责合理地分流到每一台服务器。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
   </entry>
 </search>
