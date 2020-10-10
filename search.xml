@@ -19,6 +19,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Element-UI中Table高度自适应问题</title>
+    <url>/3XDPK46.html</url>
+    <content><![CDATA[<a id="more"></a>
+<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
+<p>代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>效果如图：<br>
+<img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Kotlin安卓开发-环境搭建（一）</title>
     <url>/1X1JYEX.html</url>
     <content><![CDATA[<h2 id="前言">前言</h2>
@@ -139,6 +156,27 @@
       </tags>
   </entry>
   <entry>
+    <title>Vue引用类型的监听watch</title>
+    <url>/XH9XQ6.html</url>
+    <content><![CDATA[<p>和Vue watch之间的小故事。</p>
+<a id="more"></a>
+<p>在今天的项目编写中，遇到了vue监听起作用，但无法知道具体哪个值变化的问题，在搜索了一会后，几乎千篇一律的让我加deep监听属性，但是都忽略一个问题，他们确实解决了监听的问题，其实在打印新旧值的时候你会发现，两个值是一样的并无新旧值区别，原因是因为引用传递，所以监听到的是引用的地址。在那个时间点，那个引用地址存的就是你修改后的值,也就是说监听回调的新旧值参数对象是同一个地址同一个引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line"><span class="actionscript">      deep: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当你通过其他事件将obj.a赋予新值时，譬如4，那么控制台输出的会是：<br>
+<img src="https://gitee.com/nieaowei/images/raw/master/B2E75423-FFF9-494E-8F37-75BBD9C73F0E.png" alt=""></p>
+<p>那么解决这个问题的方法就是使用computed去获取单个属性，然后监听这个computed的值：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">        obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    a: <span class="function"><span class="keyword">function</span><span class="params">()</span>: number</span>&#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="keyword">this</span>.obj.a</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    a: &#123;</span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>结果如下了。</p>
+<p><img src="https://gitee.com/nieaowei/images/raw/master/20200817034855.png" alt=""></p>
+]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据完整性设计理解</title>
     <url>/YE6KFM.html</url>
     <content><![CDATA[<p>数据库完整性是指数据库中数据的正确性和相容性。数据库完整性由各种各样的完整性约束来保证，因此可以说数据库完整性设计就是数据庠完整性约束的设计。数据库完整性约束可以通过DBMS<a href="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E3%80%82">^DBMS</a>或应用程序来实现，基于DBMS的完整性约束作为模式的一部分存入数据库中。通过DBMS实现的数据库完整性按照数据库设计步骤进行设计，而由应用软件实现的数据库完整性则纳入应用软件设计。</p>
@@ -205,6 +243,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker-Redis集群搭建</title>
+    <url>/25EVPV8.html</url>
+    <content><![CDATA[<h1 id="新建docker网桥">新建docker网桥</h1>
+<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
+<ol>
+<li>新建脚本文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>通过脚本文件生成各节点配置文件</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动所有节点。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>创建集群。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>验证集群</li>
+</ol>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+  </entry>
+  <entry>
     <title>6种负载均衡算法Golang实现</title>
     <url>/3BV5S52.html</url>
     <content><![CDATA[<h1 id="六种负载均衡算法">六种负载均衡算法</h1>
@@ -256,35 +323,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker-Redis集群搭建</title>
-    <url>/25EVPV8.html</url>
-    <content><![CDATA[<h1 id="新建docker网桥">新建docker网桥</h1>
-<p><code>docker network create --driver bridge --subnet=172.19.0.0/16 redis-bridge</code></p>
-<ol>
-<li>新建脚本文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">port $&#123;PORT&#125;</span><br><span class="line">protected-mode no</span><br><span class="line">bind 0.0.0.0</span><br><span class="line">requirepass 123456789</span><br><span class="line">masterauth 123456789</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.19.0.$&#123;TEMP&#125;</span><br><span class="line">cluster-announce-port $&#123;PORT&#125;</span><br><span class="line">cluster-announce-bus-port 1$&#123;PORT&#125;</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>通过脚本文件生成各节点配置文件</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008 \</span><br><span class="line">&amp;&amp; ip=$[port-base] \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/conf \</span><br><span class="line">&amp;&amp; PORT=$&#123;port&#125; TEMP=$&#123;ip&#125; envsubst &lt; ./template.tmpl &gt; ./$&#123;port&#125;/conf/redis.conf \</span><br><span class="line">&amp;&amp; mkdir -p ./$&#123;port&#125;/data; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>启动所有节点。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">for port in `seq 7010 7015`; do \</span><br><span class="line">base=7008</span><br><span class="line">myips=$[port-base]</span><br><span class="line">docker run -d -it -p $&#123;port&#125;:$&#123;port&#125; -p 1$&#123;port&#125;:1$&#123;port&#125; \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">--privileged=true -v /root/data/redis/$&#123;port&#125;/data:/data \</span><br><span class="line">--restart always --name redis-$&#123;port&#125; --net redis-bridge --ip 172.19.0.$&#123;myips&#125; \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>创建集群。</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-7010 redis-cli --cluster create 172.19.0.2:7010 172.19.0.3:7011 172.19.0.4:7012 172.19.0.5:7013 172.19.0.6:7014 172.19.0.7:7015 --cluster-replicas 1 -a 123456789</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>验证集群</li>
-</ol>
-]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Vue打包优化</title>
     <url>/M4C3K9.html</url>
     <content><![CDATA[<p>该项目由Vue脚手架生成。</p>
@@ -293,53 +331,15 @@
 <p>文件 public/index.html</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"icon"</span> <span class="attr">href</span>=<span class="string">"&lt;%= BASE_URL %&gt;favicon.ico"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- 使用CDN的CSS文件 注入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">i</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.options.cdn</span> &amp;&amp; <span class="attr">htmlWebpackPlugin.options.cdn.css</span>) &#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"&lt;%= htmlWebpackPlugin.options.cdn.css[i] %&gt;"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 使用CDN的JS文件 注入 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">i</span> <span class="attr">in</span> <span class="attr">htmlWebpackPlugin.options.cdn</span> &amp;&amp; <span class="attr">htmlWebpackPlugin.options.cdn.js</span>) &#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"&lt;%= htmlWebpackPlugin.options.cdn.js[i] %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>We're sorry but <span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span> doesn't work properly without JavaScript enabled.</span><br><span class="line">        Please enable it to continue.<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- built files will be auto injected --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    body&#123;</span><br><span class="line">        margin: 0 !important;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.fa-icon</span> &#123;</span></span><br><span class="line">        width: auto ;</span><br><span class="line"><span class="css">        <span class="selector-tag">height</span>: 1<span class="selector-class">.2em</span> ;</span></span><br><span class="line">        max-width: 100%;</span><br><span class="line">        max-height: 100%;</span><br><span class="line"><span class="css">        <span class="selector-tag">margin-right</span>: 0<span class="selector-class">.5em</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>运行 <code>npm run build</code> 打包，结果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">File                                    Size                                          Gzipped</span><br><span class="line"></span><br><span class="line"> dist&#x2F;js&#x2F;chunk-vendors.5ff82869.js       1185.98 KiB                                   368.74 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-0ab245a4.96b932f4.js      28.83 KiB                                     7.20 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;app.78e9f699.js                 15.87 KiB                                     4.02 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-b6c1adf0.cdf11fc8.js      14.96 KiB                                     4.83 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-bcab546a.102e35ae.js      7.77 KiB                                      2.95 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-4486737d.63562d86.js      5.56 KiB                                      1.99 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;about.32c62c99.js               4.24 KiB                                      1.70 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-092b5b6d.e0847ea0.js      3.18 KiB                                      1.23 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-2d21e30b.5f9f08f4.js      0.36 KiB                                      0.28 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-vendors.96889e61.css     205.25 KiB                                    32.96 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-0ab245a4.2a37ff65.css    1.60 KiB                                      0.47 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-4486737d.202f9498.css    0.89 KiB                                      0.35 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-b6c1adf0.51307730.css    0.49 KiB                                      0.23 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-bcab546a.0f4b8451.css    0.44 KiB                                      0.22 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;app.0a82b120.css               0.39 KiB                                      0.24 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;about.4c5e0428.css             0.14 KiB                                      0.11 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-092b5b6d.18d1a564.css    0.14 KiB                                      0.12 KiB</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">File                                    Size                       Gzipped</span><br><span class="line"></span><br><span class="line"> dist&#x2F;js&#x2F;chunk-vendors.5ff82869.js       1185.98 KiB                368.74 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-0ab245a4.96b932f4.js      28.83 KiB                  7.20 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;app.78e9f699.js                 15.87 KiB                  4.02 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-b6c1adf0.cdf11fc8.js      14.96 KiB                  4.83 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-bcab546a.102e35ae.js      7.77 KiB                   2.95 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-4486737d.63562d86.js      5.56 KiB                   1.99 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;about.32c62c99.js               4.24 KiB                   1.70 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-092b5b6d.e0847ea0.js      3.18 KiB                   1.23 KiB</span><br><span class="line"> dist&#x2F;js&#x2F;chunk-2d21e30b.5f9f08f4.js      0.36 KiB                   0.28 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-vendors.96889e61.css     205.25 KiB                 32.96 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-0ab245a4.2a37ff65.css    1.60 KiB                   0.47 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-4486737d.202f9498.css    0.89 KiB                   0.35 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-b6c1adf0.51307730.css    0.49 KiB                   0.23 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-bcab546a.0f4b8451.css    0.44 KiB                   0.22 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;app.0a82b120.css               0.39 KiB                   0.24 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;about.4c5e0428.css             0.14 KiB                   0.11 KiB</span><br><span class="line"> dist&#x2F;css&#x2F;chunk-092b5b6d.18d1a564.css    0.14 KiB                   0.12 KiB</span><br></pre></td></tr></table></figure>
 <p>可以发现无论是原件体积或是<code>gzip</code>压缩后的文件体积都减少了很多。而且你可以看见目录下还多了<code>gz</code>结尾的文件，这就是<code>gzip</code>压缩后的文件，接下来就可以使用<code>nginx</code>静态<code>gzip</code>部署了。</p>
 ]]></content>
       <categories>
         <category>运维</category>
       </categories>
       <tags>
+        <tag>Vue</tag>
         <tag>Java</tag>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Element-UI中Table高度自适应问题</title>
-    <url>/3XDPK46.html</url>
-    <content><![CDATA[<a id="more"></a>
-<p>我今天在写代码时，发现了这个问题，无论我怎么调整父级容器，包括绝对定位、Flex布局等，发现<code>El-table</code>这个组件的高度不受父级约束，为了解决这个问题，我尝试了获取浏览器可见区域高度，将<code>El-table</code>的<code>max-height</code>属性绑定到 <code>Vue</code> 数据上，设置定时器去改变这个数据，即可保证初始高度正确以及后续浏览器窗口变化导致的高度变化。</p>
-<p>代码如下：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">  <span class="comment">// eslint-disable-next-line @typescript-eslint/no-this-alias</span></span><br><span class="line">  <span class="keyword">const</span> that = <span class="keyword">this</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.bodyheader)</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这一串数据是我减去了table组件上方固定高度的组件的高度。</span></span><br><span class="line">    that.tableHeight = <span class="built_in">document</span>.documentElement.clientHeight - <span class="number">50</span> - <span class="number">62</span> - <span class="number">41</span> - <span class="number">16</span> - <span class="number">32</span> - <span class="number">50</span> - <span class="number">30</span></span><br><span class="line">  &#125;, <span class="number">500</span>)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>效果如图：<br>
-<img src="https://pic.downk.cc/item/5f3475c914195aa594256825.gif" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue引用类型的监听watch</title>
-    <url>/XH9XQ6.html</url>
-    <content><![CDATA[<p>和Vue watch之间的小故事。</p>
-<a id="more"></a>
-<p>在今天的项目编写中，遇到了vue监听起作用，但无法知道具体哪个值变化的问题，在搜索了一会后，几乎千篇一律的让我加deep监听属性，但是都忽略一个问题，他们确实解决了监听的问题，其实在打印新旧值的时候你会发现，两个值是一样的并无新旧值区别，原因是因为引用传递，所以监听到的是引用的地址。在那个时间点，那个引用地址存的就是你修改后的值,也就是说监听回调的新旧值参数对象是同一个地址同一个引用。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">      obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line"><span class="actionscript">      deep: <span class="literal">true</span>,</span></span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>当你通过其他事件将obj.a赋予新值时，譬如4，那么控制台输出的会是：<br>
-<img src="https://gitee.com/nieaowei/images/raw/master/B2E75423-FFF9-494E-8F37-75BBD9C73F0E.png" alt=""></p>
-<p>那么解决这个问题的方法就是使用computed去获取单个属性，然后监听这个computed的值：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"change(4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">lang</span>=<span class="string">"ts"</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">export</span> <span class="keyword">default</span> Vue.extend(&#123;</span></span><br><span class="line">  data() &#123;</span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> &#123;</span></span><br><span class="line">        obj:&#123;</span><br><span class="line">          a: 0,</span><br><span class="line">          b: 1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed:&#123;</span><br><span class="line"><span class="actionscript">    a: <span class="function"><span class="keyword">function</span><span class="params">()</span>: number</span>&#123;</span></span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> <span class="keyword">this</span>.obj.a</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  watch:&#123;</span><br><span class="line">    a: &#123;</span><br><span class="line"><span class="actionscript">      handler: <span class="function"><span class="keyword">function</span> <span class="params">(val,oldVal)</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(val)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(oldVal)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    change(v: number) &#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">this</span>.obj.a=v</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>结果如下了。</p>
-<p><img src="https://gitee.com/nieaowei/images/raw/master/20200817034855.png" alt=""></p>
-]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
